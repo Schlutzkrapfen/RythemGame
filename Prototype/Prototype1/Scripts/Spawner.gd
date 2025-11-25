@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var label:Label =$Control/Label/Label
 @onready var label2:Label =$Control/Label2/Label
+@onready var label3:Label = $Control/Label3/Label
 @onready var animationsPlayer:AnimationPlayer =$AnimationPlayer
 @onready var Ui:ColorRect =$UiFeedback
 @onready var particel:CPUParticles2D = $CPUParticles2D
@@ -28,6 +29,10 @@ func _input(event):
 				_spawnhouse(get_viewport().get_mouse_position(),1)
 			elif curretnPressed == 1 && people < 5:
 				print("two few people")
+			if curretnPressed == 2 && GlobalValues.wood >= 3:
+				print("YOU WIN")
+			elif curretnPressed == 2 && GlobalValues.wood <3:
+				print("to Little Wood")
 		elif MouseIsOverSprite:
 			print("Something is in the way")
 	if event.is_action_pressed("House"):
@@ -36,6 +41,9 @@ func _input(event):
 	if event.is_action_pressed("Woodcuter"):
 		curretnPressed = 1;
 		print("Switched to wood")
+	if event.is_action_pressed("WinHouse"):
+		curretnPressed = 2;
+		print("switched to Winhose")
 	
 func _process(_delta):
 	var mouse_pos = get_viewport().get_mouse_position()
