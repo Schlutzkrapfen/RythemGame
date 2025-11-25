@@ -3,7 +3,9 @@ extends Node2D
 # We need a reference to the TileMap node.
 @export var tilemap: TileMapLayer
 var source
-var Houses = {"Normal House":Vector2i(1,1),"WoodCutter":Vector2i(2,1),"Tree":Vector2i(11,6)}
+var woodcuterRange: = 2;
+var Woodcutter:bool = true;
+var Houses = {"Normal House":Vector2i(1,1),"WoodCutter":Vector2i(5,5),"Tree":Vector2i(11,6)}
 
 func PrintOutputTiles():
 	if is_instance_valid(tilemap):
@@ -52,7 +54,9 @@ func _input(event):
 		print(tile_data)
 		print(tree_tile_data)
 		if tile_data == null || tile_data == tree_tile_data :
-			tilemap.set_cell(tile_coords,1, Houses.get("Normal House"))
+			tilemap.set_cell(tile_coords,1, Houses.get("WoodCutter"))
+			if Woodcutter:
+				pass
 		else:
 			print("there is already Something There")
 			return
