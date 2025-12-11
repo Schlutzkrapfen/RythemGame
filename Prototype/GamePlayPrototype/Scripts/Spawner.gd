@@ -29,9 +29,9 @@ func _input(event):
 				_spawnhouse(get_viewport().get_mouse_position(),1)
 			elif curretnPressed == 1 && people < 5:
 				print("two few people")
-			if curretnPressed == 2 && GlobalValues.wood >= 3:
+			if curretnPressed == 2 && Global.wood >= 3:
 				print("YOU WIN")
-			elif curretnPressed == 2 && GlobalValues.wood <3:
+			elif curretnPressed == 2 && Global.wood <3:
 				print("to Little Wood")
 		elif MouseIsOverSprite:
 			print("Something is in the way")

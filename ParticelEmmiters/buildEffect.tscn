@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3k51b514bswg"]
+
+[ext_resource type="Texture2D" uid="uid://sei5m8pa3yaa" path="res://UI/Confetti.png" id="1_pj8bm"]
+[ext_resource type="Material" uid="uid://bue6j2ibqiqed" path="res://ParticelEmmiters/BuildEffect.tres" id="2_2lryy"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tpk70"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_tpk70")
+emitting = false
+amount = 30
+texture = ExtResource("1_pj8bm")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.97
+process_material = ExtResource("2_2lryy")

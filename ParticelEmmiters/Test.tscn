@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbnrni58rb52k"]
+
+[ext_resource type="Texture2D" uid="uid://be4v6mhe4rjqf" path="res://UI/my-GOOD.png" id="1_jbg00"]
+[ext_resource type="Material" uid="uid://cu67gmg83raru" path="res://ParticelEmmiters/Perfect.tres" id="2_pg0ev"]
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 1
+texture = ExtResource("1_jbg00")
+explosiveness = 1.0
+process_material = ExtResource("2_pg0ev")

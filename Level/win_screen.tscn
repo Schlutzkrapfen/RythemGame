@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2plfhokqusxu"]
+
+[ext_resource type="Script" uid="uid://ehunuv0l82x7" path="res://Script/win_screen.gd" id="1_41yw7"]
+
+[node name="WinScreen" type="Control" node_paths=PackedStringArray("Labels")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41yw7")
+Labels = [NodePath("CanvasLayer/Control/VBoxContainer/HBoxContainer/Humans"), NodePath("CanvasLayer/Control/VBoxContainer/Unemploid"), NodePath("CanvasLayer/Control/VBoxContainer/Wood"), NodePath("CanvasLayer/Control/VBoxContainer/Multiplayer"), NodePath("CanvasLayer/Control/VBoxContainer/Points")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Humans"
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Humans" type="Label" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Unemploid" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Wood" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Multiplayer" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Points" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
