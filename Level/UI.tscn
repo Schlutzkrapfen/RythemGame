@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://7m6pjpcy6wg2"]
+[gd_scene load_steps=31 format=3 uid="uid://7m6pjpcy6wg2"]
 
 [ext_resource type="Script" uid="uid://bb2cqj5qgo0ey" path="res://Script/UI.gd" id="1_fhuq3"]
 [ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="2_pgkf8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://byl4juwg6c2ho" path="res://UI/Keyboard Letters and Symbols4.png" id="6_i6uxd"]
 [ext_resource type="Texture2D" uid="uid://d4cretudi2aga" path="res://UI/#1 - Transparent Icons.png" id="7_lxd1g"]
 [ext_resource type="PackedScene" uid="uid://dt0ebo615ncli" path="res://ParticelEmmiters/ParticelEmiter.tscn" id="7_lyqli"]
+[ext_resource type="Texture2D" uid="uid://bbw6udp8xu5t6" path="res://UI/Arrow.png" id="7_my1v4"]
 [ext_resource type="Texture2D" uid="uid://dj7x13s6n2bgc" path="res://UI/Keyboard Letters and Symbols2.png" id="8_lyqli"]
 [ext_resource type="Texture2D" uid="uid://quo45aykdrvr" path="res://UI/my-MISS.png" id="8_sar7e"]
 [ext_resource type="Material" uid="uid://biuqruoy6bqus" path="res://ParticelEmmiters/Miss.tres" id="9_3658v"]
@@ -28,6 +29,8 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6wtpy"]
 gradient = SubResource("Gradient_73vad")
+width = 32
+height = 32
 
 [sub_resource type="Animation" id="Animation_fvhal"]
 resource_name = "LockWinhouse"
@@ -469,60 +472,116 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 35.0
+offset_right = 99.0
+offset_bottom = 67.0
+rotation = -0.7853982
+texture = ExtResource("7_my1v4")
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 35.0
+offset_right = 56.0
+offset_bottom = 67.0
+rotation = -0.7853982
+texture = ExtResource("7_my1v4")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
+layout_mode = 0
+offset_left = 201.99994
+offset_top = 36.0
+offset_right = 233.99994
+offset_bottom = 68.0
+rotation = -3.9269907
+texture = ExtResource("7_my1v4")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
+layout_mode = 0
+offset_left = 247.99994
+offset_top = 36.0
+offset_right = 279.99994
+offset_bottom = 68.0
+rotation = -3.9269907
+texture = ExtResource("7_my1v4")
+expand_mode = 2
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -104.0
-offset_right = 32.0
-offset_bottom = -40.0
+offset_left = -5.0
+offset_top = -89.0
+offset_right = 27.0
+offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 0
+rotation = 0.7853982
+texture = SubResource("GradientTexture2D_6wtpy")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -89.0
+offset_right = 27.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 0.7853982
 texture = SubResource("GradientTexture2D_6wtpy")
 
 [node name="Miss" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, 21)
+position = Vector2(134, -15)
 texture = ExtResource("8_sar7e")
 process_material = ExtResource("9_3658v")
 
 [node name="Early" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, 21)
+position = Vector2(134, -15)
 texture = ExtResource("10_fvhal")
 process_material = ExtResource("9_3658v")
 
 [node name="Full" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, 21)
+position = Vector2(134, -15)
 texture = ExtResource("11_3658v")
 process_material = ExtResource("9_3658v")
 
 [node name="Okay" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, 21)
+position = Vector2(134, -15)
 texture = ExtResource("12_g44p1")
 process_material = ExtResource("13_uc5al")
 
 [node name="Good" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, 21)
+position = Vector2(134, -15)
 
 [node name="Perfect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, 21)
+position = Vector2(134, -15)
 texture = ExtResource("13_cc5el")
 process_material = ExtResource("15_wsyiy")
 
 [node name="ConfEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("16_wsyiy")]
-position = Vector2(134, 21)
+position = Vector2(134, -15)
 
 [node name="GoodEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("16_wsyiy")]
-position = Vector2(134, 21)
+position = Vector2(134, -15)
 amount = 10
 texture = ExtResource("17_gqg5b")
 
 [node name="BadEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("17_ykemt")]
-position = Vector2(134, 20.99997)
+position = Vector2(134, -15.0000305)
 
 [node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -654,6 +713,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
 [node name="MidiPlayer" parent="." instance=ExtResource("2_pgkf8")]
+bus = &"Midi"
 
 [node name="UpgradeAnimation" type="AnimationPlayer" parent="."]
 libraries = {
