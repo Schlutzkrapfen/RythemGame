@@ -125,8 +125,6 @@ func addWoodCutter():
 								pointsDict[Global.Points.wood] +=1
 							RemoveHelpTrees()
 				pointsDict[Global.Points.unemployed] -= PeopleAmountForWoodcutter
-				
-				
 				tilemap.set_cell(tile_coords,4, Houses.get("WoodCutter"))
 				if pointsDict[Global.Points.unemployed] < PeopleAmountForWoodcutter:
 					UnlockAnimations[0].play("LockWood")
@@ -138,6 +136,7 @@ func addWoodCutter():
 func _input(event) -> void:
 	# Check specifically for a left mouse button press
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		print(tile_coords)
 		if CurrentID == HitId:
 			return
 		if !SoundAnimations.is_playing():
@@ -147,6 +146,7 @@ func _input(event) -> void:
 			pointsDict[Global.Points.Early] +=1
 			HitId=CurrentID
 			return
+		
 	
 		if tile_data == null || tile_data == tree_tile_data :
 			if curretnHouse == House.Woodcutter:
@@ -182,8 +182,6 @@ func _input(event) -> void:
 		print(CurrentHit)
 		CurrentHit = 0
 		HitId= CurrentID
-
-
 	if event.is_action_pressed("House"):
 		RemoveHelpTrees()
 		print("Switched to People")
@@ -203,10 +201,7 @@ func _ready():
 	tree_tile_data = tilemap.get_cell_tile_data(Vector2i(-10,0))
 
 
-func _on_timer_timeout():
-	Global.pointsDict = pointsDict
-	
-	get_tree().change_scene_to_file("res://Level/win_screen.tscn")
+
 
 func _on_midi_player_midi_event(channel, event:SMF.MIDIEvent):
 	CurrentHit = 0
@@ -245,5 +240,5 @@ func addOneToCurrentHit():
 
 
 
-func _on_perfect():
-	pass # Replace with function body.
+func _on_timer_timeout():
+	Global.pointsDict = pointsDict
