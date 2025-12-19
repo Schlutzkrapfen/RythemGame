@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="6_ba7kx"]
 [ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Tilemaps/water - summer.png" id="7_4herb"]
 [ext_resource type="Texture2D" uid="uid://dm7dutgptxjw4" path="res://Tilemaps/rock 1.png" id="8_b6alu"]
-[ext_resource type="Script" uid="uid://bkp5jvj8ffrnf" path="res://Level/spriteAnimation.gd" id="9_ba7kx"]
+[ext_resource type="Script" uid="uid://bkp5jvj8ffrnf" path="res://Script/spriteAnimation.gd" id="9_ba7kx"]
 [ext_resource type="Texture2D" uid="uid://c8h0ykdbjoajy" path="res://Tilemaps/small stone 2.png" id="10_4herb"]
 [ext_resource type="Texture2D" uid="uid://74o45oaca00l" path="res://Tilemaps/small stone 1.png" id="11_2tsqr"]
 [ext_resource type="Texture2D" uid="uid://c18gko4qj1dqv" path="res://Tilemaps/water lily 1.png" id="12_2tsqr"]

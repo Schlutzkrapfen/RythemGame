@@ -6,28 +6,34 @@ extends Node2D
 @export var UnlockAnimations: Array[AnimationPlayer]
 @export var SoundAnimations: AnimationPlayer
 @export var UiLabels:Array[Label]
-@export var Emmiters:Array[GPUParticles2D]
+
 @export var EmmitersScene:PackedScene
 
 signal Perfect
 signal Good
 signal Okay
 signal EarlyFullMiss 
+signal Early
+signal Full
+signal Miss
 
 
 
-enum ParticelsOrder {Miss,Early,Full,Okay,Good,Perfect,Confetti,BadEffect,GoodEffect}
+
 var buildParticelList:Array[GPUParticles2D]
 var source
+var HouseTileSetID:int = 4;
+var TreeTileSetID:int = 1;
 var woodcuterRange:int = 3;
 enum House { Normal = 0,Woodcutter= 1, Winhouse=2, Backery=3  }
 var curretnHouse:House = House.Normal
-var Houses:Dictionary = {"House":Vector2i(0,0),"WoodCutter":Vector2i(1,0),"Tree":Vector2i(11,6),"WinHouse":Vector2i(3,1)}
+var Houses:Dictionary = {"House":Vector2i(0,0),"WoodCutter":Vector2i(1,0),"WoodCutterHL":Vector2i(2,0),"WoodCutterWL":Vector2i(4,0),"WoodCutterHR":Vector2i(3,0),"WoodCutterWR":Vector2i(5,0),"Tree":Vector2i(1,0),"WinHouse":Vector2i(3,1)}
 var HelpVisual:Dictionary = {"True":Vector2i(0,0),"False":Vector2i(1,0)}
 var lastHelpVisual: Vector2i
 var treesInRange: Array[Variant] = [Vector2i(0,0)]
 #I havent found a better way but one tile is spawned and than seen if there is equal to other
 var tree_tile_data:TileData
+var house_tile_data:TileData
 var world_pos: Vector2 
 var tile_coords: Vector2i
 var tile_data:TileData
@@ -100,7 +106,7 @@ func addWinHouse():
 		curretnHouse = House.Normal
 	
 func addNormalHouse():
-	tilemap.set_cell(tile_coords,4, Houses.get("House"))
+	tilemap.set_cell(tile_coords,HouseTileSetID, Houses.get("House"))
 	pointsDict[Global.Points.people] +=1;
 	pointsDict[Global.Points.unemployed] +=1;
 	UpdateResources()
@@ -111,9 +117,8 @@ func UpdateResources():
 	UiLabels[0].text = str(pointsDict[Global.Points.unemployed])
 	UiLabels[1].text = str(pointsDict[Global.Points.unusedWood])
 	UiLabels[2].text = str(pointsDict[Global.Points.multiplaier])
-
-func addWoodCutter():
-				for x in range(-woodcuterRange, woodcuterRange + 1):
+func RemoveTrees():
+	for x in range(-woodcuterRange, woodcuterRange + 1):
 					for y in range(-woodcuterRange, woodcuterRange + 1):
 						var offset: Vector2 = Vector2(x, y)
 						if offset.length() <= woodcuterRange:
@@ -124,25 +129,34 @@ func addWoodCutter():
 								pointsDict[Global.Points.unusedWood] += 1
 								pointsDict[Global.Points.wood] +=1
 							RemoveHelpTrees()
-				pointsDict[Global.Points.unemployed] -= PeopleAmountForWoodcutter
-				tilemap.set_cell(tile_coords,4, Houses.get("WoodCutter"))
-				if pointsDict[Global.Points.unemployed] < PeopleAmountForWoodcutter:
-					UnlockAnimations[0].play("LockWood")
-					curretnHouse = House.Normal
-				if pointsDict[Global.Points.unusedWood] >=WoodAnoumtForWinHouse:
-					UnlockAnimations[1].queue("UnlockWinHouse")
-				UpdateResources()
+
+func addWoodCutter():
+	RemoveTrees()
+	pointsDict[Global.Points.unemployed] -= PeopleAmountForWoodcutter
+	if tilemap.get_cell_tile_data(Vector2i(tile_coords.x+1,tile_coords.y))== house_tile_data:
+		tilemap.set_cell(Vector2i(tile_coords.x+1,tile_coords.y),HouseTileSetID, Houses.get("WoodCutterHR"))
+		tilemap.set_cell(tile_coords,4, Houses.get("WoodCutterWR"))
+	elif tilemap.get_cell_tile_data(Vector2i(tile_coords.x-1,tile_coords.y))== house_tile_data:
+		tilemap.set_cell(Vector2i(tile_coords.x-1,tile_coords.y),HouseTileSetID, Houses.get("WoodCutterHL"))
+		tilemap.set_cell(tile_coords,HouseTileSetID, Houses.get("WoodCutterWL"))
+	else:
+		tilemap.set_cell(tile_coords,HouseTileSetID, Houses.get("WoodCutter"))
+	if pointsDict[Global.Points.unemployed] < PeopleAmountForWoodcutter:
+		UnlockAnimations[0].play("LockWood")
+		curretnHouse = House.Normal
+	if pointsDict[Global.Points.unusedWood] >=WoodAnoumtForWinHouse:
+		UnlockAnimations[1].queue("UnlockWinHouse")
+	UpdateResources()
 
 func _input(event) -> void:
 	# Check specifically for a left mouse button press
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print(tile_coords)
 		if CurrentID == HitId:
 			return
 		if !SoundAnimations.is_playing():
-			playEmitter(ParticelsOrder.Early)
-			playEmitter(ParticelsOrder.BadEffect)
+			
 			emit_signal("EarlyFullMiss")
+			emit_signal("Early")
 			pointsDict[Global.Points.Early] +=1
 			HitId=CurrentID
 			return
@@ -157,25 +171,20 @@ func _input(event) -> void:
 				addWinHouse()
 			tile_data = tilemap.get_cell_tile_data(tile_coords)
 		else:
-			playEmitter(ParticelsOrder.Full)
-			playEmitter(ParticelsOrder.BadEffect)
+			
 			emit_signal("EarlyFullMiss")
+			emit_signal("Full")
 			pointsDict[Global.Points.Full] +=1
 			HitId+=1
 			return
 		match(CurrentHit):
 			0:
-				playEmitter(ParticelsOrder.Perfect)
-				playEmitter(ParticelsOrder.Confetti)
 				emit_signal("Perfect")
 				pointsDict[Global.Points.Perfect] +=1
 			1:
-				playEmitter(ParticelsOrder.Good)
-				playEmitter(ParticelsOrder.GoodEffect)
 				emit_signal("Good")
 				pointsDict[Global.Points.Good] +=1
 			2:
-				playEmitter(ParticelsOrder.Okay)
 				emit_signal("Okay")
 				pointsDict[Global.Points.Okay] +=1
 		spawnBuildEffects(world_pos)
@@ -196,19 +205,26 @@ func _input(event) -> void:
 			RemoveHelpTrees()
 			curretnHouse = House.Winhouse;
 			print("switched to Winhose")
+
 func _ready():
 	#PrintOutputTiles()
-	tree_tile_data = tilemap.get_cell_tile_data(Vector2i(-10,0))
-
+	var outOufBoundsSpawnPoints: Vector2i= Vector2i(-1000,-1000)
+	
+	tilemap.set_cell(outOufBoundsSpawnPoints,TreeTileSetID,Houses.get("Tree"))
+	print(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+	tree_tile_data = tilemap.get_cell_tile_data(outOufBoundsSpawnPoints)
+	outOufBoundsSpawnPoints = Vector2i(outOufBoundsSpawnPoints.x+1,outOufBoundsSpawnPoints.y+1)
+	tilemap.set_cell(outOufBoundsSpawnPoints,HouseTileSetID,Houses.get("House"))
+	house_tile_data = tilemap.get_cell_tile_data(outOufBoundsSpawnPoints)
 
 
 
 func _on_midi_player_midi_event(channel, event:SMF.MIDIEvent):
 	CurrentHit = 0
 	if  CurrentID != HitId:
-		playEmitter(ParticelsOrder.Miss)
-		playEmitter(ParticelsOrder.BadEffect)
+		
 		if loop %2 == 0:
+			emit_signal("Miss")
 			emit_signal("EarlyFullMiss")
 			pointsDict[Global.Points.Miss] +=1
 	#This code gets called 2 Times and I can't find a better way to fix it
@@ -218,9 +234,7 @@ func _on_midi_player_midi_event(channel, event:SMF.MIDIEvent):
 	loop += 1
 	
 
-func playEmitter(order:ParticelsOrder)-> void:
-	Emmiters[order].restart()
-	Emmiters[order].emitting
+
 
 func spawnBuildEffects(position:Vector2)->void:
 	for e in buildParticelList:
@@ -237,7 +251,6 @@ func spawnBuildEffects(position:Vector2)->void:
 
 func addOneToCurrentHit():
 	CurrentHit +=1;
-
 
 
 func _on_timer_timeout():
