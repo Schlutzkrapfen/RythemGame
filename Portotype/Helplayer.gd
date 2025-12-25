@@ -1,0 +1,121 @@
+extends TileMapLayer
+
+signal CanBuildThere(signalDictionary)
+@export var tilemap: TileMapLayer
+
+var signalDictionary = {false:"CanBuild",Vector2i(0,0):"CurrentPosition",[]:"RemovePositions"}
+
+var lastHelpVisual: Vector2i
+var lastHelpVisualController: Vector2i
+var treesInRange: Array[Variant] = [Vector2i(0,0)]
+
+var tree_tile_data:TileData
+var house_tile_data:TileData
+var tile_data:TileData
+var HelpVisual:Dictionary = {"True":Vector2i(0,0),"False":Vector2i(1,0)}
+
+var TreeTileSetID:int = 1;
+var HouseTileSetID:int = 4;
+var world_pos: Vector2 
+var tile_coords: Vector2i
+
+var curretnHouse:Global.House
+var ControlerAktive:bool
+
+
+func _ready():
+	#PrintOutputTiles()
+	var outOufBoundsSpawnPoints: Vector2i= Vector2i(-1000,-1000)
+	
+	tilemap.set_cell(outOufBoundsSpawnPoints,TreeTileSetID,Global.Houses.get("Tree"))
+	print(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+	tree_tile_data = tilemap.get_cell_tile_data(outOufBoundsSpawnPoints)
+	outOufBoundsSpawnPoints = Vector2i(outOufBoundsSpawnPoints.x+1,outOufBoundsSpawnPoints.y+1)
+	tilemap.set_cell(outOufBoundsSpawnPoints,HouseTileSetID,Global.Houses.get("House"))
+	house_tile_data = tilemap.get_cell_tile_data(outOufBoundsSpawnPoints)
+
+
+
+func _input(event):
+	if event.is_action_pressed("Controller_Down"):
+		tile_coords.y += 1
+		ControlerAktive = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if event.is_action_pressed("Controller_Left"):
+		tile_coords.x -= 1
+		ControlerAktive = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if event.is_action_pressed("Controller_Up"):
+		tile_coords.y -= 1
+		ControlerAktive = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if event.is_action_pressed("Controller_Right"):
+		tile_coords.x += 1
+		ControlerAktive = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+
+func _process(_delta) ->void:
+	world_pos= get_global_mouse_position()
+	var mousetile = self.local_to_map(world_pos) 
+	if  lastHelpVisual != mousetile && !ControlerAktive:
+		tile_coords = mousetile
+	elif lastHelpVisual.distance_to(mousetile) > 2:
+		ControlerAktive = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	elif lastHelpVisual == mousetile && !ControlerAktive:
+		return
+	if curretnHouse == Global.House.Woodcutter:
+		RemoveHelpRemoveLayer()
+	self.set_cell(lastHelpVisual,0)
+	self.set_cell(lastHelpVisualController,0)
+
+	tile_data = tilemap.get_cell_tile_data(tile_coords)
+	
+	if tile_data == null || tile_data == tree_tile_data :
+		self.set_cell(tile_coords,0, HelpVisual.get("True"))
+		signalDictionary["CanBuild"] = true
+		signalDictionary["CurrentPosition"] = tile_coords
+		if curretnHouse == Global.House.Woodcutter:
+			AddHelpRemoveLayer(Global.House.Woodcutter)
+			
+	else: 
+		self.set_cell(tile_coords,0, HelpVisual.get("False"))
+		signalDictionary["CanBuild"] = false
+	if !ControlerAktive:
+		lastHelpVisual = tile_coords
+	else:
+		lastHelpVisualController = tile_coords
+	emit_signal("CanBuildThere",signalDictionary)
+
+
+func AddHelpRemoveLayer(House:Global.House):
+	var HouseRange = Global.range[House]
+	if HouseRange == 0:
+		return
+	for x in range(-HouseRange, HouseRange + 1):
+		for y in range(-HouseRange, HouseRange + 1):
+			var offset: Vector2 = Vector2(x, y)
+			if offset.length() <= HouseRange:
+				var target_coords: Vector2i = tile_coords + Vector2i(x, y)
+				var check_tile: TileData = tilemap.get_cell_tile_data(target_coords)
+				if check_tile == tree_tile_data:
+					self.set_cell(target_coords,0,HelpVisual.get("True"))
+					treesInRange.append(target_coords) 
+		signalDictionary["RemovePositions"] = treesInRange
+
+func RemoveHelpRemoveLayer():
+	for n in treesInRange:
+		self.set_cell(n,0)
+	treesInRange.clear()
+	if signalDictionary.has("RemovePositions"):
+		signalDictionary["RemovePositions"].clear()
+	else:
+		signalDictionary["RemovePositions"] = []
+
+
+func _on_node_2d_switch_house(House):
+	RemoveHelpRemoveLayer()
+	curretnHouse = House
+	AddHelpRemoveLayer(House)
+	

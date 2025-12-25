@@ -6,7 +6,6 @@ enum ParticelsOrder {Miss,Early,Full,Okay,Good,Perfect,Confetti,BadEffect,GoodEf
 
 func playEmitter(order:ParticelsOrder)-> void:
 	Emmiters[order].restart()
-	Emmiters[order].emitting
 
 
 func _on_node_2d_perfect():

@@ -38,6 +38,8 @@ func shake():
 	offset.x = max_offset.x * amt * noise.get_noise_2d(1000, noise_y)
 	offset.y = max_offset.y * amt * noise.get_noise_2d(2000, noise_y)
 
+	#Input.warp_mouse_position(get_viewport().get_mouse_position()+offset)
+
 
 
 func _on_node_2d_early_full_miss():
