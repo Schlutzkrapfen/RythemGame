@@ -2,6 +2,7 @@ extends TileMapLayer
 
 signal CanBuildThere(signalDictionary)
 @export var tilemap: TileMapLayer
+@onready var Helplayer2: TileMapLayer = $HelpLayer
 
 var signalDictionary = {false:"CanBuild",Vector2i(0,0):"CurrentPosition",[]:"RemovePositions"}
 
@@ -15,23 +16,25 @@ var tile_data:TileData
 var HelpVisual:Dictionary = {"True":Vector2i(0,0),"False":Vector2i(1,0)}
 
 var TreeTileSetID:int = 1;
-var HouseTileSetID:int = 4;
+var HouseTileSetID:int = 0;
 var world_pos: Vector2 
 var tile_coords: Vector2i
 
-var curretnHouse:Global.House
+var curretnHouse:Global.HouseID
+var currentHousestats
 var ControlerAktive:bool
+var HouseRange:int
 
 
 func _ready():
-	#PrintOutputTiles()
 	var outOufBoundsSpawnPoints: Vector2i= Vector2i(-1000,-1000)
-	
-	tilemap.set_cell(outOufBoundsSpawnPoints,TreeTileSetID,Global.Houses.get("Tree"))
+	var stats = Global.house_registry.get(Global.HouseID.Trees) 
+	tilemap.set_cell(outOufBoundsSpawnPoints,stats.TileMapID,stats.TileMapPosition)
 	print(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
 	tree_tile_data = tilemap.get_cell_tile_data(outOufBoundsSpawnPoints)
 	outOufBoundsSpawnPoints = Vector2i(outOufBoundsSpawnPoints.x+1,outOufBoundsSpawnPoints.y+1)
-	tilemap.set_cell(outOufBoundsSpawnPoints,HouseTileSetID,Global.Houses.get("House"))
+	currentHousestats = Global.house_registry.get(Global.HouseID.Default) 
+	tilemap.set_cell(outOufBoundsSpawnPoints,currentHousestats.TileMapID,currentHousestats.TileMapPosition)
 	house_tile_data = tilemap.get_cell_tile_data(outOufBoundsSpawnPoints)
 
 
@@ -65,10 +68,13 @@ func _process(_delta) ->void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif lastHelpVisual == mousetile && !ControlerAktive:
 		return
-	if curretnHouse == Global.House.Woodcutter:
+	if HouseRange !=  0:
 		RemoveHelpRemoveLayer()
 	self.set_cell(lastHelpVisual,0)
 	self.set_cell(lastHelpVisualController,0)
+	Helplayer2.set_cell(lastHelpVisual,0)
+	Helplayer2.set_cell(lastHelpVisualController,0)
+	
 
 	tile_data = tilemap.get_cell_tile_data(tile_coords)
 	
@@ -76,8 +82,8 @@ func _process(_delta) ->void:
 		self.set_cell(tile_coords,0, HelpVisual.get("True"))
 		signalDictionary["CanBuild"] = true
 		signalDictionary["CurrentPosition"] = tile_coords
-		if curretnHouse == Global.House.Woodcutter:
-			AddHelpRemoveLayer(Global.House.Woodcutter)
+		Helplayer2.set_cell(tile_coords,currentHousestats.TileMapID,currentHousestats.TileMapPosition)
+		AddHelpRemoveLayer(curretnHouse)
 			
 	else: 
 		self.set_cell(tile_coords,0, HelpVisual.get("False"))
@@ -89,8 +95,13 @@ func _process(_delta) ->void:
 	emit_signal("CanBuildThere",signalDictionary)
 
 
-func AddHelpRemoveLayer(House:Global.House):
-	var HouseRange = Global.range[House]
+func AddHelpRemoveLayer(House:Global.HouseID):
+	
+	if Global.house_registry.has(House):
+		var stats = Global.house_registry[House]
+		HouseRange = stats.range
+	else:
+		HouseRange = 0
 	if HouseRange == 0:
 		return
 	for x in range(-HouseRange, HouseRange + 1):
@@ -114,8 +125,16 @@ func RemoveHelpRemoveLayer():
 		signalDictionary["RemovePositions"] = []
 
 
-func _on_node_2d_switch_house(House):
+	
+
+
+func _on_backgorund_switch_house(House):
 	RemoveHelpRemoveLayer()
 	curretnHouse = House
-	AddHelpRemoveLayer(House)
+		
+	currentHousestats = Global.house_registry.get(House)
+	tile_data = tilemap.get_cell_tile_data(tile_coords)
+	if tile_data == null || tile_data == tree_tile_data :
+		Helplayer2.set_cell(tile_coords,currentHousestats.TileMapID,currentHousestats.TileMapPosition)
 	
+	AddHelpRemoveLayer(House)

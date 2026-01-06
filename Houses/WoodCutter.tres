@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HouseDefinition" load_steps=2 format=3 uid="uid://fdtyjix7nl0f"]
+
+[ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/house_definition.gd" id="1_qxw7v"]
+
+[resource]
+script = ExtResource("1_qxw7v")
+TileMapPosition = Vector2i(1, 0)
+displayName = "Woodcutter"
+range = 3
+unitType = 8
+metadata/_custom_type_script = "uid://8bue58jekekt"

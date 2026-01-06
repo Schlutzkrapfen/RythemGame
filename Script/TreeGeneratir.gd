@@ -7,6 +7,7 @@ var xsize:Vector2i = Vector2i(3,31)
 var ysize:Vector2i = Vector2i(2,17)
 
 
+
 func _ready():
 	randomize()
 	for x in range(xsize.x,xsize.y):

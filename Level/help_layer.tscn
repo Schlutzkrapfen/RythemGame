@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvfuy80wndxc8"]
+
+[ext_resource type="TileSet" uid="uid://dnoqwpbl1shag" path="res://Tilemaps/help_layer.tres" id="1_382xs"]
+[ext_resource type="Script" uid="uid://bd1g6j2adp44c" path="res://Script/Helplayer.gd" id="2_382xs"]
+[ext_resource type="TileSet" uid="uid://cdsa3lf23ilq7" path="res://Tilemaps/Tilesets.tres" id="3_382xs"]
+
+[node name="HelpLayer" type="TileMapLayer"]
+tile_set = ExtResource("1_382xs")
+script = ExtResource("2_382xs")
+
+[node name="HelpLayer" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.49019608)
+tile_set = ExtResource("3_382xs")
