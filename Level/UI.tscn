@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://7m6pjpcy6wg2"]
 
 [ext_resource type="Script" uid="uid://bb2cqj5qgo0ey" path="res://Script/UI.gd" id="1_fhuq3"]
-[ext_resource type="Script" uid="uid://te58yek233mq" path="res://Level/CurrentPointsDisplay.gd" id="2_n7ate"]
+[ext_resource type="Script" uid="uid://te58yek233mq" path="res://Script/CurrentPointsDisplay.gd" id="2_n7ate"]
 [ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="2_pgkf8"]
 [ext_resource type="Texture2D" uid="uid://clnwe6gcms8hs" path="res://UI/#1 - Transparent Icons1.png" id="3_pgkf8"]
 [ext_resource type="Texture2D" uid="uid://w1q3kccg8bt2" path="res://UI/Keyboard Letters and Symbols1.png" id="4_yjfl1"]
@@ -310,30 +310,6 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer2"]
 layout_mode = 2
 script = ExtResource("2_n7ate")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_pgkf8")
-
-[node name="PeopleLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-text = "10"
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("5_sjink")
-
-[node name="WoodLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-text = "0"
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("9_aay61")
-
-[node name="ExtraPointsLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-text = "0"
 
 [node name="Control5" type="Control" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer"]
 layout_mode = 2

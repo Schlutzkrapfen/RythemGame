@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://nqb14i6fucse"]
+
+[node name="IconLabel" type="Label"]
+text = "0"

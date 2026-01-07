@@ -5,7 +5,12 @@ var endPoints: int = 0
 #var Houses:Dictionary = {"House":Vector2i(0,0),"WoodCutter":Vector2i(1,0),"WoodCutterHL":Vector2i(2,0),"WoodCutterWL":Vector2i(4,0),"WoodCutterHR":Vector2i(3,0),"WoodCutterWR":Vector2i(5,0),"Tree":Vector2i(1,0),"WinHouse":Vector2i(3,1)}
 enum HouseID { Default = 0,Trees=1 ,WoodCutter= 2, WinHouse=3, Backery=4  }
 
-var HouseSelected:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter]
+var BuildCostAmount: Array[int]
+var BuildResources: Array[Points]
+var MakeResources: Array[Points]
+var PointsIcons: Array[Texture2D]
+
+var HouseSelected:Array[HouseID] = [HouseID.Default,HouseID.Default,HouseID.WoodCutter]
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),
 	HouseID.Trees: preload("res://Houses/Tree.tres"),
@@ -32,3 +37,18 @@ var currentResources: Dictionary[Points, int] = {
 	Points.multiplaier:0,
 	Points.unusedWood:0
 }
+func _ready():
+	GetHousesVeriables()
+	
+#TODO:Implement a way to use multiple build Types(EVERY one that is a array needs to be 
+#a different way)
+func GetHousesVeriables() -> void:
+	for x in HouseSelected :
+		PointsIcons.append(house_registry[x].labelIcon)
+		BuildCostAmount.append(house_registry[x].buildCost[0])
+		if pointsConnectDict.has(house_registry[x].buildType[0]):
+			BuildResources.append(pointsConnectDict[house_registry[x].buildType[0]])
+		if pointsConnectDict.has(house_registry[x].unitType):
+			MakeResources.append(pointsConnectDict[house_registry[x].unitType])
+		else:
+			MakeResources.append(house_registry[x].unitType)

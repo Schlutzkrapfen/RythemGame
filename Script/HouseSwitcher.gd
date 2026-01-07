@@ -1,24 +1,14 @@
 extends TileMapLayer
 
-var CostAmount: Array[int]
+@onready var CostAmount: Array[int] = Global.BuildCostAmount
 
 
 @onready var houseSelected:Array[Global.HouseID] = Global.HouseSelected
 @onready var houseAmount:int = houseSelected.size()
-var Resouces: Array[Global.Points]
+@onready var  Resouces: Array[Global.Points] = Global.BuildResources
 
 signal SwitchHouse(House)
 	
-func _ready():
-	fillbuildcost()
-	
-#TODO:Implement a way to use multiple build Types
-func fillbuildcost() -> void:
-	for x in houseSelected :
-		CostAmount.append(Global.house_registry[x].buildCost[0])
-		if Global.pointsConnectDict.has(Global.house_registry[x].buildType[0]):
-			Resouces.append(Global.pointsConnectDict[Global.house_registry[x].buildType[0]])
-
 
 
 func _input(event) -> void:

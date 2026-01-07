@@ -99,7 +99,7 @@ func AddHelpRemoveLayer(House:Global.HouseID):
 	
 	if Global.house_registry.has(House):
 		var stats = Global.house_registry[House]
-		HouseRange = stats.range
+		HouseRange = stats.houseRange
 	else:
 		HouseRange = 0
 	if HouseRange == 0:

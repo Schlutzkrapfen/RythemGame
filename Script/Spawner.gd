@@ -17,6 +17,7 @@ signal EarlyFullMiss
 signal Early
 signal Full
 signal Miss
+signal UpdateValues
 
 
 var buildParticelList:Array[GPUParticles2D]
@@ -43,9 +44,7 @@ var pointsDict: Dictionary[Global.Points, int] = {
 	Global.Points.Good: 0, 
 	Global.Points.Perfect: 0, 
 	Global.Points.people: 0, 
-	
 	Global.Points.wood: 0, 
-	
 	Global.Points.multiplaier: 1, 
 }
 
@@ -63,6 +62,7 @@ func addHouse():
 	if Global.pointsConnectDict.has(currentStats.unitType):
 		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
 	Removelayer()
+	emit_signal("UpdateValues")
 
 func Removelayer():
 	for x in RemoveArray:
