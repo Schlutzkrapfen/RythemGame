@@ -4,10 +4,7 @@ extends Node2D
 @export var tilemap: TileMapLayer
 @export var UnlockAnimations: Array[AnimationPlayer]
 @export var SoundAnimations: AnimationPlayer
-
-
 @export var EmmitersScene:PackedScene
-
 
 
 signal Perfect
@@ -59,6 +56,7 @@ func _ready():
 func addHouse():
 	tilemap.set_cell(tile_coords,currentStats.TileMapID,currentStats.TileMapPosition)
 	pointsDict[currentStats.unitType] += currentStats.points
+	Global.currentResources[Global.pointsConnectDict[currentStats.buildType[0]]] -= currentStats.buildCost[0]
 	if Global.pointsConnectDict.has(currentStats.unitType):
 		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
 	Removelayer()

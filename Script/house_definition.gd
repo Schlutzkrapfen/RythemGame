@@ -10,7 +10,7 @@ class_name HouseDefinition extends Resource
 @export_group("Stats")
 @export var displayName: String = "New House"
 @export var houseRange: int = 0
-@export var buildCost: Array[int] = [1]
+@export var buildCost: Array[int] = [0]
 @export var points:int = 1
 
 

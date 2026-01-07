@@ -7,5 +7,6 @@
 script = ExtResource("1_sh2sf")
 labelIcon = ExtResource("1_072qk")
 displayName = "ADDS HUMANS"
+buildCost = Array[int]([0])
 unitType = 6
 metadata/_custom_type_script = "uid://8bue58jekekt"

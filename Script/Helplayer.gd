@@ -131,10 +131,12 @@ func RemoveHelpRemoveLayer():
 func _on_backgorund_switch_house(House):
 	RemoveHelpRemoveLayer()
 	curretnHouse = House
-		
 	currentHousestats = Global.house_registry.get(House)
 	tile_data = tilemap.get_cell_tile_data(tile_coords)
 	if tile_data == null || tile_data == tree_tile_data :
 		Helplayer2.set_cell(tile_coords,currentHousestats.TileMapID,currentHousestats.TileMapPosition)
-	
 	AddHelpRemoveLayer(House)
+
+
+func _on_node_2d_update_values():
+	RemoveHelpRemoveLayer()

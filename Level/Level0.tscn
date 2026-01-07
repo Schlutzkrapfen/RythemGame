@@ -260,6 +260,8 @@ script = ExtResource("16_62rku")
 [connection signal="Perfect" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" method="_on_node_2d_perfect"]
 [connection signal="Perfect" from="." to="Control/Camera2D" method="_on_node_2d_perfect"]
 [connection signal="Perfect" from="." to="AudioControl" method="_on_node_2d_perfect"]
+[connection signal="UpdateValues" from="." to="Backgorund" method="_on_node_2d_update_values"]
+[connection signal="UpdateValues" from="." to="HelpLayer" method="_on_node_2d_update_values"]
 [connection signal="UpdateValues" from="." to="Control/CanvasLayer/Control/VBoxContainer2/HBoxContainer" method="_on_node_2d_update_values"]
 [connection signal="SwitchHouse" from="Backgorund" to="." method="_on_backgorund_switch_house"]
 [connection signal="SwitchHouse" from="Backgorund" to="HelpLayer" method="_on_backgorund_switch_house"]
