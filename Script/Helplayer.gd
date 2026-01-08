@@ -130,8 +130,8 @@ func RemoveHelpRemoveLayer():
 
 func _on_backgorund_switch_house(House):
 	RemoveHelpRemoveLayer()
-	curretnHouse = House
-	currentHousestats = Global.house_registry.get(House)
+	curretnHouse = Global.HouseSelected[House]
+	currentHousestats = Global.house_registry.get(curretnHouse)
 	tile_data = tilemap.get_cell_tile_data(tile_coords)
 	if tile_data == null || tile_data == tree_tile_data :
 		Helplayer2.set_cell(tile_coords,currentHousestats.TileMapID,currentHousestats.TileMapPosition)
@@ -140,3 +140,7 @@ func _on_backgorund_switch_house(House):
 
 func _on_node_2d_update_values():
 	RemoveHelpRemoveLayer()
+	signalDictionary["CanBuild"] = false
+	emit_signal("CanBuildThere",signalDictionary)
+	self.set_cell(tile_coords,0, HelpVisual.get("False"))
+	

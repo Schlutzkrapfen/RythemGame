@@ -2,25 +2,25 @@
 
 [ext_resource type="Script" uid="uid://bb2cqj5qgo0ey" path="res://Script/UI.gd" id="1_fhuq3"]
 [ext_resource type="Script" uid="uid://te58yek233mq" path="res://Script/CurrentPointsDisplay.gd" id="2_n7ate"]
-[ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="2_pgkf8"]
-[ext_resource type="Texture2D" uid="uid://clnwe6gcms8hs" path="res://UI/#1 - Transparent Icons1.png" id="3_pgkf8"]
+[ext_resource type="Script" uid="uid://cxo5skiedmwkq" path="res://Script/PlayEmitter.gd" id="3_fvhal"]
+[ext_resource type="Script" uid="uid://bsjm44jbmbgn5" path="res://Script/ButtonController.gd" id="3_gqg5b"]
+[ext_resource type="Script" uid="uid://bxw6ss6sb6h6u" path="res://Script/rythemspawner.gd" id="3_wsyiy"]
 [ext_resource type="Texture2D" uid="uid://w1q3kccg8bt2" path="res://UI/Keyboard Letters and Symbols1.png" id="4_yjfl1"]
-[ext_resource type="Texture2D" uid="uid://jhqipjqmygnm" path="res://UI/#1 - Transparent Icons7.png" id="5_sjink"]
 [ext_resource type="Texture2D" uid="uid://byl4juwg6c2ho" path="res://UI/Keyboard Letters and Symbols4.png" id="6_i6uxd"]
-[ext_resource type="Texture2D" uid="uid://d4cretudi2aga" path="res://UI/#1 - Transparent Icons.png" id="7_lxd1g"]
+[ext_resource type="Texture2D" uid="uid://r1a726snkw0m" path="res://UI/Keyboard Letters and Symbols3.png" id="6_n7ate"]
 [ext_resource type="PackedScene" uid="uid://dt0ebo615ncli" path="res://ParticelEmmiters/ParticelEmiter.tscn" id="7_lyqli"]
-[ext_resource type="Texture2D" uid="uid://bbw6udp8xu5t6" path="res://UI/Arrow.png" id="7_my1v4"]
 [ext_resource type="Texture2D" uid="uid://dj7x13s6n2bgc" path="res://UI/Keyboard Letters and Symbols2.png" id="8_lyqli"]
 [ext_resource type="Texture2D" uid="uid://quo45aykdrvr" path="res://UI/my-MISS.png" id="8_sar7e"]
 [ext_resource type="Material" uid="uid://biuqruoy6bqus" path="res://ParticelEmmiters/Miss.tres" id="9_3658v"]
-[ext_resource type="Texture2D" uid="uid://drribub13npt7" path="res://UI/#1 - Transparent Icons3.png" id="9_aay61"]
 [ext_resource type="Texture2D" uid="uid://cxpx1echlfbdq" path="res://UI/my-EARLY.png" id="10_fvhal"]
 [ext_resource type="Texture2D" uid="uid://bb0gf4cccyaso" path="res://UI/my-FULL.png" id="11_3658v"]
 [ext_resource type="Texture2D" uid="uid://bg5q367ovuh6c" path="res://UI/my-OKAY.png" id="12_g44p1"]
 [ext_resource type="Texture2D" uid="uid://ndy6jyot7vck" path="res://UI/my-PERFECT.png" id="13_cc5el"]
 [ext_resource type="Material" uid="uid://bnrxrib72ja17" path="res://ParticelEmmiters/Okay.tres" id="13_uc5al"]
 [ext_resource type="Material" uid="uid://cu67gmg83raru" path="res://ParticelEmmiters/Perfect.tres" id="15_wsyiy"]
+[ext_resource type="Material" uid="uid://cj2slrw1gxu0c" path="res://ParticelEmmiters/GoodEffect.tres" id="16_g44p1"]
 [ext_resource type="PackedScene" uid="uid://bsss88po8x7ji" path="res://ParticelEmmiters/Confetti.tscn" id="16_wsyiy"]
+[ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="17_cc5el"]
 [ext_resource type="Texture2D" uid="uid://bjcgucursnwcg" path="res://UI/#1 - Transparent Icons6.png" id="17_gqg5b"]
 [ext_resource type="PackedScene" uid="uid://cfh2hfv8mqnin" path="res://ParticelEmmiters/BadEffect.tscn" id="17_ykemt"]
 
@@ -36,235 +36,19 @@ height = 32
 [sub_resource type="Animation" id="Animation_fvhal"]
 resource_name = "LockWinhouse"
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/TextureRect2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/TextureRect:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_sar7e"]
 resource_name = "LockWood"
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/TextureRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/TextureRect2:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_to3ro"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/TextureRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/TextureRect2:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/Label:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/TextureRect2:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/TextureRect:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_3658v"]
 resource_name = "UnlockWinHouse"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/TextureRect2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/TextureRect:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_aay61"]
 resource_name = "UnlockWood"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/TextureRect2:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/TextureRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/Label:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sar7e"]
 _data = {
@@ -327,6 +111,17 @@ size_flags_vertical = 3
 [node name="Control" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
@@ -338,351 +133,159 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -43.0
-offset_right = 20.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_pgkf8")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = 4.0
-offset_right = 19.5
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_yjfl1")
-
 [node name="Control2" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -43.0
-offset_right = 20.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_sjink")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = 4.0
-offset_right = 19.5
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_i6uxd")
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -11.5
-offset_right = 15.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "5*"
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton2/Label"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = -12.0
-offset_right = 57.0
-offset_bottom = 28.0
-texture = ExtResource("3_pgkf8")
-
-[node name="Control3" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+[node name="RythemSpawner" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+script = ExtResource("3_wsyiy")
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 35.0
-offset_right = 99.0
-offset_bottom = 67.0
-rotation = -0.7853982
-texture = ExtResource("7_my1v4")
-expand_mode = 2
-
-[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 35.0
-offset_right = 56.0
-offset_bottom = 67.0
-rotation = -0.7853982
-texture = ExtResource("7_my1v4")
-expand_mode = 2
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
-layout_mode = 0
-offset_left = 201.99994
-offset_top = 36.0
-offset_right = 233.99994
-offset_bottom = 68.0
-rotation = -3.9269907
-texture = ExtResource("7_my1v4")
-expand_mode = 2
-
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
-layout_mode = 0
-offset_left = 247.99994
-offset_top = 36.0
-offset_right = 279.99994
-offset_bottom = 68.0
-rotation = -3.9269907
-texture = ExtResource("7_my1v4")
-expand_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = -89.0
-offset_right = 27.0
-offset_bottom = -57.0
+anchor_bottom = 0.5
+offset_top = -41.5
+offset_right = 32.0
+offset_bottom = -9.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 rotation = 0.7853982
 texture = SubResource("GradientTexture2D_6wtpy")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = -89.0
-offset_right = 27.0
-offset_bottom = -57.0
 grow_horizontal = 2
-grow_vertical = 0
-rotation = 0.7853982
-texture = SubResource("GradientTexture2D_6wtpy")
+grow_vertical = 2
 
-[node name="Miss" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, -15)
-texture = ExtResource("8_sar7e")
-process_material = ExtResource("9_3658v")
-
-[node name="Early" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, -15)
-texture = ExtResource("10_fvhal")
-process_material = ExtResource("9_3658v")
-
-[node name="Full" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, -15)
-texture = ExtResource("11_3658v")
-process_material = ExtResource("9_3658v")
-
-[node name="Okay" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, -15)
-texture = ExtResource("12_g44p1")
-process_material = ExtResource("13_uc5al")
-
-[node name="Good" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, -15)
-
-[node name="Perfect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("7_lyqli")]
-position = Vector2(134, -15)
-texture = ExtResource("13_cc5el")
-process_material = ExtResource("15_wsyiy")
-
-[node name="ConfEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("16_wsyiy")]
-position = Vector2(134, -15)
-
-[node name="GoodEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("16_wsyiy")]
-position = Vector2(134, -15)
-amount = 10
-texture = ExtResource("17_gqg5b")
-
-[node name="BadEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" instance=ExtResource("17_ykemt")]
-position = Vector2(134, -15.0000305)
-
-[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton3"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -43.0
-offset_right = 20.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_lxd1g")
+[node name="ParticelEmmiter" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer" node_paths=PackedStringArray("Emmiters")]
+layout_mode = 2
+script = ExtResource("3_fvhal")
+Emmiters = [NodePath("Miss"), NodePath("Early"), NodePath("Full"), NodePath("Okay"), NodePath("Good"), NodePath("Perfect"), NodePath("ConfEffect"), NodePath("BadEffect"), NodePath("GoodEffect")]
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton3"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = 4.0
-offset_right = 19.5
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_lyqli")
+[node name="Miss" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
+position = Vector2(0, -15)
+texture = ExtResource("8_sar7e")
+process_material = ExtResource("9_3658v")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton3"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -11.5
-offset_right = 15.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "5*"
+[node name="Early" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
+position = Vector2(0, -15)
+texture = ExtResource("10_fvhal")
+process_material = ExtResource("9_3658v")
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton3/Label"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = -12.0
-offset_right = 57.0
-offset_bottom = 28.0
-texture = ExtResource("5_sjink")
+[node name="Full" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
+position = Vector2(0, -15)
+texture = ExtResource("11_3658v")
+process_material = ExtResource("9_3658v")
+
+[node name="Okay" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
+position = Vector2(0, -15)
+texture = ExtResource("12_g44p1")
+process_material = ExtResource("13_uc5al")
+
+[node name="Good" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
+position = Vector2(0, -15)
+
+[node name="Perfect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
+position = Vector2(0, -15)
+texture = ExtResource("13_cc5el")
+process_material = ExtResource("15_wsyiy")
+
+[node name="ConfEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("16_wsyiy")]
+position = Vector2(0, -15)
+
+[node name="BadEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("17_ykemt")]
+position = Vector2(0, -15)
+
+[node name="GoodEffect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("16_wsyiy")]
+material = null
+position = Vector2(0, -15)
+amount = 10
+texture = ExtResource("17_gqg5b")
+process_material = ExtResource("16_g44p1")
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RhythmNotifier" type="Node" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner"]
+script = ExtResource("17_cc5el")
+bpm = 140.0
+beat_length = 0.42857142857142855
+running = true
+metadata/_custom_type_script = "uid://dos3qhffr4v0a"
 
 [node name="Control4" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -43.0
-offset_right = 20.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_aay61")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = 4.0
-offset_right = 19.5
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_lyqli")
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -11.5
-offset_right = 15.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "5*"
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/TextureButton4/Label"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = -12.0
-offset_right = 57.0
-offset_bottom = 28.0
-texture = ExtResource("5_sjink")
-
 [node name="Control5" type="Control" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="MidiPlayer" parent="." instance=ExtResource("2_pgkf8")]
-bus = &"Midi"
+[node name="Control" type="Control" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ButtonSpawner" type="VBoxContainer" parent="CanvasLayer/Control/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+script = ExtResource("3_gqg5b")
+ButtonsIcon = Array[Texture2D]([ExtResource("4_yjfl1"), ExtResource("6_i6uxd"), ExtResource("8_lyqli"), ExtResource("6_n7ate")])
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
 
 [node name="UpgradeAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -694,4 +297,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_sar7e")
 }
 
-[connection signal="midi_event" from="MidiPlayer" to="." method="_on_midi_player_midi_event"]
+[connection signal="beat" from="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/RhythmNotifier" to="CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner" method="_on_rhythm_notifier_beat"]

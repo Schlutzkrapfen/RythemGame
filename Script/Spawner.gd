@@ -59,6 +59,8 @@ func addHouse():
 	Global.currentResources[Global.pointsConnectDict[currentStats.buildType[0]]] -= currentStats.buildCost[0]
 	if Global.pointsConnectDict.has(currentStats.unitType):
 		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
+	else:
+		Global.currentResources[currentStats.unitType] += currentStats.points
 	Removelayer()
 	emit_signal("UpdateValues")
 
@@ -102,20 +104,7 @@ func _input(event) -> void:
 				pointsDict[Global.Points.Okay] +=1
 		CurrentHit = 0
 		HitId= CurrentID
-	
-func _on_midi_player_midi_event(_channel, _event:SMF.MIDIEvent):
-	CurrentHit = 0
-	if  CurrentID != HitId:
-		if loop %2 == 0:
-			emit_signal("Miss")
-			emit_signal("EarlyFullMiss")
-			pointsDict[Global.Points.Miss] +=1
-	#This code gets called 2 Times and I can't find a better way to fix it
-	#to bad
-	if loop %2 == 0:
-		CurrentID +=1;
-	loop += 1
-	
+
 func spawnBuildEffects(point:Vector2)->void:
 	for e in buildParticelList:
 		if e.finished:
@@ -141,5 +130,14 @@ func _on_help_layer_can_build_there(signalDictionary):
 	RemoveArray = signalDictionary.get("RemovePositions", [])
 	
 func _on_backgorund_switch_house(House):
-	currentStats =  Global.house_registry.get(House)
+	currentStats =  Global.house_registry.get(Global.HouseSelected[House])
+
+func _on_rhythm_notifier_beat(_current_beat):
+	CurrentHit = 0
+	if  CurrentID != HitId:
+
+		emit_signal("Miss")
+		emit_signal("EarlyFullMiss")
+		pointsDict[Global.Points.Miss] +=1
 	
+	CurrentID +=1;

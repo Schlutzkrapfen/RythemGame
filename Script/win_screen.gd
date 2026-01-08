@@ -71,7 +71,7 @@ func _input(event):
 			currentpoints*= pointsDict[Global.Points.multiplaier]
 			Labels[LabelOrder.Points].text = str(currentpoints)
 			partivelemitter[0].emitting = false
-			Global.endPoints = currentpoints
+			Global.endPoints = int(currentpoints)
 			emit_signal("stopCountUp")
 			emit_signal("Kachinging")
 			await get_tree().create_timer(1).timeout
@@ -123,7 +123,7 @@ func _process(delta):
 					startpoints = false
 					currentpoints*= pointsDict[Global.Points.multiplaier]
 					Labels[LabelOrder.Points].text = str(currentpoints)
-					Global.endPoints = currentpoints
+					Global.endPoints = int(currentpoints)
 					emit_signal("stopCountUp")
 					emit_signal("Kachinging")
 					partivelemitter[0].emitting = false

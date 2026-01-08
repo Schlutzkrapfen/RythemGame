@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bhhc0ox43r6s1"]
+[gd_scene load_steps=21 format=4 uid="uid://bhhc0ox43r6s1"]
 
 [ext_resource type="Script" uid="uid://cssfytp2m1og" path="res://Script/Spawner.gd" id="1_h1ifw"]
 [ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="2_nxmtd"]
@@ -8,11 +8,10 @@
 [ext_resource type="TileSet" uid="uid://cdsa3lf23ilq7" path="res://Tilemaps/Tilesets.tres" id="6_m1h0o"]
 [ext_resource type="PackedScene" uid="uid://cvfuy80wndxc8" path="res://Level/help_layer.tscn" id="8_qlyvm"]
 [ext_resource type="PackedScene" uid="uid://7m6pjpcy6wg2" path="res://Level/UI.tscn" id="8_xs6dw"]
-[ext_resource type="Material" uid="uid://cj2slrw1gxu0c" path="res://ParticelEmmiters/GoodEffect.tres" id="9_2712u"]
 [ext_resource type="Script" uid="uid://ch26yu3gosypy" path="res://Script/TreeGeneratir.gd" id="9_m1h0o"]
 [ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Level/audio_control.tscn" id="12_44jnu"]
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="12_hlqct"]
-[ext_resource type="Script" uid="uid://cxo5skiedmwkq" path="res://Script/PlayEmitter.gd" id="12_qlyvm"]
+[ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="15_qlyvm"]
 [ext_resource type="Script" uid="uid://bnbmy0q2hx160" path="res://Script/EndscreenSwitcher.gd" id="16_62rku"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1h0o"]
@@ -66,7 +65,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3/TextureRect:self_modulate")
+tracks/0/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/TextureRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -75,53 +74,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3/TextureRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_lxd1g"]
 resource_name = "Tick"
 length = 0.2
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3/TextureRect:self_modulate")
+tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3/TextureRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.06, 0.12, 0.18),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
@@ -134,6 +97,18 @@ tracks/2/keys = {
 "args": [],
 "method": &"addOneToCurrentHit"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aay61"]
@@ -171,55 +146,8 @@ process_thread_group_order = 0
 process_thread_messages = 0
 follow_viewport_enabled = false
 
-[node name="Control3" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2" index="4" node_paths=PackedStringArray("Emmiters")]
-script = ExtResource("12_qlyvm")
-Emmiters = [NodePath("Miss"), NodePath("Early"), NodePath("Full"), NodePath("Okay"), NodePath("Good"), NodePath("Perfect"), NodePath("ConfEffect"), NodePath("BadEffect"), NodePath("GoodEffect")]
-
-[node name="TextureRect3" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" index="0"]
+[node name="Control5" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2" index="4"]
 visible = false
-offset_top = 47.0
-offset_bottom = 79.0
-
-[node name="TextureRect6" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" index="1"]
-visible = false
-offset_top = 47.0
-offset_bottom = 79.0
-
-[node name="TextureRect4" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" index="2"]
-visible = false
-offset_top = 48.0
-offset_bottom = 80.0
-
-[node name="TextureRect5" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" index="3"]
-visible = false
-offset_top = 48.0
-offset_bottom = 80.0
-
-[node name="TextureRect" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" index="4"]
-offset_left = -14.0
-offset_top = -78.99997
-offset_right = 22.0
-offset_bottom = -42.99997
-
-[node name="TextureRect2" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" index="5"]
-visible = false
-offset_left = -14.0
-offset_top = -77.0
-offset_right = 18.0
-offset_bottom = -45.0
-
-[node name="GoodEffect" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" index="13"]
-material = null
-process_material = ExtResource("9_2712u")
-
-[node name="Control5" parent="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2" index="8"]
-visible = false
-
-[node name="MidiPlayer" parent="Control" index="1"]
-file = "res://Audio/Test.mid"
-playing = true
-volume_db = 0.0
-loop = true
 
 [node name="Camera2D" type="Camera2D" parent="Control"]
 position = Vector2(582, 311)
@@ -241,33 +169,43 @@ libraries = {
 [node name="AudioControl" parent="." instance=ExtResource("12_44jnu")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1000.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 script = ExtResource("16_62rku")
 
-[connection signal="Early" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" method="_on_node_2d_early"]
+[node name="RhythmNotifier" type="Node" parent="."]
+script = ExtResource("15_qlyvm")
+bpm = 140.0
+beat_length = 0.42857142857142855
+running = true
+metadata/_custom_type_script = "uid://dos3qhffr4v0a"
+
+[connection signal="Early" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_early"]
 [connection signal="EarlyFullMiss" from="." to="Control/Camera2D" method="_on_node_2d_early_full_miss"]
 [connection signal="EarlyFullMiss" from="." to="AudioControl" method="_on_node_2d_early_full_miss"]
-[connection signal="Full" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" method="_on_node_2d_full"]
-[connection signal="Good" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" method="_on_node_2d_good"]
+[connection signal="Full" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_full"]
+[connection signal="Good" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_good"]
 [connection signal="Good" from="." to="Control/Camera2D" method="_on_node_2d_good"]
 [connection signal="Good" from="." to="AudioControl" method="_on_node_2d_good"]
-[connection signal="Miss" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" method="_on_node_2d_miss"]
-[connection signal="Okay" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" method="_on_node_2d_okay"]
+[connection signal="Miss" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_miss"]
+[connection signal="Okay" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_okay"]
 [connection signal="Okay" from="." to="Control/Camera2D" method="_on_node_2d_okay"]
 [connection signal="Okay" from="." to="AudioControl" method="_on_node_2d_okay"]
-[connection signal="Perfect" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/Control3" method="_on_node_2d_perfect"]
+[connection signal="Perfect" from="." to="Control/CanvasLayer/Control/VBoxContainer2/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_perfect"]
 [connection signal="Perfect" from="." to="Control/Camera2D" method="_on_node_2d_perfect"]
 [connection signal="Perfect" from="." to="AudioControl" method="_on_node_2d_perfect"]
 [connection signal="UpdateValues" from="." to="Backgorund" method="_on_node_2d_update_values"]
 [connection signal="UpdateValues" from="." to="HelpLayer" method="_on_node_2d_update_values"]
 [connection signal="UpdateValues" from="." to="Control/CanvasLayer/Control/VBoxContainer2/HBoxContainer" method="_on_node_2d_update_values"]
+[connection signal="UpdateValues" from="." to="Control/CanvasLayer/Control/Control/HBoxContainer/VBoxContainer/ButtonSpawner" method="_on_node_2d_update_values"]
 [connection signal="SwitchHouse" from="Backgorund" to="." method="_on_backgorund_switch_house"]
 [connection signal="SwitchHouse" from="Backgorund" to="HelpLayer" method="_on_backgorund_switch_house"]
+[connection signal="SwitchHouse" from="Backgorund" to="Control/CanvasLayer/Control/Control/HBoxContainer/VBoxContainer/ButtonSpawner" method="_on_backgorund_switch_house"]
 [connection signal="CanBuildThere" from="HelpLayer" to="." method="_on_help_layer_can_build_there"]
-[connection signal="midi_event" from="Control/MidiPlayer" to="." method="_on_midi_player_midi_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
+[connection signal="beat" from="RhythmNotifier" to="." method="_on_rhythm_notifier_beat"]
+[connection signal="beat" from="RhythmNotifier" to="Control" method="_on_rhythm_notifier_beat"]
 
 [editable path="Control"]

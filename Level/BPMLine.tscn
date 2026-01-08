@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://2pitgsv7b3g2"]
+
+[ext_resource type="Script" uid="uid://moxyc6pehg2i" path="res://Script/bpm_line.gd" id="1_awd1n"]
+
+[node name="BPMLine" type="ColorRect"]
+offset_right = 10.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("1_awd1n")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="HouseDefinition" load_steps=3 format=3 uid="uid://ckrdcqn0ctexw"]
+[gd_resource type="Resource" script_class="HouseDefinition" load_steps=4 format=3 uid="uid://ckrdcqn0ctexw"]
 
 [ext_resource type="Texture2D" uid="uid://clnwe6gcms8hs" path="res://UI/#1 - Transparent Icons1.png" id="1_072qk"]
 [ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/house_definition.gd" id="1_sh2sf"]
+[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/House1.png" id="1_ttg28"]
 
 [resource]
 script = ExtResource("1_sh2sf")
 labelIcon = ExtResource("1_072qk")
+buttonIcon = ExtResource("1_ttg28")
 displayName = "ADDS HUMANS"
-buildCost = Array[int]([0])
 unitType = 6
 metadata/_custom_type_script = "uid://8bue58jekekt"
