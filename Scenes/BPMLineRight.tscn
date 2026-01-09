@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2s3c3ujaja4w"]
 
-[ext_resource type="Script" uid="uid://moxyc6pehg2i" path="res://Script/bpm_line.gd" id="1_3yovg"]
+[ext_resource type="Script" uid="uid://moxyc6pehg2i" path="res://Script/Ui/bpm_line.gd" id="1_3yovg"]
 
 [node name="BPMLine" type="ColorRect"]
 anchors_preset = 1

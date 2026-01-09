@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-var TextureButtons:Resource = preload("res://Level/SwitchButtons.tscn")
+var TextureButtons:Resource = preload("res://Scenes/SwitchButtons.tscn")
 var CurrentUnlocked:Array[bool]
 var buttons: Array[TextureButton]
 var IconSize: int 

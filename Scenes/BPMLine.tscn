@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2pitgsv7b3g2"]
 
-[ext_resource type="Script" uid="uid://moxyc6pehg2i" path="res://Script/bpm_line.gd" id="1_awd1n"]
+[ext_resource type="Script" uid="uid://moxyc6pehg2i" path="res://Script/Ui/bpm_line.gd" id="1_awd1n"]
 
 [node name="BPMLine" type="ColorRect"]
 offset_right = 10.0

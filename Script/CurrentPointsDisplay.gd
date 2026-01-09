@@ -6,8 +6,8 @@ extends HBoxContainer
 @onready var Resources: Array[Global.Points] = Global.MakeResources
 var CurrentResources: Array[Global.Points]
 
-var IconScene:Resource = preload("res://Level/icon.tscn")
-var LabelScene:Resource = preload("res://Level/icon_label.tscn")
+var IconScene:Resource = preload("res://Scenes/icon.tscn")
+var LabelScene:Resource = preload("res://Scenes/icon_label.tscn")
 
 var Labels:Array[Label]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://biweoj8idpyib"]
 
-[ext_resource type="PackedScene" uid="uid://yuudxxfwygmp" path="res://Level/Highscore.tscn" id="1_ryui2"]
+[ext_resource type="PackedScene" uid="uid://yuudxxfwygmp" path="res://Scenes/Highscore.tscn" id="1_ryui2"]
 
 [node name="EndScene" type="Node2D"]
 

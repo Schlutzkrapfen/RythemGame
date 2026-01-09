@@ -1,10 +1,16 @@
 extends Control
 
 @export var progress:ProgressBar
+@onready var timer:Timer = $"../Timer"
 
 
+func _ready():
+	progress.max_value = Global.level_registery[Global.currentLevel].MaxTime
+	progress.value = progress.max_value
 func _process(_delta):
-#	progress.value = $"../Timer".time_left
+	if timer != null:
+		if !timer.is_stopped():
+			progress.value = timer.time_left
 	pass
 
 

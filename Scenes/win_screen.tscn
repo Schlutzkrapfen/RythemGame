@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bsss88po8x7ji" path="res://ParticelEmmiters/Confetti.tscn" id="14_4vc7n"]
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="19_yupi4"]
 [ext_resource type="PackedScene" uid="uid://b5qel7a7hc3id" path="res://ParticelEmmiters/Charge.tscn" id="20_nkwte"]
-[ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Level/audio_control.tscn" id="20_rv702"]
+[ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="20_rv702"]
 [ext_resource type="AudioStream" uid="uid://d0wdwqfejg4i4" path="res://Audio/cash-register-kaching-376867.mp3" id="21_ujihp"]
 [ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="23_tdju4"]
 [ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Tilemaps/dirt wall.png" id="24_o5rom"]

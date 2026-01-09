@@ -10,6 +10,7 @@ labelIcon = ExtResource("1_5msc8")
 buttonIcon = ExtResource("1_nhd7v")
 TileMapPosition = Vector2i(1, 0)
 displayName = "Woodcutter"
+discription = "The Woodcutter cuts down Trees and makes out of them Wood"
 houseRange = 3
 buildCost = Array[int]([5])
 unitType = 8

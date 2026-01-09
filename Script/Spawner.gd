@@ -5,7 +5,7 @@ extends Node2D
 @export var UnlockAnimations: Array[AnimationPlayer]
 @export var SoundAnimations: AnimationPlayer
 @export var EmmitersScene:PackedScene
-
+var Clicked:bool
 
 signal Perfect
 signal Good
@@ -15,7 +15,6 @@ signal Early
 signal Full
 signal Miss
 signal UpdateValues
-
 
 var buildParticelList:Array[GPUParticles2D]
 var source
@@ -32,6 +31,7 @@ var tile_coords: Vector2i
 var PeopleAmountForWoodcutter:int = 5
 var WoodAnoumtForWinHouse:int = 5
 var loop:int =1
+var TimesinstLastInput:float
 
 var pointsDict: Dictionary[Global.Points, int] = {
 	Global.Points.Miss: 0, 
@@ -74,6 +74,7 @@ func Removelayer():
 func _input(event) -> void:
 	# Check specifically for a left mouse button press
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed || event.is_action_pressed("Controller_Input"):
+		
 		if CurrentID == HitId:
 			return
 		if !SoundAnimations.is_playing():

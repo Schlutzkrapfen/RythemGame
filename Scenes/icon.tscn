@@ -4,3 +4,4 @@
 
 [node name="Icon" type="TextureRect"]
 texture = ExtResource("1_46kna")
+stretch_mode = 3

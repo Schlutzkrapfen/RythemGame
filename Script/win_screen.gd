@@ -81,7 +81,6 @@ func _input(event):
 func _process(delta):
 	if startpoints != true:
 		return
-	
 	if currentpoints < nexpoints && multiplaier[i-1] >= 0 || currentpoints > nexpoints &&multiplaier[i-1] <0:
 		currentpoints += delta*poinstAddedSpeed*multiplaier[i-1]
 		Labels[LabelOrder.Points].text = str(int(currentpoints))

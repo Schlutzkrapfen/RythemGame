@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="7_8ohln"]
 [ext_resource type="Texture2D" uid="uid://dgcaa6cbgf1bm" path="res://Tilemaps/House.png" id="8_ku7ml"]
 [ext_resource type="Texture2D" uid="uid://cdeyik114u8lh" path="res://Tilemaps/RightWrong.png" id="10_egu2j"]
-[ext_resource type="PackedScene" uid="uid://7m6pjpcy6wg2" path="res://Level/UI.tscn" id="11_qf7it"]
+[ext_resource type="PackedScene" uid="uid://7m6pjpcy6wg2" path="res://Scenes/UI.tscn" id="11_qf7it"]
 [ext_resource type="Script" uid="uid://cxo5skiedmwkq" path="res://Script/PlayEmitter.gd" id="12_48e7u"]
 [ext_resource type="Material" uid="uid://cj2slrw1gxu0c" path="res://ParticelEmmiters/GoodEffect.tres" id="12_cwa4w"]
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="13_wlt43"]
-[ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Level/audio_control.tscn" id="14_oxkch"]
+[ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="14_oxkch"]
 [ext_resource type="Script" uid="uid://bnbmy0q2hx160" path="res://Script/EndscreenSwitcher.gd" id="15_gvnqe"]
-[ext_resource type="Script" uid="uid://cn3hga5qydt1a" path="res://Script/Tutorial.gd" id="17_48e7u"]
+[ext_resource type="Script" path="res://Script/Tutorial.gd" id="17_48e7u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cr6ey"]
 texture = ExtResource("3_ku7ml")

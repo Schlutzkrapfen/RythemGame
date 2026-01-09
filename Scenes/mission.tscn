@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://qtkddl3ultg3"]
+
+[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/House1.png" id="1_2qmcd"]
+
+[node name="Mission" type="HBoxContainer"]
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control5" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "5:"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_2qmcd")

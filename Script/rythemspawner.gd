@@ -1,7 +1,7 @@
 extends Control
 
-var RythemSpawner:PackedScene = preload("res://Level/BPMLine.tscn")
-var RythemSpawner1:PackedScene = preload("res://Level/BPMLineRight.tscn")
+var RythemSpawner:PackedScene = preload("res://Scenes/BPMLine.tscn")
+var RythemSpawner1:PackedScene = preload("res://Scenes/BPMLineRight.tscn")
 
 func _on_rhythm_notifier_beat(_current_beat):
 	var BPMLine:ColorRect =RythemSpawner.instantiate()
