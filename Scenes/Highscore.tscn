@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="1_r43mv"]
 [ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Tilemaps/dirt wall.png" id="2_ry27f"]
 [ext_resource type="Texture2D" uid="uid://cmr4ljogk0n0x" path="res://Tilemaps/TX Props.png" id="3_kmvoi"]
-[ext_resource type="Script" uid="uid://b10if76uq66qf" path="res://Script/StartButton.gd" id="3_qcekt"]
 [ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="4_kkijf"]
-[ext_resource type="Script" uid="uid://cspuflcmisk5m" path="res://Script/ExitButton.gd" id="4_nwnrh"]
+[ext_resource type="Script" uid="uid://cspuflcmisk5m" path="res://Script/Menus/ExitButton.gd" id="4_nwnrh"]
 [ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Tilemaps/water - summer.png" id="5_rmadt"]
+[ext_resource type="PackedScene" uid="uid://uuw6qcotihjo" path="res://Scenes/restart_button.tscn" id="8_1ryyy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3lx12"]
 texture = ExtResource("1_r43mv")
@@ -272,14 +272,8 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.13
 
-[node name="Restart2" type="Button" parent="Control/HBoxContainer/VBoxContainer2/Control2"]
+[node name="Restart2" parent="Control/HBoxContainer/VBoxContainer2/Control2" instance=ExtResource("8_1ryyy")]
 layout_mode = 0
-offset_left = 23.0
-offset_top = -88.0
-offset_right = 340.0
-offset_bottom = -60.0
-text = "Restart"
-script = ExtResource("3_qcekt")
 
 [node name="Quit2" type="Button" parent="Control/HBoxContainer/VBoxContainer2/Control2"]
 visible = false
@@ -296,5 +290,4 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.3
 
-[connection signal="button_down" from="Control/HBoxContainer/VBoxContainer2/Control2/Restart2" to="Control/HBoxContainer/VBoxContainer2/Control2/Restart2" method="_on_button_down"]
 [connection signal="button_down" from="Control/HBoxContainer/VBoxContainer2/Control2/Quit2" to="Control/HBoxContainer/VBoxContainer2/Control2/Quit2" method="_on_button_down"]

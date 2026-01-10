@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PointsDefinition" load_steps=3 format=3 uid="uid://cd3f6bbnhd7y8"]
+
+[ext_resource type="Texture2D" uid="uid://bg5q367ovuh6c" path="res://UI/my-OKAY.png" id="1_5b5vc"]
+[ext_resource type="Script" uid="uid://ci2h7owl1v3fp" path="res://Script/Definitions/points_definition.gd" id="2_5b5vc"]
+
+[resource]
+script = ExtResource("2_5b5vc")
+labelIcon = ExtResource("1_5b5vc")
+CamershakeAmount = 0.01
+Volume = -10.0
+stat = 3
+color = Color(0, 1, 0, 1)
+IconColor = Color(0, 1, 0, 1)
+metadata/_custom_type_script = "uid://ci2h7owl1v3fp"

@@ -58,3 +58,8 @@ func _on_node_2d_okay():
 func _on_node_2d_perfect():
 	if trauma < maxTrauma:
 		add_trauma(0.4)
+
+
+func _on_win_point_spawner_shake_camera(Amount):
+	if trauma < maxTrauma:
+		add_trauma(Amount)

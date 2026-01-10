@@ -191,8 +191,9 @@ script = ExtResource("14_62xmr")
 timer = NodePath("../Timer")
 rhytm = NodePath("../RhythmNotifier")
 
-[node name="LevelSwitcher" type="Node" parent="."]
+[node name="LevelSwitcher" type="Node" parent="." node_paths=PackedStringArray("timer")]
 script = ExtResource("14_104vp")
+timer = NodePath("../Timer")
 
 [connection signal="Early" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_early"]
 [connection signal="EarlyFullMiss" from="." to="Control/Camera2D" method="_on_node_2d_early_full_miss"]
@@ -218,9 +219,9 @@ script = ExtResource("14_104vp")
 [connection signal="CanBuildThere" from="HelpLayer" to="." method="_on_help_layer_can_build_there"]
 [connection signal="missionsMade" from="Control/CanvasLayer/Control/MainUi/LevelMisson" to="LevelSwitcher" method="_on_level_misson_missions_made"]
 [connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="IntroFinished" method="_on_main_screen_popups_intro_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="LevelSwitcher" method="_on_timer_timeout"]
 [connection signal="beat" from="RhythmNotifier" to="." method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="Control" method="_on_rhythm_notifier_beat"]
+[connection signal="finished" from="LevelSwitcher" to="." method="_on_level_switcher_finished"]
 
 [editable path="Control"]

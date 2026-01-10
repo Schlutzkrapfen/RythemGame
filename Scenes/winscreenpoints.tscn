@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://blbxy8r1qp4cb"]
+
+[ext_resource type="Texture2D" uid="uid://quo45aykdrvr" path="res://UI/my-MISS.png" id="1_uebof"]
+[ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="2_ju8al"]
+[ext_resource type="Script" uid="uid://cyhcd7o6nir1e" path="res://Script/startparticel.gd" id="3_ju8al"]
+[ext_resource type="PackedScene" uid="uid://cfh2hfv8mqnin" path="res://ParticelEmmiters/BadEffect.tscn" id="3_l7jhd"]
+[ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="4_g24xd"]
+[ext_resource type="Material" uid="uid://bwhewwh1kb4k5" path="res://ParticelEmmiters/BuildMatirial.tres" id="5_781ro"]
+[ext_resource type="Texture2D" uid="uid://sei5m8pa3yaa" path="res://UI/Confetti.png" id="5_g24xd"]
+[ext_resource type="Material" uid="uid://bue6j2ibqiqed" path="res://ParticelEmmiters/BuildEffect.tres" id="6_781ro"]
+
+[node name="WinScreenPoints" type="HBoxContainer"]
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_uebof")
+stretch_mode = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_ju8al")
+text = "0"
+script = ExtResource("3_ju8al")
+
+[node name="SpawnEffect" parent="Label" instance=ExtResource("3_l7jhd")]
+material = ExtResource("5_781ro")
+position = Vector2(13, 19)
+texture = ExtResource("5_g24xd")
+local_coords = true
+process_material = ExtResource("6_781ro")
+
+[node name="SpecialParticel" parent="Label" instance=ExtResource("4_g24xd")]
+position = Vector2(13, 19)
+local_coords = true

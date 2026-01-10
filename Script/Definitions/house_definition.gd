@@ -1,8 +1,8 @@
 class_name HouseDefinition extends Resource
 
 @export_group("Visuals")
-@export var labelIcon: Texture2D
 @export var buttonIcon: Texture2D
+@export var labelIcon: Texture2D
 @export var TileMapID: int = 0
 @export var TileMapPosition:Vector2i 
 

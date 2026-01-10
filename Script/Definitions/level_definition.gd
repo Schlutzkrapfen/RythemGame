@@ -6,7 +6,7 @@ class_name LevelDefinition extends Resource
 
 @export_group("Stats")
 @export var Level: int = 0
-@export var LevelPath:String = "res://Levels/LevelResources/Level1.tres"
+@export_file("*.tscn") var levelPath: String
 @export var PossibleHouseUnlocks:Global.HouseID
 @export var MaxTime:int = 20
 @export var UnlocksNeeded:Dictionary[Global.Points,int]

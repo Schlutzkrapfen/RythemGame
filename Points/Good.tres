@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PointsDefinition" load_steps=5 format=3 uid="uid://ddfcm2ehm2lca"]
+
+[ext_resource type="Texture2D" uid="uid://be4v6mhe4rjqf" path="res://UI/my-GOOD.png" id="1_0g3gv"]
+[ext_resource type="Material" uid="uid://cj2slrw1gxu0c" path="res://ParticelEmmiters/GoodEffect.tres" id="1_4aqql"]
+[ext_resource type="Texture2D" uid="uid://bjcgucursnwcg" path="res://UI/#1 - Transparent Icons6.png" id="1_almi3"]
+[ext_resource type="Script" uid="uid://ci2h7owl1v3fp" path="res://Script/Definitions/points_definition.gd" id="4_almi3"]
+
+[resource]
+script = ExtResource("4_almi3")
+labelIcon = ExtResource("1_0g3gv")
+stat = 4
+color = Color(1, 1, 0, 1)
+IconColor = Color(1, 1, 0, 1)
+Multiplayer = 2.0
+ParticelTexure = ExtResource("1_almi3")
+ProcessMatiral = ExtResource("1_4aqql")
+Amount = 10
+metadata/_custom_type_script = "uid://ci2h7owl1v3fp"

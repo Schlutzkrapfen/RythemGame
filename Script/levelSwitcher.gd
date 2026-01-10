@@ -1,10 +1,19 @@
 extends Node
 @export var UnlockScreenPath:String
+@export var timer:Timer
+var simultaneous_scene:PackedScene = preload("res://Scenes/win_screen.tscn")
+signal finished
+
 
 func _on_timer_timeout():
 	print("LevelLost")
+	emit_signal("finished")
+
 
 
 
 func _on_level_misson_missions_made():
-	pass
+	emit_signal("finished")
+	Global.pointsDict[Global.Points.time] = int(timer.time_left *100)
+	get_tree().change_scene_to_packed(simultaneous_scene)
+	

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HouseDefinition" load_steps=2 format=3 uid="uid://c1b77xt6ei34q"]
 
-[ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/house_definition.gd" id="1_6orci"]
+[ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/Definitions/house_definition.gd" id="1_6orci"]
 
 [resource]
 script = ExtResource("1_6orci")

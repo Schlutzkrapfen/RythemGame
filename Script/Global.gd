@@ -1,8 +1,7 @@
 extends Node
 
-enum Points  {Miss,Early,Full,Okay,Good,Perfect,people,unemployed,wood,unusedWood,multiplaier,time}
+enum Points  {Miss = 0,Early = 1,Full =2,Okay=3,Good=4 ,Perfect=5 ,people=6 ,unemployed=7,wood=8 ,unusedWood=9,time=10,multiplaier =11}
 var endPoints: int = 0
-#var Houses:Dictionary = {"House":Vector2i(0,0),"WoodCutter":Vector2i(1,0),"WoodCutterHL":Vector2i(2,0),"WoodCutterWL":Vector2i(4,0),"WoodCutterHR":Vector2i(3,0),"WoodCutterWR":Vector2i(5,0),"Tree":Vector2i(1,0),"WinHouse":Vector2i(3,1)}
 enum HouseID { Default = 0,Trees=1 ,WoodCutter= 2, Market=3, Backery=4  }
 
 var BuildCostAmount: Array[int]
@@ -37,10 +36,21 @@ var pointsDict: Dictionary[Points, int] = {
 	Points.Good: 0, 
 	Points.Perfect: 0, 
 	Points.people: 0, 
-	Points.wood: 0, 
-	Points.multiplaier: 0, 
+	Points.wood: 0,
 	Points.time:0,
-	
+	Points.multiplaier: 1, 
+}
+var labelRegistry: Dictionary = {
+	Points.Miss: preload("res://Points/Miss.tres"),
+	Points.Early: preload("res://Points/Early.tres"),
+	Points.Full: preload("res://Points/Full.tres"),
+	Points.Okay: preload("res://Points/Okay.tres"),
+	Points.Good: preload("res://Points/Good.tres"),
+	Points.Perfect: preload("res://Points/Perfect.tres"),
+	Points.people: preload("res://Points/People.tres"),
+	Points.wood: preload("res://Points/Wood.tres"),
+	Points.time: preload("res://Points/Time.tres"),
+	Points.multiplaier: preload("res://Points/multiplaier.tres")
 }
 var currentResources: Dictionary[Points, int] = {
 	Points.unemployed:0,

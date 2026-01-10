@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PointsDefinition" load_steps=6 format=3 uid="uid://dpnnvhnuatceu"]
+
+[ext_resource type="Texture2D" uid="uid://sei5m8pa3yaa" path="res://UI/Confetti.png" id="1_lepgp"]
+[ext_resource type="Material" uid="uid://0audgb1jlu2f" path="res://ParticelEmmiters/Confetti.tres" id="2_30ery"]
+[ext_resource type="Material" uid="uid://d17he0uo7s3y7" path="res://ParticelEmmiters/ConfettiAnimation.tres" id="3_qu4lm"]
+[ext_resource type="Texture2D" uid="uid://ndy6jyot7vck" path="res://UI/my-PERFECT.png" id="4_gim38"]
+[ext_resource type="Script" uid="uid://ci2h7owl1v3fp" path="res://Script/Definitions/points_definition.gd" id="5_lepgp"]
+
+[resource]
+script = ExtResource("5_lepgp")
+labelIcon = ExtResource("4_gim38")
+CamershakeAmount = 0.4
+stat = 5
+Rainbow = true
+Multiplayer = 3.0
+ParticelTexure = ExtResource("1_lepgp")
+ProcessMatiral = ExtResource("2_30ery")
+animationMatirial = ExtResource("3_qu4lm")
+LifeTime = 0.8
+metadata/_custom_type_script = "uid://ci2h7owl1v3fp"

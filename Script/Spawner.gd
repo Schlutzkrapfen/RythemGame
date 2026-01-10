@@ -14,6 +14,8 @@ signal EarlyFullMiss
 signal Early
 signal Full
 signal Miss
+
+
 signal UpdateValues
 
 var buildParticelList:Array[GPUParticles2D]
@@ -42,6 +44,8 @@ var pointsDict: Dictionary[Global.Points, int] = {
 	Global.Points.Perfect: 0, 
 	Global.Points.people: 0, 
 	Global.Points.wood: 0, 
+	
+	Global.Points.time: 0, 
 	Global.Points.multiplaier: 1, 
 }
 
@@ -122,9 +126,6 @@ func spawnBuildEffects(point:Vector2)->void:
 func addOneToCurrentHit():
 	CurrentHit +=1;
 
-func _on_timer_timeout():
-	Global.pointsDict = pointsDict
-
 func _on_help_layer_can_build_there(signalDictionary):
 	CanBuild = signalDictionary.get("CanBuild", false)
 	tile_coords = signalDictionary.get("CurrentPosition", Vector2i(0,0))
@@ -142,3 +143,7 @@ func _on_rhythm_notifier_beat(_current_beat):
 		pointsDict[Global.Points.Miss] +=1
 	
 	CurrentID +=1;
+
+
+func _on_level_switcher_finished():
+	Global.pointsDict = pointsDict
