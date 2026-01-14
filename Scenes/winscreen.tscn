@@ -1,17 +1,17 @@
 [gd_scene load_steps=22 format=3 uid="uid://d2plfhokqusxu"]
 
-[ext_resource type="Script" uid="uid://ehunuv0l82x7" path="res://Script/PointsCounter.gd" id="1_41yw7"]
-[ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="2_5h4l3"]
-[ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="5_vkkpd"]
-[ext_resource type="PackedScene" uid="uid://uuw6qcotihjo" path="res://Scenes/restart_button.tscn" id="9_5xl6h"]
-[ext_resource type="PackedScene" uid="uid://bfeh503ya5cob" path="res://Scenes/NextLevelButton.tscn" id="10_qrg8t"]
-[ext_resource type="Texture2D" uid="uid://drribub13npt7" path="res://UI/Points/#1 - Transparent Icons3.png" id="11_5h4l3"]
-[ext_resource type="Texture2D" uid="uid://dd5gwjxackc5p" path="res://UI/Points/my-POINTS.png" id="12_vxs6a"]
-[ext_resource type="Script" uid="uid://c1bareaaqecv0" path="res://Script/WinPointSpawner.gd" id="13_acglf"]
-[ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="19_yupi4"]
-[ext_resource type="PackedScene" uid="uid://b5qel7a7hc3id" path="res://ParticelEmmiters/Charge.tscn" id="20_nkwte"]
-[ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="20_rv702"]
-[ext_resource type="AudioStream" uid="uid://d0wdwqfejg4i4" path="res://Audio/cash-register-kaching-376867.mp3" id="21_ujihp"]
+[ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="1_b3vrs"]
+[ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="2_0udrg"]
+[ext_resource type="Script" uid="uid://c1bareaaqecv0" path="res://Script/WinPointSpawner.gd" id="3_e331a"]
+[ext_resource type="Script" uid="uid://ehunuv0l82x7" path="res://Script/PointsCounter.gd" id="4_fr20v"]
+[ext_resource type="Texture2D" uid="uid://dd5gwjxackc5p" path="res://UI/Points/my-POINTS.png" id="5_dga4u"]
+[ext_resource type="PackedScene" uid="uid://b5qel7a7hc3id" path="res://ParticelEmmiters/Charge.tscn" id="6_8uj3d"]
+[ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="7_v2n38"]
+[ext_resource type="Texture2D" uid="uid://drribub13npt7" path="res://UI/Points/#1 - Transparent Icons3.png" id="8_mxr6m"]
+[ext_resource type="PackedScene" uid="uid://uuw6qcotihjo" path="res://Scenes/restart_button.tscn" id="9_xi21b"]
+[ext_resource type="PackedScene" uid="uid://bfeh503ya5cob" path="res://Scenes/NextLevelButton.tscn" id="10_2bjyx"]
+[ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="11_5iqpk"]
+[ext_resource type="AudioStream" uid="uid://d0wdwqfejg4i4" path="res://Audio/cash-register-kaching-376867.mp3" id="12_yhux5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yupi4"]
 noise_type = 2
@@ -94,7 +94,7 @@ grow_vertical = 2
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/Control"]
 position = Vector2(577, 325)
 limit_enabled = false
-script = ExtResource("19_yupi4")
+script = ExtResource("1_b3vrs")
 decay = 0.4
 max_offset = Vector2(200, 185)
 noise = SubResource("FastNoiseLite_yupi4")
@@ -115,8 +115,8 @@ size_flags_stretch_ratio = 0.7
 [node name="WinPointSpawner" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_5h4l3")
-script = ExtResource("13_acglf")
+theme = ExtResource("2_0udrg")
+script = ExtResource("3_e331a")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner"]
 layout_mode = 2
@@ -131,13 +131,13 @@ size_flags_stretch_ratio = 0.1
 [node name="EndPoints" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner" node_paths=PackedStringArray("ButtonNode", "ParticelEmmiters")]
 visible = false
 layout_mode = 2
-script = ExtResource("1_41yw7")
+script = ExtResource("4_fr20v")
 ButtonNode = NodePath("../Control2/Control/HBoxContainer")
 ParticelEmmiters = [NodePath("Points/PointsUp"), NodePath("Points/Kaching")]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
 layout_mode = 2
-texture = ExtResource("12_vxs6a")
+texture = ExtResource("5_dga4u")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
 layout_mode = 2
@@ -146,16 +146,16 @@ size_flags_horizontal = 3
 [node name="Points" type="Label" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
 layout_mode = 2
 
-[node name="PointsUp" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints/Points" instance=ExtResource("20_nkwte")]
+[node name="PointsUp" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints/Points" instance=ExtResource("6_8uj3d")]
 position = Vector2(386, 16)
 emitting = false
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_nkwte")
 
-[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints/Points" instance=ExtResource("5_vkkpd")]
+[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints/Points" instance=ExtResource("7_v2n38")]
 material = null
 position = Vector2(389, 17)
-texture = ExtResource("11_5h4l3")
+texture = ExtResource("8_mxr6m")
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_81yy2")
 
@@ -185,7 +185,7 @@ offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Restart" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("9_5xl6h")]
+[node name="Restart" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("9_xi21b")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -194,7 +194,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NextLevel" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("10_qrg8t")]
+[node name="NextLevel" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("10_2bjyx")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -203,7 +203,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="AudioControl" parent="." node_paths=PackedStringArray("AudioSource") instance=ExtResource("20_rv702")]
+[node name="AudioControl" parent="." node_paths=PackedStringArray("AudioSource") instance=ExtResource("11_5iqpk")]
 AudioSource = [NodePath("Music"), NodePath("Hit"), NodePath("Miss"), NodePath("Miss2"), NodePath("Miss3"), NodePath("Kaching"), NodePath("PointsUpwards"), NodePath("StartPoint")]
 
 [node name="Music" parent="AudioControl" index="0"]
@@ -213,7 +213,7 @@ autoplay = false
 volume_db = 0.0
 
 [node name="Kaching" parent="AudioControl" index="5"]
-stream = ExtResource("21_ujihp")
+stream = ExtResource("12_yhux5")
 volume_db = -10.0
 
 [node name="PointsUpwards" parent="AudioControl" index="6"]

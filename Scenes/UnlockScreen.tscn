@@ -145,7 +145,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "BTN_NEXT"
 script = ExtResource("5_im5p7")
-timeTillButtonAppears = null
 
 [node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2

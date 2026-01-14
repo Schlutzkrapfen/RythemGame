@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b4plxikf88g6g"]
+[gd_scene load_steps=24 format=4 uid="uid://b4plxikf88g6g"]
 
 [ext_resource type="Script" uid="uid://cssfytp2m1og" path="res://Script/Spawner.gd" id="1_104vp"]
 [ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="2_3momc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://7m6pjpcy6wg2" path="res://Scenes/UI.tscn" id="9_pp47a"]
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="10_idi36"]
 [ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="11_8ubki"]
+[ext_resource type="PackedScene" uid="uid://dreu6sjmunp6u" path="res://Scenes/EquipRoom.tscn" id="11_sbm5j"]
 [ext_resource type="Script" uid="uid://bkg3ocaltn2vi" path="res://Script/timer.gd" id="12_3momc"]
 [ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="13_k7tvq"]
 [ext_resource type="Script" uid="uid://bskva3ehqaym" path="res://Script/tutorial.gd" id="14_62xmr"]
@@ -169,6 +170,9 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_aay61")
 }
+
+[node name="Control2" parent="." instance=ExtResource("11_sbm5j")]
+visible = false
 
 [node name="AudioControl" parent="." instance=ExtResource("11_8ubki")]
 

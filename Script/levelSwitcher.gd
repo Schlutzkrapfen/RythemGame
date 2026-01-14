@@ -1,7 +1,7 @@
 extends Node
 @export var UnlockScreenPath:String
 @export var timer:Timer
-var simultaneous_scene:PackedScene = preload("res://Scenes/win_screen.tscn")
+var simultaneous_scene:PackedScene = preload("res://Scenes/winscreen.tscn")
 signal finished
 
 

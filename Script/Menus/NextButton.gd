@@ -13,5 +13,10 @@ func _ready():
 		
 func _on_button_up():
 		
-	get_tree().change_scene_to_file("res://Scenes/EquipRoom.tscn")
+	Global.currentLevel += 1
+	if (Global.level_registery[Global.currentLevel] != null):
+		get_tree().change_scene_to_file(Global.level_registery[Global.currentLevel].levelPath)
+		Global.ResetLevel()
+	else:
+		print("YOU WINNNNNN")
 	

@@ -137,7 +137,6 @@ func _on_backgorund_switch_house(House):
 func _on_rhythm_notifier_beat(_current_beat):
 	CurrentHit = 0
 	if  CurrentID != HitId:
-
 		emit_signal("Miss")
 		emit_signal("EarlyFullMiss")
 		pointsDict[Global.Points.Miss] +=1

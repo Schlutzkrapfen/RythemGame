@@ -59,9 +59,24 @@ var currentResources: Dictionary[Points, int] = {
 	Points.multiplaier:1,
 	Points.unusedWood:0
 }
+func ResetLevel():
+	ResetVeriables()
+	GetHousesVeriables()
 func _ready():
 	GetHousesVeriables()
 	
+func ResetVeriables():
+	BuildCostAmount = []
+	ButtonIcons = []
+	BuildResources = []
+	MakeResources = []
+	PointsIcons = []
+	currentResources=  {
+	Points.unemployed:0,
+	Points.multiplaier:1,
+	Points.unusedWood:0
+}
+
 func GetHousesVeriables() -> void:
 	for x in HouseSelected :
 		BuildCostAmount.append(house_registry[x].buildCost)
