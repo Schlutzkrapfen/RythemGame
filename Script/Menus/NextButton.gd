@@ -14,7 +14,7 @@ func _ready():
 func _on_button_up():
 		
 	Global.currentLevel += 1
-	if (Global.level_registery[Global.currentLevel] != null):
+	if (Global.level_registery.size() >= Global.currentLevel ):
 		get_tree().change_scene_to_file(Global.level_registery[Global.currentLevel].levelPath)
 		Global.ResetLevel()
 	else:

@@ -94,7 +94,8 @@ func skip():
 	currentPoints = 0
 	for x in labelRegistry:
 		currentPoints += pointsDict[labelRegistry[x].stat] * labelRegistry[x].Multiplayer
-	addMultiplayer()
+	if !MultiplayerAdded:
+		addMultiplayer()
 
 func _input(event):
 	if event is InputEventKey && event.is_pressed() && starting:

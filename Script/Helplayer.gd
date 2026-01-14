@@ -37,8 +37,6 @@ func _ready():
 	tilemap.set_cell(outOufBoundsSpawnPoints,currentHousestats.TileMapID,currentHousestats.TileMapPosition)
 	house_tile_data = tilemap.get_cell_tile_data(outOufBoundsSpawnPoints)
 
-
-
 func _input(event):
 	if event.is_action_pressed("Controller_Down"):
 		tile_coords.y += 1
@@ -74,8 +72,6 @@ func _process(_delta) ->void:
 	self.set_cell(lastHelpVisualController,0)
 	Helplayer2.set_cell(lastHelpVisual,0)
 	Helplayer2.set_cell(lastHelpVisualController,0)
-	
-
 	tile_data = tilemap.get_cell_tile_data(tile_coords)
 	
 	if tile_data == null || tile_data == tree_tile_data :

@@ -30,7 +30,6 @@ func _input(event) -> void:
 			currentHouse = 3
 			if Global.currentResources[Resouces[currentHouse]] >=CostAmount[currentHouse]:
 					emit_signal("SwitchHouse",currentHouse)
-
 func _on_node_2d_update_values():
 	if Global.currentResources[Resouces[currentHouse]] < CostAmount[currentHouse]:
 		for x in houseAmount:

@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2plfhokqusxu"]
+[gd_scene load_steps=21 format=3 uid="uid://d2plfhokqusxu"]
 
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="1_b3vrs"]
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="2_0udrg"]
 [ext_resource type="Script" uid="uid://c1bareaaqecv0" path="res://Script/WinPointSpawner.gd" id="3_e331a"]
 [ext_resource type="Script" uid="uid://ehunuv0l82x7" path="res://Script/PointsCounter.gd" id="4_fr20v"]
-[ext_resource type="Texture2D" uid="uid://dd5gwjxackc5p" path="res://UI/Points/my-POINTS.png" id="5_dga4u"]
 [ext_resource type="PackedScene" uid="uid://b5qel7a7hc3id" path="res://ParticelEmmiters/Charge.tscn" id="6_8uj3d"]
 [ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="7_v2n38"]
 [ext_resource type="Texture2D" uid="uid://drribub13npt7" path="res://UI/Points/#1 - Transparent Icons3.png" id="8_mxr6m"]
@@ -135,9 +134,11 @@ script = ExtResource("4_fr20v")
 ButtonNode = NodePath("../Control2/Control/HBoxContainer")
 ParticelEmmiters = [NodePath("Points/PointsUp"), NodePath("Points/Kaching")]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
 layout_mode = 2
-texture = ExtResource("5_dga4u")
+theme_override_constants/line_spacing = 10
+theme_override_constants/outline_size = 0
+text = "BTN_POINTS"
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
 layout_mode = 2

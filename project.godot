@@ -82,3 +82,4 @@ Controller_Input={
 [internationalization]
 
 locale/translations=PackedStringArray("res://TEXT/Localitation.es.translation", "res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.en.translation")
+locale/test="de"

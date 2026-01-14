@@ -58,6 +58,8 @@ func _ready():
 	currentStats = Global.house_registry.get(Global.HouseSelected[0])
 
 func addHouse():
+	Removelayer()
+	tilemap.set_cell(tile_coords)
 	tilemap.set_cell(tile_coords,currentStats.TileMapID,currentStats.TileMapPosition)
 	pointsDict[currentStats.unitType] += currentStats.points
 	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
@@ -65,7 +67,6 @@ func addHouse():
 		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
 	else:
 		Global.currentResources[currentStats.unitType] += currentStats.points
-	Removelayer()
 	emit_signal("UpdateValues")
 
 func Removelayer():
@@ -78,17 +79,14 @@ func Removelayer():
 func _input(event) -> void:
 	# Check specifically for a left mouse button press
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed || event.is_action_pressed("Controller_Input"):
-		
 		if CurrentID == HitId:
 			return
 		if !SoundAnimations.is_playing():
-			
 			emit_signal("EarlyFullMiss")
 			emit_signal("Early")
 			pointsDict[Global.Points.Early] +=1
 			HitId=CurrentID
 			return
-
 		if CanBuild :
 			addHouse()
 		else:
@@ -140,7 +138,6 @@ func _on_rhythm_notifier_beat(_current_beat):
 		emit_signal("Miss")
 		emit_signal("EarlyFullMiss")
 		pointsDict[Global.Points.Miss] +=1
-	
 	CurrentID +=1;
 
 

@@ -1,6 +1,5 @@
 extends TileMapLayer
 
-@export_range(0, 1.0) var threshold := 0.5
 @export var MainLayer2:TileMapLayer
 
 var xsize:Vector2i = Vector2i(3,31)
@@ -13,7 +12,7 @@ func _ready():
 	for x in range(xsize.x,xsize.y):
 		for y in range(ysize.x,ysize.y):
 			var n = randf_range(0,1.0)
-			if n < threshold:
+			if n < Global.level_registery[Global.currentLevel].treeSpawnThreshold:
 				continue
 			if MainLayer2.get_cell_tile_data(Vector2i(x,y)) != null:
 				continue
