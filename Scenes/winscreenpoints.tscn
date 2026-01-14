@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://blbxy8r1qp4cb"]
 
-[ext_resource type="Texture2D" uid="uid://quo45aykdrvr" path="res://UI/my-MISS.png" id="1_uebof"]
+[ext_resource type="Texture2D" uid="uid://quo45aykdrvr" path="res://UI/Points/my-MISS.png" id="1_uebof"]
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="2_ju8al"]
 [ext_resource type="Script" uid="uid://cyhcd7o6nir1e" path="res://Script/startparticel.gd" id="3_ju8al"]
 [ext_resource type="PackedScene" uid="uid://cfh2hfv8mqnin" path="res://ParticelEmmiters/BadEffect.tscn" id="3_l7jhd"]

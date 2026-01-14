@@ -60,7 +60,7 @@ func _ready():
 func addHouse():
 	tilemap.set_cell(tile_coords,currentStats.TileMapID,currentStats.TileMapPosition)
 	pointsDict[currentStats.unitType] += currentStats.points
-	Global.currentResources[Global.pointsConnectDict[currentStats.buildType[0]]] -= currentStats.buildCost[0]
+	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
 	if Global.pointsConnectDict.has(currentStats.unitType):
 		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
 	else:
@@ -73,7 +73,7 @@ func Removelayer():
 		tilemap.set_cell(x,0)
 		pointsDict[currentStats.unitType] += currentStats.points
 		if Global.pointsConnectDict.has(currentStats.unitType):
-			Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
+			Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += 1
 
 func _input(event) -> void:
 	# Check specifically for a left mouse button press

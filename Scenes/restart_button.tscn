@@ -1,13 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://uuw6qcotihjo"]
 
-[ext_resource type="Script" uid="uid://b10if76uq66qf" path="res://Script/StartButton.gd" id="1_jdibl"]
+[ext_resource type="Script" uid="uid://b10if76uq66qf" path="res://Script/Menus/StartButton.gd" id="1_jdibl"]
 
 [node name="Restart2" type="Button"]
-offset_left = 23.0
-offset_top = -88.0
-offset_right = 340.0
-offset_bottom = -60.0
-text = "Restart"
+offset_right = 317.0
+offset_bottom = 31.0
+text = "BTN_RESTART"
 script = ExtResource("1_jdibl")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

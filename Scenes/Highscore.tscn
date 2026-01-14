@@ -274,6 +274,7 @@ size_flags_stretch_ratio = 0.13
 
 [node name="Restart2" parent="Control/HBoxContainer/VBoxContainer2/Control2" instance=ExtResource("8_1ryyy")]
 layout_mode = 0
+offset_bottom = 28.0
 
 [node name="Quit2" type="Button" parent="Control/HBoxContainer/VBoxContainer2/Control2"]
 visible = false

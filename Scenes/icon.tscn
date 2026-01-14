@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c3vrqxkurj6jq"]
 
-[ext_resource type="Texture2D" uid="uid://clnwe6gcms8hs" path="res://UI/#1 - Transparent Icons1.png" id="1_46kna"]
+[ext_resource type="Texture2D" uid="uid://clnwe6gcms8hs" path="res://UI/Points/#1 - Transparent Icons1.png" id="1_46kna"]
 
 [node name="Icon" type="TextureRect"]
 texture = ExtResource("1_46kna")

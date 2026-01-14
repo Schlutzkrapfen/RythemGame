@@ -1,0 +1,10 @@
+id,en,de,es
+BTN_RESTART,Restart,Neustart,Reiniciar
+BTN_QUIT,Quit,Beenden,Salir
+BTN_SETTINGS,Settings,Einstellungen,Ajustes
+BTN_NEXTLEVEL,Next Level,Nächstes Level,
+BTN_NEXT,Next,Weiter,
+HOUSE_DEFAULT_NAME,,,
+HOUSE_DEFAULT_DES,,,
+HOUSE_WOOD_CUTTER_NAME,[b]Wood Cutter[/b],[b]Holzfäller[/b],
+HOUSE_WOOD_CUTTER_DES,Uses all [b]TREES[/b] in his surroundings to create [b] WOOD[/b]. Uses up 5 [b]PEOPLE[/b] don't ask what they are doing after finishing the build ,Benutzt alle [b]BÄUME[/b] in seinem Umfeld um [b]HOLZ[/b] daraus zu gewinnen. Verbraucht 5 [b]MENSCHEN[/b] frag besser nicht was sie nach dem Bau machen.,

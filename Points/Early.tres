@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="PointsDefinition" load_steps=5 format=3 uid="uid://cemh2ij2ut8np"]
 
-[ext_resource type="Texture2D" uid="uid://bjcgucursnwcg" path="res://UI/#1 - Transparent Icons6.png" id="1_ualqo"]
+[ext_resource type="Texture2D" uid="uid://bjcgucursnwcg" path="res://UI/Points/#1 - Transparent Icons6.png" id="1_ualqo"]
 [ext_resource type="Material" uid="uid://dnu4j47rh5mfw" path="res://ParticelEmmiters/BadEffect.tres" id="2_36d4n"]
-[ext_resource type="Texture2D" uid="uid://cxpx1echlfbdq" path="res://UI/my-EARLY.png" id="3_ualqo"]
+[ext_resource type="Texture2D" uid="uid://cxpx1echlfbdq" path="res://UI/Points/my-EARLY.png" id="3_ualqo"]
 [ext_resource type="Script" uid="uid://ci2h7owl1v3fp" path="res://Script/Definitions/points_definition.gd" id="4_ualqo"]
 
 [resource]

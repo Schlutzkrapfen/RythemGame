@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0p2l2gw0qd5u"]
 
-[ext_resource type="Texture2D" uid="uid://w1q3kccg8bt2" path="res://UI/Keyboard Letters and Symbols1.png" id="1_su8le"]
-[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/House1.png" id="1_v2t0o"]
+[ext_resource type="Texture2D" uid="uid://w1q3kccg8bt2" path="res://UI/ButtonIcons/Keyboard Letters and Symbols1.png" id="1_su8le"]
+[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/ButtonIcons/Normal/House1.png" id="1_v2t0o"]
 
 [node name="TextureButton" type="TextureButton"]
 custom_minimum_size = Vector2(100, 75)

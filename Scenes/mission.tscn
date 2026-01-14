@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://qtkddl3ultg3"]
 
-[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/House1.png" id="1_2qmcd"]
+[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/ButtonIcons/Normal/House1.png" id="1_2qmcd"]
 
 [node name="Mission" type="HBoxContainer"]
 size_flags_vertical = 3

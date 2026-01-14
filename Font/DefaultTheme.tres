@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://lcjmsych3ypw"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://lcjmsych3ypw"]
 
 [ext_resource type="FontFile" uid="uid://dna3hwhc26k4t" path="res://Font/PublicSans-VariableFont_wght.ttf" id="1_qgin7"]
+[ext_resource type="FontFile" uid="uid://dlpfb0f1jthai" path="res://Font/Inter_18pt-SemiBold.ttf" id="2_hskdy"]
 
 [resource]
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
@@ -9,4 +10,4 @@ Button/fonts/font = ExtResource("1_qgin7")
 Label/colors/font_outline_color = Color(1, 1, 1, 1)
 Label/constants/outline_size = 5
 Label/font_sizes/font_size = 32
-Label/fonts/font = ExtResource("1_qgin7")
+Label/fonts/font = ExtResource("2_hskdy")

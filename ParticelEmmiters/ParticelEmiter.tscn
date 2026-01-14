@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt0ebo615ncli"]
 
-[ext_resource type="Texture2D" uid="uid://be4v6mhe4rjqf" path="res://UI/my-GOOD.png" id="1_3x4on"]
+[ext_resource type="Texture2D" uid="uid://be4v6mhe4rjqf" path="res://UI/Points/my-GOOD.png" id="1_3x4on"]
 [ext_resource type="Material" uid="uid://5hlip1bhvlhq" path="res://ParticelEmmiters/Good.tres" id="2_w4ud2"]
 
 [node name="GPUParticles2D" type="GPUParticles2D"]

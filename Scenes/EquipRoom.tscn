@@ -1,0 +1,306 @@
+[gd_scene load_steps=6 format=3 uid="uid://dreu6sjmunp6u"]
+
+[ext_resource type="PackedScene" uid="uid://8yloef2upakm" path="res://Scenes/SelecetHouse.tscn" id="1_ojucv"]
+[ext_resource type="Script" uid="uid://dvnd2laiuxt85" path="res://Script/CurrentSelectedHouses.gd" id="2_ebes0"]
+[ext_resource type="Script" uid="uid://bp3hso1wefcta" path="res://Scenes/NextLevel.gd" id="3_1elkk"]
+
+[sub_resource type="Gradient" id="Gradient_ebes0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.7160871, 0.37478626, 1.92523e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1elkk"]
+gradient = SubResource("Gradient_ebes0")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.02
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control5" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_1elkk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="SingleHouse" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse2" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse3" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse4" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse5" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse6" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse7" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse8" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="SingleHouse" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse2" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse3" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse4" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse5" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse6" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse7" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse8" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="SingleHouse" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse2" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse3" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse4" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse5" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse6" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse7" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="SingleHouse8" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4390491, 0.43904912, 0.43904912, 1)
+
+[node name="ContainerForConnectButton" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer" node_paths=PackedStringArray("buttonsArray", "SpaceArray")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+script = ExtResource("2_ebes0")
+buttonsArray = [NodePath("FirstButton"), NodePath("SecondButton"), NodePath("ThirdButton"), NodePath("LastButton")]
+SpaceArray = [NodePath("Control1"), NodePath("Control2"), NodePath("Control3"), NodePath("Control4")]
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FirstButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
+visible = false
+layout_mode = 2
+
+[node name="Control1" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SecondButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
+visible = false
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ThirdButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
+visible = false
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LastButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
+visible = false
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BTN_NEXT"
+script = ExtResource("3_1elkk")
+
+[node name="Control4" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.02
+
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton/FirstButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [0]]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton/SecondButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [1]]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton/ThirdButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [2]]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton/LastButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [3]]

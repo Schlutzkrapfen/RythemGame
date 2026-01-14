@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfeh503ya5cob"]
+
+[ext_resource type="Script" uid="uid://bhnurxr2v7wf7" path="res://Script/Menus/NextLevelButton.gd" id="1_xfr2v"]
+
+[node name="NextLevel" type="Button"]
+text = "BTN_NEXTLEVEL"
+script = ExtResource("1_xfr2v")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

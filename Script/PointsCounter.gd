@@ -18,9 +18,11 @@ signal stopCountUp
 @onready var labelRegistry = Global.labelRegistry
 @onready var pointsDict: Dictionary[Global.Points, int] = Global.pointsDict
 
+@export var ButtonNode:Control
 @export var pointsAddingSpeed:float = 10
-@export var waitTimeTillSwitch:float = 0.5
-@export var waitTimeTillKatching:float = 0.5
+@export var waitTillSwitch:float = 0.5
+@export var waitTillKatching:float = 0.5
+@export var waitTillButtonShown:float = 0.5
 @export var ParticelEmmiters:Array[GPUParticles2D]
 
 func _process(delta):
@@ -38,7 +40,7 @@ func _process(delta):
 			ParticelEmmiters[0].emitting =false
 			emit_signal("stopCountUp")
 			pointsLabel.text = str(roundf(currentPoints))
-			await get_tree().create_timer(waitTimeTillSwitch).timeout
+			await get_tree().create_timer(waitTillSwitch).timeout
 			Switching =false
 			if !soundgoAgain:
 				soundgoAgain = true
@@ -78,14 +80,25 @@ func addMultiplayer():
 	pointsLabel.text = str(roundf(currentPoints))
 	ParticelEmmiters[0].emitting = false
 	emit_signal("stopCountUp")
-	await get_tree().create_timer(waitTimeTillKatching).timeout
+	await get_tree().create_timer(waitTillKatching).timeout
 	ParticelEmmiters[1].position = pointsLabel.size /2 
 	ParticelEmmiters[1].emitting = true
 	emit_signal("Kachinging")
 	currentPoints *= pointsDict[Global.Points.multiplaier]
 	Global.endPoints = int(currentPoints)
-
+	await get_tree().create_timer(waitTillButtonShown).timeout
+	ButtonNode.visible = true
 	
+
+func skip():
+	currentPoints = 0
+	for x in labelRegistry:
+		currentPoints += pointsDict[labelRegistry[x].stat] * labelRegistry[x].Multiplayer
+	addMultiplayer()
+
+func _input(event):
+	if event is InputEventKey && event.is_pressed() && starting:
+		skip()
 
 func findNextpoint()-> int:
 	var next:bool =false

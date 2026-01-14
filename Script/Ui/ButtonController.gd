@@ -12,6 +12,9 @@ var IconSize: int
 @onready var CostAmount: Array[int] = Global.BuildCostAmount
 
 func _ready():
+	if Global.HouseSelected.size() == 1:
+		visible = false
+		return
 	for x in Global.HouseSelected.size():
 		buttons.append(TextureButtons.instantiate())
 		CurrentUnlocked.append(false)

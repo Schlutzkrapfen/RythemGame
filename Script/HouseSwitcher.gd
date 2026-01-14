@@ -36,7 +36,7 @@ func _on_node_2d_update_values():
 		for x in houseAmount:
 			if Global.currentResources[Resouces[x]] >=CostAmount[x]:
 				emit_signal("SwitchHouse",x)
-	else:
+	elif Global.AutomaticSwitcher:
 		for x in houseAmount:
 			if Global.currentResources[Resouces[x]] >=CostAmount[x]:
 				emit_signal("SwitchHouse",x)

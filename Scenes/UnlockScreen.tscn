@@ -1,0 +1,155 @@
+[gd_scene load_steps=6 format=3 uid="uid://c88fw7mrj2fus"]
+
+[ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="1_4copb"]
+[ext_resource type="Script" uid="uid://cfmwem4xuoag3" path="res://Script/LoadStatsUnlockMenu.gd" id="1_cam7y"]
+[ext_resource type="Texture2D" uid="uid://dl25l1le7sysu" path="res://UI/ButtonIcons/Hd/House2.png" id="2_cam7y"]
+[ext_resource type="FontFile" uid="uid://dlpfb0f1jthai" path="res://Font/Inter_18pt-SemiBold.ttf" id="5_6txr0"]
+[ext_resource type="Script" uid="uid://qy34taqu581r" path="res://Script/Menus/NextButton.gd" id="5_im5p7"]
+
+[node name="UnlockScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7129966, 0.76272833, 0.9143149, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="MainUpgradeMenu" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer" node_paths=PackedStringArray("Title", "Icon", "Text")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_4copb")
+script = ExtResource("1_cam7y")
+Title = NodePath("Title")
+Icon = NodePath("TextureRect")
+Text = NodePath("RichTextLabel")
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/MainUpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_6txr0")
+theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/bold_font_size = 35
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/MainUpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/MainUpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_cam7y")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/MainUpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/MainUpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_6txr0")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+fit_content = true
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer/MainUpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -15.5
+offset_right = 44.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "BTN_NEXT"
+script = ExtResource("5_im5p7")
+timeTillButtonAppears = null
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/Button" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/Button" method="_on_button_up"]

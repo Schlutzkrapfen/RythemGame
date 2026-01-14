@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelDefinition" load_steps=3 format=3 uid="uid://dlnjh107bawr0"]
 
 [ext_resource type="Script" uid="uid://jbrfkyp0aknp" path="res://Script/Definitions/level_definition.gd" id="1_rb0ye"]
-[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/House1.png" id="1_si1jb"]
+[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/ButtonIcons/Normal/House1.png" id="1_si1jb"]
 
 [resource]
 script = ExtResource("1_rb0ye")

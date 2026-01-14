@@ -14,6 +14,7 @@ var AutomaticSwitcher:bool = true
 var currentLevel:int= 1
 
 var HouseSelected:Array[HouseID] = [HouseID.Default]
+@onready var unlockedHouses:Array[HouseID] = HouseSelected
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),
 	HouseID.Trees: preload("res://Houses/Tree.tres"),
@@ -21,7 +22,8 @@ var house_registry: Dictionary = {
 	HouseID.Market: preload("res://Houses/Market.tres")
 }
 var level_registery: Dictionary = {
-	1: preload("res://Levels/LevelResources/Level1.tres")
+	1: preload("res://Levels/LevelResources/Level1.tres"),
+	2: preload("res://Levels/LevelResources/Level2.tres")
 }
 
 var pointsConnectDict: Dictionary[Points,Points] = {
@@ -60,16 +62,14 @@ var currentResources: Dictionary[Points, int] = {
 func _ready():
 	GetHousesVeriables()
 	
-#TODO:Implement a way to use multiple build Types(EVERY one that is a array needs to be 
-#a different way)
 func GetHousesVeriables() -> void:
 	for x in HouseSelected :
-		PointsIcons.append(house_registry[x].labelIcon)
-		BuildCostAmount.append(house_registry[x].buildCost[0])
+		BuildCostAmount.append(house_registry[x].buildCost)
 		ButtonIcons.append(house_registry[x].buttonIcon)
-		if pointsConnectDict.has(house_registry[x].buildType[0]):
-			BuildResources.append(pointsConnectDict[house_registry[x].buildType[0]])
+		if pointsConnectDict.has(house_registry[x].buildType):
+			BuildResources.append(pointsConnectDict[house_registry[x].buildType])
 		if pointsConnectDict.has(house_registry[x].unitType):
 			MakeResources.append(pointsConnectDict[house_registry[x].unitType])
 		else:
 			MakeResources.append(house_registry[x].unitType)
+		PointsIcons.append(labelRegistry[house_registry[x].unitType].labelIcon)

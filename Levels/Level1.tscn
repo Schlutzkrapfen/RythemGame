@@ -152,9 +152,6 @@ process_thread_group_order = 0
 process_thread_messages = 0
 follow_viewport_enabled = false
 
-[node name="Upgrades" parent="Control/CanvasLayer/Control" index="1"]
-visible = false
-
 [node name="Camera2D" type="Camera2D" parent="Control"]
 position = Vector2(582, 311)
 zoom = Vector2(2, 2)

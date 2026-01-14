@@ -1,0 +1,124 @@
+[gd_scene load_steps=3 format=3 uid="uid://8yloef2upakm"]
+
+[ext_resource type="Texture2D" uid="uid://bwu2323vwq707" path="res://UI/ButtonIcons/Normal/NotUnlocked.png" id="1_66xda"]
+[ext_resource type="Texture2D" uid="uid://clnwe6gcms8hs" path="res://UI/Points/#1 - Transparent Icons1.png" id="2_tyeco"]
+
+[node name="SingleHouse" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_66xda")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="GoodPoints" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/GoodPoints"]
+visible = false
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.01
+text = "8"
+vertical_alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/GoodPoints"]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("2_tyeco")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2, 30)
+layout_mode = 2
+color = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[node name="BadPoints" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/BadPoints"]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.01
+text = "8"
+vertical_alignment = 2
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/BadPoints"]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("2_tyeco")
+expand_mode = 1
+stretch_mode = 5

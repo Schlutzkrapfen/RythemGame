@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PointsDefinition" load_steps=6 format=3 uid="uid://bo7ak02ud0w4e"]
 
-[ext_resource type="Texture2D" uid="uid://e8ygl1flu0hh" path="res://UI/hourglass.png" id="1_e0l1v"]
+[ext_resource type="Texture2D" uid="uid://e8ygl1flu0hh" path="res://UI/Points/hourglass.png" id="1_e0l1v"]
 [ext_resource type="Texture2D" uid="uid://sei5m8pa3yaa" path="res://UI/Confetti.png" id="1_wx1ti"]
 [ext_resource type="Script" uid="uid://ci2h7owl1v3fp" path="res://Script/Definitions/points_definition.gd" id="2_e2mlc"]
 [ext_resource type="Material" uid="uid://0audgb1jlu2f" path="res://ParticelEmmiters/Confetti.tres" id="2_wbjep"]

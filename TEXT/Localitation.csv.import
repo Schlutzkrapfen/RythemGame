@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b4iclx7dgeg2l"
+
+[deps]
+
+files=["res://TEXT/Localitation.en.translation", "res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.es.translation"]
+
+source_file="res://TEXT/Localitation.csv"
+dest_files=["res://TEXT/Localitation.en.translation", "res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0
