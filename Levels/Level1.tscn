@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b4plxikf88g6g"]
+[gd_scene load_steps=34 format=4 uid="uid://b4plxikf88g6g"]
 
 [ext_resource type="Script" uid="uid://cssfytp2m1og" path="res://Script/Spawner.gd" id="1_104vp"]
 [ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="2_3momc"]
@@ -10,12 +10,22 @@
 [ext_resource type="PackedScene" uid="uid://cvfuy80wndxc8" path="res://Scenes/help_layer.tscn" id="8_13mt1"]
 [ext_resource type="PackedScene" uid="uid://7m6pjpcy6wg2" path="res://Scenes/UI.tscn" id="9_pp47a"]
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="10_idi36"]
+[ext_resource type="Texture2D" uid="uid://bcyrw0e7thwx5" path="res://ControllerInput/firstHouse.tres" id="10_k7tvq"]
+[ext_resource type="Texture2D" uid="uid://okt6823ouuqn" path="res://ControllerInput/MousePressed.tres" id="10_p2sgf"]
+[ext_resource type="Texture2D" uid="uid://cpil5anyl0s5y" path="res://UI/my-3.png" id="10_pp47a"]
 [ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="11_8ubki"]
+[ext_resource type="Texture2D" uid="uid://csaubkhlrffn0" path="res://ControllerInput/SecondHouse.tres" id="11_62xmr"]
+[ext_resource type="Texture2D" uid="uid://du3ue506nks4n" path="res://UI/my-2.png" id="11_idi36"]
 [ext_resource type="PackedScene" uid="uid://dreu6sjmunp6u" path="res://Scenes/EquipRoom.tscn" id="11_sbm5j"]
+[ext_resource type="Texture2D" uid="uid://cpp4bjxo58sdu" path="res://ControllerInput/ThirdHouse.tres" id="12_0cfxs"]
 [ext_resource type="Script" uid="uid://bkg3ocaltn2vi" path="res://Script/timer.gd" id="12_3momc"]
+[ext_resource type="Texture2D" uid="uid://d2kjigd240r27" path="res://UI/my-1.png" id="12_8ubki"]
+[ext_resource type="Texture2D" uid="uid://c8ak16slurvu8" path="res://ControllerInput/FourthHouse.tres" id="13_2pfgx"]
+[ext_resource type="Texture2D" uid="uid://bqpqdakoe1658" path="res://UI/Points/my-GO.png" id="13_d73st"]
 [ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="13_k7tvq"]
 [ext_resource type="Script" uid="uid://bskva3ehqaym" path="res://Script/tutorial.gd" id="14_62xmr"]
 [ext_resource type="Script" uid="uid://cs4km2exdthjm" path="res://Script/levelSwitcher.gd" id="14_104vp"]
+[ext_resource type="Texture2D" uid="uid://rxg3rqqcf1yk" path="res://addons/controller_icons/assets/mouse/simple.png" id="14_k7tvq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1h0o"]
 texture = ExtResource("3_sbm5j")
@@ -153,6 +163,15 @@ process_thread_group = 1
 process_thread_group_order = 0
 process_thread_messages = 0
 follow_viewport_enabled = false
+
+[node name="ButtonSpawner" parent="Control/CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer" index="1"]
+ButtonsIcon = Array[Texture2D]([ExtResource("10_k7tvq"), ExtResource("11_62xmr"), ExtResource("12_0cfxs"), ExtResource("13_2pfgx")])
+
+[node name="MainScreenPopups" parent="Control/CanvasLayer/Control" index="2"]
+Images = Array[Texture2D]([ExtResource("10_pp47a"), ExtResource("11_idi36"), ExtResource("12_8ubki"), ExtResource("13_d73st"), ExtResource("14_k7tvq"), ExtResource("10_p2sgf")])
+
+[node name="TextureRect" parent="Control/CanvasLayer/Control/MainScreenPopups" index="0"]
+texture = ExtResource("10_p2sgf")
 
 [node name="Camera2D" type="Camera2D" parent="Control"]
 position = Vector2(582, 311)

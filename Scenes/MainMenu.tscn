@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://cxwuk0x08sudc"]
+[gd_scene load_steps=25 format=4 uid="uid://cxwuk0x08sudc"]
 
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="1_ryiiw"]
-[ext_resource type="Script" uid="uid://b10if76uq66qf" path="res://Script/Menus/StartButton.gd" id="1_wfuwk"]
+[ext_resource type="Script" uid="uid://dsk8von4lsm8l" path="res://Script/Menus/StartButton.gd" id="2_8e205"]
+[ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="2_7467j"]
 [ext_resource type="Script" uid="uid://cspuflcmisk5m" path="res://Script/Menus/ExitButton.gd" id="2_u5jnt"]
 [ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="3_itvm6"]
 [ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Tilemaps/dirt wall.png" id="4_gi1rj"]
@@ -14,6 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://74o45oaca00l" path="res://Tilemaps/small stone 1.png" id="11_2tsqr"]
 [ext_resource type="Texture2D" uid="uid://c18gko4qj1dqv" path="res://Tilemaps/water lily 1.png" id="12_2tsqr"]
 [ext_resource type="Texture2D" uid="uid://d34p8d2pr8g6f" path="res://Tilemaps/water lily 2.png" id="12_psshx"]
+
+[sub_resource type="Texture2D" id="Texture2D_2x1g0"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("2_7467j")
+path = "NextLevel"
+show_mode = 2
+metadata/_custom_type_script = "uid://oyi0dvyexiek"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tsqr"]
 texture = ExtResource("3_itvm6")
@@ -257,8 +266,10 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Start"
-script = ExtResource("1_wfuwk")
+text = "BTN_PLAY"
+icon = SubResource("Texture2D_2x1g0")
+expand_icon = true
+script = ExtResource("2_8e205")
 
 [node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -268,7 +279,7 @@ size_flags_stretch_ratio = 0.1
 [node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
-text = "Exit"
+text = "BTN_QUIT"
 script = ExtResource("2_u5jnt")
 
 [node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]

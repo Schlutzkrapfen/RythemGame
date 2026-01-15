@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("2_j6mqo")
+displayName = "NICE YOU WIN"
+descriptions = "CONGRATIULATIONS"
 houseType = 3
 unitType = 10
 metadata/_custom_type_script = "uid://8bue58jekekt"

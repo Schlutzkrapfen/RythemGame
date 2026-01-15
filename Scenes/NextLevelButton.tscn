@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfeh503ya5cob"]
+[gd_scene load_steps=4 format=3 uid="uid://bfeh503ya5cob"]
 
+[ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="1_suvp5"]
 [ext_resource type="Script" uid="uid://bhnurxr2v7wf7" path="res://Script/Menus/NextLevelButton.gd" id="1_xfr2v"]
+
+[sub_resource type="Texture2D" id="Texture2D_pna5u"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_suvp5")
+path = "NextLevel"
+metadata/_custom_type_script = "uid://oyi0dvyexiek"
 
 [node name="NextLevel" type="Button"]
 text = "BTN_NEXTLEVEL"
+icon = SubResource("Texture2D_pna5u")
+expand_icon = true
 script = ExtResource("1_xfr2v")
 
 [connection signal="button_up" from="." to="." method="_on_button_up"]

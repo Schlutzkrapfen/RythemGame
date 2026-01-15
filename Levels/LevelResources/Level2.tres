@@ -10,7 +10,7 @@ Level = 2
 levelPath = "uid://b4plxikf88g6g"
 PossibleHouseUnlocks = 4
 UnlocksNeeded = Dictionary[int, int]({
-9: 25
+9: 30
 })
 treeSpawnThreshold = 0.2
 PointsPossible = Array[int]([6, 8])

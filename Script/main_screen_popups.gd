@@ -10,11 +10,11 @@ signal IntroFinished
 
 func _input(event) -> void:
 	# Check specifically for a left mouse button press
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT  || event.is_action_pressed("Controller_Input"):
+	if event.is_action_pressed("Controller_Input"):
 		timesinslastInput = 0
 	
-	if event.is_action_pressed("Controller_Down")||event.is_action("Controller_Left")||event.is_action("Controller_Right")||event.is_action("Controller_Up"):
-		timesinslastInput = 0
+	#if event.is_action_pressed("Controller_Down")||event.is_action("Controller_Left")||event.is_action("Controller_Right")||event.is_action("Controller_Up"):
+	#	timesinslastInput = 0
 func _on_rhythm_notifier_beat(current_beat):
 	if current_beat < 4:
 		textureRect.texture = Images[current_beat]
@@ -34,6 +34,7 @@ func _process(delta):
 func animation():
 	loop += 1
 	if loop %2 == 0:
+		textureRect.visible=false
 		textureRect.texture =Images[ImagesEnum.Mouse]
 	else:
 		textureRect.texture =Images[ImagesEnum.MousePressed]

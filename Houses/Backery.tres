@@ -1,15 +1,18 @@
-[gd_resource type="Resource" script_class="HouseDefinition" load_steps=4 format=3 uid="uid://bgyhs5cu6nqx1"]
+[gd_resource type="Resource" script_class="HouseDefinition" load_steps=3 format=3 uid="uid://bgyhs5cu6nqx1"]
 
-[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/ButtonIcons/Normal/House1.png" id="1_ope5l"]
-[ext_resource type="Texture2D" uid="uid://eskp35aiuckp" path="res://UI/ButtonIcons/Hd/House1.png" id="2_l22yn"]
+[ext_resource type="Texture2D" uid="uid://d3xgspw7pjob1" path="res://UI/ButtonIcons/Normal/House3.png" id="1_ope5l"]
 [ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/Definitions/house_definition.gd" id="3_k2gqp"]
 
 [resource]
 script = ExtResource("3_k2gqp")
 buttonIcon = ExtResource("1_ope5l")
-buttonIconHD = ExtResource("2_l22yn")
+buttonIconHD = ExtResource("1_ope5l")
+tileMapPosition = Array[Vector2i]([Vector2i(3, 0)])
 displayName = "HOUSE_BACKERY_NAME"
 descriptions = "HOUSE_BACKERY_DES"
-UsesType = 1
+houseRange = 3
+buildCost = 2
+usesType = 1
 houseType = 3
+buildType = 8
 metadata/_custom_type_script = "uid://8bue58jekekt"

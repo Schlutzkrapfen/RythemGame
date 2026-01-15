@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2plfhokqusxu"]
+[gd_scene load_steps=24 format=3 uid="uid://d2plfhokqusxu"]
 
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="1_b3vrs"]
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="2_0udrg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://drribub13npt7" path="res://UI/Points/#1 - Transparent Icons3.png" id="8_mxr6m"]
 [ext_resource type="PackedScene" uid="uid://uuw6qcotihjo" path="res://Scenes/restart_button.tscn" id="9_xi21b"]
 [ext_resource type="PackedScene" uid="uid://bfeh503ya5cob" path="res://Scenes/NextLevelButton.tscn" id="10_2bjyx"]
+[ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="10_b3vrs"]
 [ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="11_5iqpk"]
 [ext_resource type="AudioStream" uid="uid://d0wdwqfejg4i4" path="res://Audio/cash-register-kaching-376867.mp3" id="12_yhux5"]
 
@@ -70,6 +71,22 @@ scale_curve = SubResource("CurveTexture_jewl8")
 alpha_curve = SubResource("CurveTexture_rf4lr")
 hue_variation_min = -0.020000022
 hue_variation_max = 0.019999977
+
+[sub_resource type="Texture2D" id="Texture2D_b3vrs"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("10_b3vrs")
+path = "Restart"
+show_mode = 2
+metadata/_custom_type_script = "uid://oyi0dvyexiek"
+
+[sub_resource type="Texture2D" id="Texture2D_0udrg"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("10_b3vrs")
+path = "NextLevel"
+show_mode = 2
+metadata/_custom_type_script = "uid://oyi0dvyexiek"
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -191,6 +208,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+icon = SubResource("Texture2D_b3vrs")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer"]
 layout_mode = 2
@@ -199,6 +217,7 @@ size_flags_horizontal = 3
 [node name="NextLevel" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("10_2bjyx")]
 layout_mode = 2
 size_flags_horizontal = 3
+icon = SubResource("Texture2D_0udrg")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
 layout_mode = 2

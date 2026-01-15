@@ -43,7 +43,6 @@ var pointsDict: Dictionary[Global.Points, int] = {
 	Global.Points.Perfect: 0, 
 	Global.Points.people: 0, 
 	Global.Points.wood: 0, 
-	
 	Global.Points.time: 0, 
 	Global.Points.multiplaier: 1, 
 }
@@ -57,12 +56,12 @@ func _ready():
 	currentStats = Global.house_registry.get(Global.HouseSelected[0])
 
 func addHouse():
-	if currentStats.destroyes:
-		Removelayer()
-	tilemap.set_cell(tile_coords,currentStats.tileMapID[0],currentStats.tileMapPosition[0])
-	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
 	if currentStats.houseRange == 0:
 		addPoints()
+	else:
+		changeLayer()
+	tilemap.set_cell(tile_coords,currentStats.tileMapID[0],currentStats.tileMapPosition[0])
+	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
 	emit_signal("UpdateValues")
 
 func addPoints():
@@ -70,14 +69,15 @@ func addPoints():
 		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
 	pointsDict[currentStats.unitType] += currentStats.points
 	
-func Removelayer():
+func changeLayer():
 	for x in RemoveArray:
-		tilemap.set_cell(x,0)
+		if currentStats.destroyes:
+			tilemap.set_cell(x,0)
 		addPoints()
 
 func _input(event) -> void:
 	# Check specifically for a left mouse button press
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed || event.is_action_pressed("Controller_Input"):
+	if  event.is_action_pressed("Controller_Input"):
 		if CurrentID == HitId:
 			return
 		if !SoundAnimations.is_playing():

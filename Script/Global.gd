@@ -11,10 +11,10 @@ var MakeResources: Array[Points]
 var PointsIcons: Array[Texture2D]
 var ButtonIcons: Array[Texture2D]
 var HouseUnlocked: Array[HouseID]
-var AutomaticSwitcher:bool = true
-var currentLevel:int= 2
+var AutomaticSwitcher:bool = false
+var currentLevel:int= 0
 
-var HouseSelected:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter]
+var HouseSelected:Array[HouseID] = []
 @onready var unlockedHouses:Array[HouseID] = HouseSelected
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),
@@ -26,7 +26,8 @@ var house_registry: Dictionary = {
 var level_registery: Dictionary = {
 	0: preload("res://Levels/LevelResources/Level0.tres"),
 	1: preload("res://Levels/LevelResources/Level1.tres"),
-	2: preload("res://Levels/LevelResources/Level2.tres")
+	2: preload("res://Levels/LevelResources/Level2.tres"),
+	3: preload("res://Levels/LevelResources/Level3.tres")
 }
 
 var pointsConnectDict: Dictionary[Points,Points] = {

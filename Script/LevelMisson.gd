@@ -11,7 +11,6 @@ func checkIfMissionFinished():
 		if Global.currentResources[x] < unlocksneeded[x]:
 			return
 	emit_signal("missionsMade")
-			
 
 func _ready():
 	var i:int =0

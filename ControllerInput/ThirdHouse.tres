@@ -1,0 +1,10 @@
+[gd_resource type="Texture2D" script_class="ControllerIconTexture" load_steps=2 format=3 uid="uid://cpp4bjxo58sdu"]
+
+[ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="1_3d1m8"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_3d1m8")
+path = "ThirdHouse"
+metadata/_custom_type_script = "uid://oyi0dvyexiek"

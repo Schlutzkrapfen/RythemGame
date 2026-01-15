@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0p2l2gw0qd5u"]
 
-[ext_resource type="Texture2D" uid="uid://w1q3kccg8bt2" path="res://UI/ButtonIcons/Keyboard Letters and Symbols1.png" id="1_su8le"]
 [ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/ButtonIcons/Normal/House1.png" id="1_v2t0o"]
+[ext_resource type="Texture2D" uid="uid://c8ak16slurvu8" path="res://ControllerInput/FourthHouse.tres" id="2_6hfi2"]
 
 [node name="TextureButton" type="TextureButton"]
 custom_minimum_size = Vector2(100, 75)
@@ -46,8 +46,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
+offset_left = 1.0
+offset_top = -27.0
+offset_right = 56.0
+offset_bottom = 28.0
 grow_vertical = 2
-texture = ExtResource("1_su8le")
+texture = ExtResource("2_6hfi2")
+expand_mode = 1

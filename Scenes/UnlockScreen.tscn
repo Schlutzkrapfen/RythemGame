@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://c88fw7mrj2fus"]
+[gd_scene load_steps=8 format=3 uid="uid://c88fw7mrj2fus"]
 
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="1_4copb"]
 [ext_resource type="Script" uid="uid://cfmwem4xuoag3" path="res://Script/LoadStatsUnlockMenu.gd" id="1_cam7y"]
 [ext_resource type="Texture2D" uid="uid://dl25l1le7sysu" path="res://UI/ButtonIcons/Hd/House2.png" id="2_cam7y"]
 [ext_resource type="FontFile" uid="uid://dlpfb0f1jthai" path="res://Font/Inter_18pt-SemiBold.ttf" id="5_6txr0"]
 [ext_resource type="Script" uid="uid://qy34taqu581r" path="res://Script/Menus/NextButton.gd" id="5_im5p7"]
+[ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="5_m68nd"]
+
+[sub_resource type="Texture2D" id="Texture2D_qup8s"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("5_m68nd")
+path = "NextLevel"
+show_mode = 2
+metadata/_custom_type_script = "uid://oyi0dvyexiek"
 
 [node name="UnlockScreen" type="Control"]
 layout_mode = 3
@@ -144,6 +153,8 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "BTN_NEXT"
+icon = SubResource("Texture2D_qup8s")
+expand_icon = true
 script = ExtResource("5_im5p7")
 
 [node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer"]
