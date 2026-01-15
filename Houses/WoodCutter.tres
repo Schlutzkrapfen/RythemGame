@@ -8,11 +8,12 @@
 script = ExtResource("1_qxw7v")
 buttonIcon = ExtResource("1_j7f50")
 buttonIconHD = ExtResource("2_4tj17")
-TileMapPosition = Vector2i(1, 0)
+tileMapPosition = Array[Vector2i]([Vector2i(1, 0)])
 displayName = "HOUSE_WOOD_CUTTER_NAME"
 descriptions = "HOUSE_WOOD_CUTTER_DES"
 houseRange = 3
 buildCost = 5
-points = 0
+houseType = 3
+destroyes = true
 unitType = 8
 metadata/_custom_type_script = "uid://8bue58jekekt"

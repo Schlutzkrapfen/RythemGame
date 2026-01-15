@@ -6,10 +6,10 @@ uid="uid://b4iclx7dgeg2l"
 
 [deps]
 
-files=["res://TEXT/Localitation.en.translation", "res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.es.translation"]
+files=["res://TEXT/Localitation.en.translation", "res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.it.translation"]
 
 source_file="res://TEXT/Localitation.csv"
-dest_files=["res://TEXT/Localitation.en.translation", "res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.es.translation"]
+dest_files=["res://TEXT/Localitation.en.translation", "res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.it.translation"]
 
 [params]
 

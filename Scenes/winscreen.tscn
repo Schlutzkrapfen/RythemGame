@@ -132,6 +132,7 @@ visible = false
 layout_mode = 2
 script = ExtResource("4_fr20v")
 ButtonNode = NodePath("../Control2/Control/HBoxContainer")
+pointsAddingSpeed = 25.0
 ParticelEmmiters = [NodePath("Points/PointsUp"), NodePath("Points/Kaching")]
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]

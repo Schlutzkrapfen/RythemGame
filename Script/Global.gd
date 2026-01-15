@@ -3,6 +3,7 @@ extends Node
 enum Points  {Miss = 0,Early = 1,Full =2,Okay=3,Good=4 ,Perfect=5 ,people=6 ,unemployed=7,wood=8 ,unusedWood=9,time=10,multiplaier =11}
 var endPoints: int = 0
 enum HouseID { Default = 0,Trees=1 ,WoodCutter= 2, Market=3, Backery=4  }
+enum HouseType {Trees = 0, Houses = 1, ConstroctionBuilding =2,CityBuildings = 3}
 
 var BuildCostAmount: Array[int]
 var BuildResources: Array[Points]
@@ -23,6 +24,7 @@ var house_registry: Dictionary = {
 	HouseID.Backery: preload("res://Houses/Backery.tres")
 }
 var level_registery: Dictionary = {
+	0: preload("res://Levels/LevelResources/Level0.tres"),
 	1: preload("res://Levels/LevelResources/Level1.tres"),
 	2: preload("res://Levels/LevelResources/Level2.tres")
 }

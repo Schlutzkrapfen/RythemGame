@@ -18,6 +18,7 @@ func _ready():
 	noise.seed = randi()
 
 
+
 func add_trauma(amount : float):
 	trauma = min(trauma + amount, 1.0)
 

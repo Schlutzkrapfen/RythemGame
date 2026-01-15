@@ -1,12 +1,12 @@
-id,en,de,es
-BTN_RESTART,Restart,Neustart,Reiniciar
-BTN_QUIT,Quit,Beenden,Salir
-BTN_SETTINGS,Settings,Einstellungen,Ajustes
+id,en,de,it
+BTN_RESTART,Restart,Neustart,
+BTN_QUIT,Quit,Beenden,
+BTN_SETTINGS,Settings,Einstellungen,
 BTN_NEXTLEVEL,Next Level,Nächstes Level,
 BTN_NEXT,Next,Weiter,
 BTN_POINTS,Points,Punkte,
-HOUSE_DEFAULT_NAME,,,
-HOUSE_DEFAULT_DES,,,
+HOUSE_DEFAULT_NAME,[b]House[/b],[b]Haus[/b],
+HOUSE_DEFAULT_DES,Adds [color=green][b]1 PERSON[/b][/color] to your city. For free just hit the Beat.,Fügt [color=green][b]1 PERSON[/b][/color] hinzu ganz umsonst. Du musst einfach nur den Beat treffen.,
 HOUSE_WOOD_CUTTER_NAME,[b]Wood Cutter[/b],[b]Holzfäller[/b],
 HOUSE_WOOD_CUTTER_DES,Uses all [b]TREES[/b] in his surroundings to create[color=green][b] WOOD[/b][/color]. Uses up  [color=red][b]5 PEOPLE[/b][/color] don't ask what they are doing after finishing the build ,"Benutzt alle [b]BÄUME[/b] in seinem Umfeld, um [color=green][b]HOLZ[/b][/color] daraus zu gewinnen. Verbraucht [color=red][b]5 MENSCHEN[/b][/color], frag besser nicht, was sie nach dem Bau machen.",
 HOUSE_BACKERY_NAME,[b]Backery[/b],[b]Bäcker[/b],

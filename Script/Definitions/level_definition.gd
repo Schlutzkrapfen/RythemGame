@@ -15,3 +15,5 @@ class_name LevelDefinition extends Resource
 
 @export_group("Types")
 @export var PointsPossible:Array[Global.Points]
+
+@export_group("Music")

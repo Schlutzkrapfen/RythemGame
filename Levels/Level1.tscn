@@ -141,6 +141,8 @@ tile_set = ExtResource("6_gmnjr")
 script = ExtResource("7_qg0tc")
 MainLayer2 = NodePath(".")
 
+[node name="Animator" type="Node" parent="MainLayer"]
+
 [node name="HelpLayer" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("8_13mt1")]
 tilemap = NodePath("../MainLayer")
 

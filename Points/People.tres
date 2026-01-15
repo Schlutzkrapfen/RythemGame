@@ -8,6 +8,7 @@
 script = ExtResource("3_rimx6")
 labelIcon = ExtResource("1_owxq0")
 Volume = -5.0
+stat = 6
 ParticelTexure = ExtResource("1_owxq0")
 ProcessMatiral = ExtResource("2_pl36v")
 Amount = 20

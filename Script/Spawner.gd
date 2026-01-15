@@ -15,7 +15,6 @@ signal Early
 signal Full
 signal Miss
 
-
 signal UpdateValues
 
 var buildParticelList:Array[GPUParticles2D]
@@ -58,23 +57,23 @@ func _ready():
 	currentStats = Global.house_registry.get(Global.HouseSelected[0])
 
 func addHouse():
-	Removelayer()
-	tilemap.set_cell(tile_coords)
-	tilemap.set_cell(tile_coords,currentStats.TileMapID,currentStats.TileMapPosition)
-	pointsDict[currentStats.unitType] += currentStats.points
+	if currentStats.destroyes:
+		Removelayer()
+	tilemap.set_cell(tile_coords,currentStats.tileMapID[0],currentStats.tileMapPosition[0])
 	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
-	if Global.pointsConnectDict.has(currentStats.unitType):
-		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
-	else:
-		Global.currentResources[currentStats.unitType] += currentStats.points
+	if currentStats.houseRange == 0:
+		addPoints()
 	emit_signal("UpdateValues")
 
+func addPoints():
+	if Global.pointsConnectDict.has(currentStats.unitType):
+		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
+	pointsDict[currentStats.unitType] += currentStats.points
+	
 func Removelayer():
 	for x in RemoveArray:
 		tilemap.set_cell(x,0)
-		pointsDict[currentStats.unitType] += currentStats.points
-		if Global.pointsConnectDict.has(currentStats.unitType):
-			Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += 1
+		addPoints()
 
 func _input(event) -> void:
 	# Check specifically for a left mouse button press
@@ -139,7 +138,6 @@ func _on_rhythm_notifier_beat(_current_beat):
 		emit_signal("EarlyFullMiss")
 		pointsDict[Global.Points.Miss] +=1
 	CurrentID +=1;
-
 
 func _on_level_switcher_finished():
 	Global.pointsDict = pointsDict

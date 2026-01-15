@@ -28,10 +28,10 @@ func _ready():
 		goodLabelIcons[i].visible = true
 		goodLabelIcons[i].texture = Global.labelRegistry[currentHouseStats[i].unitType].labelIcon
 		goodLabel[i].visible = true
-		if currentHouseStats[i].points != 0:
+		if currentHouseStats[i].houseRange == 0:
 			goodLabel[i].text = str(currentHouseStats[i].points)
 		else:
-			goodLabel[i].text = "X"
+			goodLabel[i].text = "X*" +str(currentHouseStats[i].points)
 		#ShowBadThings(if there are any)
 		VisualSpacer.append(buttonsArray[i].get_node("./VBoxContainer/HBoxContainer/ColorRect"))
 		badLabelIcons.append(buttonsArray[i].get_node("./VBoxContainer/HBoxContainer/BadPoints/TextureRect3"))

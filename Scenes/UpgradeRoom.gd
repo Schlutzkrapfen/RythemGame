@@ -4,4 +4,5 @@ extends Control
 
 func _ready():
 	if Global.HouseUnlocked.size() < 2:
-		canvasLayer.visible = false
+		#canvasLayer.visible = false
+		pass

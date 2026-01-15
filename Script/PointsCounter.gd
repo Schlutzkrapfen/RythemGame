@@ -53,7 +53,6 @@ func _process(delta):
 		else:
 			currentPointsSum += pointsDict[labelRegistry[i].stat]* labelRegistry[i].Multiplayer
 			i = findNextpoint()
-			
 			if  i == Global.Points.multiplaier:
 				addMultiplayer()
 				return

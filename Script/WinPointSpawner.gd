@@ -1,11 +1,11 @@
 extends VBoxContainer
-
 @export var timeDelaySinceNext:float = 0.5
 @export var spawnPoint:int = 4
 @export var ParticelTimeOffset:int = 20
 
 @onready var pointsDict: Dictionary[Global.Points, int] = Global.pointsDict
 @onready var labelRegistry = Global.labelRegistry
+
 
 var RainbowColorNodes:Array[Control]
 var PointLabels:Array[Label]
@@ -19,6 +19,7 @@ signal finished
 signal shakeCamera(Amount:float )
 
 func _ready():
+	print(pointsDict)
 	for x in labelRegistry:
 		if pointsDict[labelRegistry[x].stat] != 0:
 			var PointShower:HBoxContainer =PointsDisplayer.instantiate()

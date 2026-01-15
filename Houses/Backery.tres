@@ -10,4 +10,6 @@ buttonIcon = ExtResource("1_ope5l")
 buttonIconHD = ExtResource("2_l22yn")
 displayName = "HOUSE_BACKERY_NAME"
 descriptions = "HOUSE_BACKERY_DES"
+UsesType = 1
+houseType = 3
 metadata/_custom_type_script = "uid://8bue58jekekt"
