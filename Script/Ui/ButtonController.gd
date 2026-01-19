@@ -11,6 +11,8 @@ var IconSize: int
 @onready var Resouces: Array[Global.Points] = Global.BuildResources
 @onready var CostAmount: Array[int] = Global.BuildCostAmount
 
+#Adds for each House a button that the Player Knows what do Click
+#TODO:make the Buttons Pressable 
 func _ready():
 	if Global.HouseSelected.size() == 1:
 		visible = false
@@ -18,18 +20,17 @@ func _ready():
 	for x in Global.HouseSelected.size():
 		buttons.append(TextureButtons.instantiate())
 		CurrentUnlocked.append(false)
-		
 		var buttonIcon:TextureRect = buttons[x].get_child(2)
 		IconSize = int(buttonIcon.size.x)
 		buttonIcon.texture = ButtonsIcon[x]
 		buttonIcon= buttons[x].get_child(1)
 		buttonIcon.texture = Global.ButtonIcons[x]
-	
 		add_child(buttons[x])
 	var tween = create_tween()
 	tween.tween_property(buttons[0],"position",Vector2(IconSize+offset,0),TweenDuration).set_trans(Tween.TRANS_BOUNCE)
-	
-		
+	#Doesen't make sense that Need to wait a frame 
+	await get_tree().process_frame
+	checkIfSomethingUnlocked()
 func checkIfSomethingUnlocked():
 	for currentHouse in buttons.size():
 		var tween = create_tween()

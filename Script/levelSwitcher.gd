@@ -12,8 +12,6 @@ func _on_timer_timeout():
 	get_tree().change_scene_to_packed(simultaneous_scene)
 
 
-
-
 func _on_level_misson_missions_made():
 	emit_signal("finished")
 	Global.currentLevelStatus = Global.LevelStatus.Win

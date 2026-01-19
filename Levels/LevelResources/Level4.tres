@@ -9,6 +9,7 @@ UnlockIcon = Array[Texture2D]([ExtResource("1_l15ey")])
 Level = 2
 levelPath = "uid://b4plxikf88g6g"
 PossibleHouseUnlocks = 1
+MaxTime = 40
 UnlocksNeeded = Dictionary[int, int]({
 7: 25
 })

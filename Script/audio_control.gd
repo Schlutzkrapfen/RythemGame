@@ -6,6 +6,7 @@ enum {Music,Hit,Miss0,Miss1,Miss2,Kaching,PointsUp,startPoint}
 var CurrentBadSound = 0
 @export var Volume:Curve
 
+
 func _on_node_2d_perfect():
 	AudioSource[Hit].volume_db = -10
 	AudioSource[Hit].play()

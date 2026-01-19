@@ -1,4 +1,4 @@
-###This Script adds the the list for the Labels.
+###This Script adds the the list for the Labels and showes the correct amount for the label
 extends HBoxContainer
 
 @onready var Icons: Array[Texture2D] = Global.PointsIcons

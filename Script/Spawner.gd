@@ -111,7 +111,7 @@ func _input(event) -> void:
 				pointsDict[Global.Points.Okay] +=1
 		CurrentHit = 0
 		HitId= CurrentID
-
+#Add the AnimationPlayer the function gets called and is used to check how close the call is
 func addOneToCurrentHit():
 	CurrentHit +=1;
 
@@ -122,9 +122,9 @@ func _on_help_layer_can_build_there(signalDictionary):
 	RemoveArray = signalDictionary.get("RemovePositions", [])
 	
 func _on_backgorund_switch_house(House):
-	currentHouse = House
-	currentStats = Global.house_registry.get(Global.HouseSelected[House])
-
+	currentHouse = Global.HouseSelected[House]
+	currentStats = Global.house_registry.get(currentHouse)
+#Here Gets checked if Someone misses
 func _on_rhythm_notifier_beat(_current_beat):
 	CurrentHit = 0
 	if  CurrentID != HitId:
