@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2plfhokqusxu"]
+[gd_scene load_steps=30 format=3 uid="uid://d2plfhokqusxu"]
 
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="1_b3vrs"]
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="2_0udrg"]
@@ -10,8 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://uuw6qcotihjo" path="res://Scenes/restart_button.tscn" id="9_xi21b"]
 [ext_resource type="PackedScene" uid="uid://bfeh503ya5cob" path="res://Scenes/NextLevelButton.tscn" id="10_2bjyx"]
 [ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="10_b3vrs"]
+[ext_resource type="Material" uid="uid://dnu4j47rh5mfw" path="res://ParticelEmmiters/BadEffect.tres" id="11_0udrg"]
 [ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="11_5iqpk"]
+[ext_resource type="Script" uid="uid://d3h3momjifqcm" path="res://Scenes/lostlabel.gd" id="11_v2n38"]
 [ext_resource type="AudioStream" uid="uid://d0wdwqfejg4i4" path="res://Audio/cash-register-kaching-376867.mp3" id="12_yhux5"]
+[ext_resource type="PackedScene" uid="uid://cfh2hfv8mqnin" path="res://ParticelEmmiters/BadEffect.tscn" id="13_mxr6m"]
+[ext_resource type="Material" uid="uid://bwhewwh1kb4k5" path="res://ParticelEmmiters/BuildMatirial.tres" id="14_xi21b"]
+[ext_resource type="Texture2D" uid="uid://sei5m8pa3yaa" path="res://UI/Confetti.png" id="15_2bjyx"]
+[ext_resource type="Material" uid="uid://bue6j2ibqiqed" path="res://ParticelEmmiters/BuildEffect.tres" id="16_5iqpk"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yupi4"]
 noise_type = 2
@@ -128,23 +134,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="WinPointSpawner" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WinPointSpawner" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_0udrg")
 script = ExtResource("3_e331a")
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner"]
+[node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="EndPoints" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner" node_paths=PackedStringArray("ButtonNode", "ParticelEmmiters")]
+[node name="EndPoints" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" node_paths=PackedStringArray("ButtonNode", "ParticelEmmiters")]
 visible = false
 layout_mode = 2
 script = ExtResource("4_fr20v")
@@ -152,38 +167,38 @@ ButtonNode = NodePath("../Control2/Control/HBoxContainer")
 pointsAddingSpeed = 25.0
 ParticelEmmiters = [NodePath("Points/PointsUp"), NodePath("Points/Kaching")]
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints"]
 layout_mode = 2
 theme_override_constants/line_spacing = 10
 theme_override_constants/outline_size = 0
 text = "BTN_POINTS"
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Points" type="Label" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints"]
+[node name="Points" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints"]
 layout_mode = 2
 
-[node name="PointsUp" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints/Points" instance=ExtResource("6_8uj3d")]
+[node name="PointsUp" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints/Points" instance=ExtResource("6_8uj3d")]
 position = Vector2(386, 16)
 emitting = false
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_nkwte")
 
-[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints/Points" instance=ExtResource("7_v2n38")]
+[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints/Points" instance=ExtResource("7_v2n38")]
 material = null
 position = Vector2(389, 17)
 texture = ExtResource("8_mxr6m")
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_81yy2")
 
-[node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner"]
+[node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -192,7 +207,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 14
@@ -204,20 +219,56 @@ offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Restart" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("9_xi21b")]
+[node name="Restart" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("9_xi21b")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 icon = SubResource("Texture2D_b3vrs")
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NextLevel" parent="CanvasLayer/Control/HBoxContainer/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("10_2bjyx")]
+[node name="NextLevel" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("10_2bjyx")]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = SubResource("Texture2D_0udrg")
+
+[node name="LostLabel" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -19.5
+offset_right = 167.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.7853982
+theme = ExtResource("2_0udrg")
+text = "LOST_TIME"
+script = ExtResource("11_v2n38")
+
+[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" instance=ExtResource("7_v2n38")]
+material = null
+position = Vector2(157.68481, 20.506126)
+scale = Vector2(2, 2)
+amount = 100
+texture = ExtResource("8_mxr6m")
+local_coords = true
+process_material = ExtResource("11_0udrg")
+
+[node name="SpawnEffect" parent="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" instance=ExtResource("13_mxr6m")]
+material = ExtResource("14_xi21b")
+position = Vector2(163.3417, 23.334564)
+texture = ExtResource("15_2bjyx")
+local_coords = true
+process_material = ExtResource("16_5iqpk")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
 layout_mode = 2
@@ -243,13 +294,16 @@ volume_db = 5.0
 [node name="StartPoint" parent="AudioControl" index="7"]
 volume_db = 5.0
 
-[connection signal="badSound" from="CanvasLayer/Control/HBoxContainer/WinPointSpawner" to="AudioControl" method="_on_win_point_spawner_bad_sound"]
-[connection signal="finished" from="CanvasLayer/Control/HBoxContainer/WinPointSpawner" to="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints" method="_on_win_point_spawner_finished"]
-[connection signal="goodSound" from="CanvasLayer/Control/HBoxContainer/WinPointSpawner" to="AudioControl" method="_on_win_point_spawner_good_sound"]
-[connection signal="shakeCamera" from="CanvasLayer/Control/HBoxContainer/WinPointSpawner" to="CanvasLayer/Control/Camera2D" method="_on_win_point_spawner_shake_camera"]
-[connection signal="Kachinging" from="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_kachinging"]
-[connection signal="startCountUp" from="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_start_count_up"]
-[connection signal="stopCountUp" from="CanvasLayer/Control/HBoxContainer/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_stop_count_up"]
+[connection signal="badSound" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" to="AudioControl" method="_on_win_point_spawner_bad_sound"]
+[connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" to="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" method="_on_win_point_spawner_finished"]
+[connection signal="goodSound" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" to="AudioControl" method="_on_win_point_spawner_good_sound"]
+[connection signal="shakeCamera" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" to="CanvasLayer/Control/Camera2D" method="_on_win_point_spawner_shake_camera"]
+[connection signal="Kachinging" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_kachinging"]
+[connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" method="_on_end_points_finished"]
+[connection signal="startCountUp" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_start_count_up"]
+[connection signal="stopCountUp" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_stop_count_up"]
+[connection signal="chamerashake" from="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" to="CanvasLayer/Control/Camera2D" method="_on_win_point_spawner_shake_camera"]
+[connection signal="playBadSound" from="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" to="AudioControl" method="_on_win_point_spawner_bad_sound"]
 [connection signal="finished" from="AudioControl/StartPoint" to="AudioControl" method="_on_start_point_finished"]
 
 [editable path="AudioControl"]

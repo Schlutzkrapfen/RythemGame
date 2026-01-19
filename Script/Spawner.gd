@@ -15,8 +15,8 @@ signal Early
 signal Full
 signal Miss
 
-signal UpdateValues
-
+signal UpdateValues()
+signal ChangedHouseAtPosition(Type:Global.HouseID,Vector2i,Vector2)
 var buildParticelList:Array[GPUParticles2D]
 var source
 var HouseTileSetID:int = 0;
@@ -26,8 +26,9 @@ var ChangeHouses:Array[Vector2i]
 var CanBuild:bool;
 
 var currentStats 
+var currentHouse:Global.HouseID
 
-var tile_coords: Vector2i
+var tile_coords:Array
 
 var PeopleAmountForWoodcutter:int = 5
 var WoodAnoumtForWinHouse:int = 5
@@ -47,7 +48,6 @@ var pointsDict: Dictionary[Global.Points, int] = {
 	Global.Points.multiplaier: 1, 
 }
 
-
 var CurrentID:int 
 var HitId:int
 var CurrentHit:int
@@ -60,8 +60,14 @@ func addHouse():
 		addPoints()
 	else:
 		changeLayer()
-	tilemap.set_cell(tile_coords,currentStats.tileMapID[0],currentStats.tileMapPosition[0])
-	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
+	for x in currentStats.size.x:
+		for y in currentStats.size.y:
+			var tile = Vector2i(tile_coords[0].x+x,tile_coords[0].y+y)
+			var currentShowTile = Vector2i(currentStats.tileMapPosition[0].x+x,currentStats.tileMapPosition[0].y+y)
+			tilemap.set_cell(tile,currentStats.tileMapID[0],currentShowTile)
+			Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
+			var globalTilePosition = tilemap.to_global(tilemap.map_to_local(tile))
+			emit_signal("ChangedHouseAtPosition",currentHouse,tile,globalTilePosition)
 	emit_signal("UpdateValues")
 
 func addPoints():
@@ -76,7 +82,6 @@ func changeLayer():
 		addPoints()
 
 func _input(event) -> void:
-	# Check specifically for a left mouse button press
 	if  event.is_action_pressed("Controller_Input"):
 		if CurrentID == HitId:
 			return
@@ -107,29 +112,18 @@ func _input(event) -> void:
 		CurrentHit = 0
 		HitId= CurrentID
 
-func spawnBuildEffects(point:Vector2)->void:
-	for e in buildParticelList:
-		if e.finished:
-			e.position = point
-			e.restart()
-			e.emitting = true
-			return
-	var Emmiter =EmmitersScene.instantiate()
-	buildParticelList.append(Emmiter)
-	add_child(Emmiter)
-	buildParticelList.back().position = position
-	buildParticelList.back().emitting = true
-
 func addOneToCurrentHit():
 	CurrentHit +=1;
 
+#Gets all the Info for building from a Second Script
 func _on_help_layer_can_build_there(signalDictionary):
 	CanBuild = signalDictionary.get("CanBuild", false)
-	tile_coords = signalDictionary.get("CurrentPosition", Vector2i(0,0))
+	tile_coords = signalDictionary.get("CurrentPosition", [])
 	RemoveArray = signalDictionary.get("RemovePositions", [])
 	
 func _on_backgorund_switch_house(House):
-	currentStats =  Global.house_registry.get(Global.HouseSelected[House])
+	currentHouse = House
+	currentStats = Global.house_registry.get(Global.HouseSelected[House])
 
 func _on_rhythm_notifier_beat(_current_beat):
 	CurrentHit = 0

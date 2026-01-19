@@ -4,7 +4,9 @@ enum Points  {Miss = 0,Early = 1,Full =2,Okay=3,Good=4 ,Perfect=5 ,people=6 ,une
 var endPoints: int = 0
 enum HouseID { Default = 0,Trees=1 ,WoodCutter= 2, Market=3, Backery=4  }
 enum HouseType {Trees = 0, Houses = 1, ConstroctionBuilding =2,CityBuildings = 3}
+enum LevelStatus {Playing,Win,Lost,LostTime,Paused}
 
+var currentLevelStatus: LevelStatus 
 var BuildCostAmount: Array[int]
 var BuildResources: Array[Points]
 var MakeResources: Array[Points]
@@ -12,9 +14,9 @@ var PointsIcons: Array[Texture2D]
 var ButtonIcons: Array[Texture2D]
 var HouseUnlocked: Array[HouseID]
 var AutomaticSwitcher:bool = false
-var currentLevel:int= 0
+var currentLevel:int= 2
 
-var HouseSelected:Array[HouseID] = []
+var HouseSelected:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Market]
 @onready var unlockedHouses:Array[HouseID] = HouseSelected
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),
@@ -80,6 +82,7 @@ func ResetVeriables():
 	Points.multiplaier:1,
 	Points.unusedWood:0
 }
+	currentLevelStatus = LevelStatus.Playing
 
 func GetHousesVeriables() -> void:
 	for x in HouseSelected :

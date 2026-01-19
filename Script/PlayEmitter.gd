@@ -2,7 +2,9 @@ extends Control
 
 @export var Emmiters:Array[GPUParticles2D]
 
+
 enum ParticelsOrder {Miss,Early,Full,Okay,Good,Perfect,Confetti,BadEffect,GoodEffect}
+var buildEffect:PackedScene = preload("res://ParticelEmmiters/buildEffect.tscn")
 
 func playEmitter(order:ParticelsOrder)-> void:
 	Emmiters[order].restart()
@@ -35,3 +37,20 @@ func _on_node_2d_full():
 func _on_node_2d_miss():
 	playEmitter(ParticelsOrder.Miss)
 	playEmitter(ParticelsOrder.BadEffect)
+
+
+#TODO: Don't Spawn these change. Make a pool out of them
+func _on_node_2d_changed_house_at_position(House, _TilePosition,GlobalPosition):
+	var Particel:GPUParticles2D =buildEffect.instantiate()
+	var currentPointsStats = Global.labelRegistry[Global.house_registry[House].unitType]
+	Particel.texture = currentPointsStats.ParticelTexure
+	Particel.process_material = currentPointsStats.ProcessMatiral
+	Particel.material = currentPointsStats.animationMatirial
+	Particel.lifetime = currentPointsStats.inGameLifeTime
+	Particel.amount = currentPointsStats.inGameAmount
+	Particel.top_level = true
+	#TODO:FIND A BETTER FIX
+	if get_tree().current_scene:
+		get_tree().current_scene.add_child(Particel)
+	Particel.global_position = GlobalPosition
+	Particel.emitting = true

@@ -24,3 +24,5 @@ class_name PointsDefinition extends Resource
 @export var animationMatirial:Material
 @export var LifeTime:float = 0.4
 @export var Amount:int = 30
+@export var inGameLifeTime:float = 0.2
+@export var inGameAmount = 10

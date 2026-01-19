@@ -19,7 +19,8 @@ signal finished
 signal shakeCamera(Amount:float )
 
 func _ready():
-	print(pointsDict)
+	if Global.currentLevelStatus == Global.LevelStatus.Lost ||  Global.currentLevelStatus == Global.LevelStatus.LostTime:
+		skip = true
 	for x in labelRegistry:
 		if pointsDict[labelRegistry[x].stat] != 0:
 			var PointShower:HBoxContainer =PointsDisplayer.instantiate()
@@ -62,7 +63,7 @@ func _ready():
 	emit_signal("finished")
 	
 func _input(event):
-	if event is InputEventKey && event.is_pressed():
+	if event is InputEventKey && event.is_pressed() || event is InputEventJoypadButton && event.is_pressed():
 		skipLoad()
 
 var hue: float = 0.0

@@ -5,6 +5,7 @@ class_name HouseDefinition extends Resource
 @export var buttonIconHD: Texture2D
 @export var tileMapID: Array[int] = [0]
 @export var tileMapPosition:Array[Vector2i] 
+@export var size: Vector2i =  Vector2i(1,1)
 
 
 @export_group("Description")

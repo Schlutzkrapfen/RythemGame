@@ -20,7 +20,6 @@ func _on_node_2d_good():
 	AudioSource[Hit].volume_db = -15
 	AudioSource[Hit].play()
 
-
 func _on_node_2d_early_full_miss():
 	AudioSource[Music].volume_db = 0
 	var random = randi_range(Miss0,Miss2)
@@ -31,9 +30,6 @@ func _on_node_2d_early_full_miss():
 func _on_start_point_finished():
 	AudioSource[PointsUp].play()
 
-
-
-
 func _on_win_point_spawner_good_sound(volume):
 	AudioSource[Hit].volume_db = volume
 	AudioSource[Hit].play()
@@ -42,7 +38,7 @@ func _on_win_point_spawner_good_sound(volume):
 func _on_win_point_spawner_bad_sound(volume):
 	AudioSource[Miss0+CurrentBadSound].volume_db = volume
 	AudioSource[Miss0+CurrentBadSound].play()
-	CurrentBadSound+=1
+	CurrentBadSound=(CurrentBadSound +1) %3
 
 
 func _on_end_points_kachinging():

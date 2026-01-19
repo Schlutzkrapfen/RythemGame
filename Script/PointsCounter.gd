@@ -13,6 +13,7 @@ var RainbowTime:bool = false
 signal Kachinging
 signal startCountUp
 signal stopCountUp
+signal finished
 
 @onready var pointsLabel:Label = $Points
 @onready var labelRegistry = Global.labelRegistry
@@ -27,6 +28,9 @@ signal stopCountUp
 
 func _process(delta):
 	if !starting:
+		return
+	if Global.currentLevelStatus == Global.LevelStatus.Lost ||  Global.currentLevelStatus == Global.LevelStatus.LostTime:
+		skip()
 		return
 	if MultiplayerAdded:
 		return
@@ -87,7 +91,7 @@ func addMultiplayer():
 	Global.endPoints = int(currentPoints)
 	await get_tree().create_timer(waitTillButtonShown).timeout
 	ButtonNode.visible = true
-	
+	emit_signal("finished")
 
 func skip():
 	currentPoints = 0
@@ -97,7 +101,7 @@ func skip():
 		addMultiplayer()
 
 func _input(event):
-	if event is InputEventKey && event.is_pressed() && starting:
+	if event is InputEventKey && event.is_pressed() && starting || event is InputEventJoypadButton && event.is_pressed() && starting:
 		skip()
 
 func findNextpoint()-> int:

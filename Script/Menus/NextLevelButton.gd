@@ -13,5 +13,8 @@ func NextLevel():
 		get_tree().change_scene_to_file(Global.level_registery[Global.currentLevel].levelPath)
 
 
+func _ready():
+	if Global.currentLevelStatus == Global.LevelStatus.Lost ||  Global.currentLevelStatus == Global.LevelStatus.LostTime:
+		self.visible = false
 func _on_button_up():
 	NextLevel()
