@@ -89,6 +89,7 @@ func addMultiplayer():
 	emit_signal("Kachinging")
 	currentPoints *= pointsDict[Global.Points.multiplaier]
 	Global.endPoints = int(currentPoints)
+	pointsLabel.text = str(roundf(currentPoints))
 	await get_tree().create_timer(waitTillButtonShown).timeout
 	ButtonNode.visible = true
 	emit_signal("finished")

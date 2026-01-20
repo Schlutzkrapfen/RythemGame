@@ -84,7 +84,7 @@ func skipLoad():
 	skip = true
 
 func formatTimeText()->String:
-	var inttime:int = pointsDict[Global.Points.time]
+	var inttime:int = int(pointsDict[Global.Points.time])
 	var seconds:int = int(inttime / 100.0)
 	var ms:int = inttime %100
 	
