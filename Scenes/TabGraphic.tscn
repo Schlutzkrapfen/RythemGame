@@ -1,0 +1,155 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxnnkk5qul1qc"]
+
+[ext_resource type="Script" uid="uid://ckt38ajhg0een" path="res://Scenes/vsync.gd" id="1_m85o7"]
+
+[node name="TAB_GRAPHIC" type="VBoxContainer"]
+visible = false
+metadata/_tab_index = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FullScreen" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control1" type="Control" parent="FullScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Text" type="Control" parent="FullScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="FullScreen/Text"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 178.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "SETTINGS_FULLSCREEN"
+
+[node name="Control6" type="Control" parent="FullScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="FullScreen/Control6"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -23.5
+offset_bottom = 23.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Control7" type="Control" parent="FullScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Resolution" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control1" type="Control" parent="Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control2" type="Control" parent="Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Resolution/Control2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 181.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "SETTINGS_RESOLUTION"
+
+[node name="Control3" type="Control" parent="Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="Resolution/Control3"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -23.5
+offset_bottom = 23.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Control4" type="Control" parent="Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Vsync" type="HBoxContainer" parent="." node_paths=PackedStringArray("checkbox")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_m85o7")
+checkbox = NodePath("Control3/CheckBox")
+
+[node name="Control1" type="Control" parent="Vsync"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control2" type="Control" parent="Vsync"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Vsync/Control2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 132.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "SETTINGS_VSYNC"
+
+[node name="Control3" type="Control" parent="Vsync"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="Vsync/Control3"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -20.5
+offset_bottom = 20.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Control4" type="Control" parent="Vsync"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control6" type="Control" parent="."]
+layout_mode = 2
+size_flags_vertical = 3

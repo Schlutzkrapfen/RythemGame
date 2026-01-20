@@ -23,25 +23,33 @@ Volume = SubResource("Curve_hx2gf")
 stream = ExtResource("2_50mn8")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"
 
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w1fxp")
 volume_db = 5.0
+bus = &"SFX"
 
 [node name="Miss" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_a6862")
+bus = &"SFX"
 
 [node name="Miss2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1m1dn")
+bus = &"SFX"
 
 [node name="Miss3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_gnp6p")
+bus = &"SFX"
 
 [node name="Kaching" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="PointsUpwards" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_w1fxp")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="StartPoint" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_50mn8")
+bus = &"SFX"

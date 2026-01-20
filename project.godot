@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Script/Global.gd"
+Global="*res://Script/Global/Global.gd"
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
+GlobalSettings="*res://Script/Global/GlobalSettings.gd"
 
 [editor_plugins]
 
@@ -114,5 +115,5 @@ Right={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://TEXT/Localitation.es.translation", "res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.en.translation")
+locale/translations=PackedStringArray("res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.en.translation")
 locale/test="de"

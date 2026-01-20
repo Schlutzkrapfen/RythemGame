@@ -1,5 +1,9 @@
 extends Node
 
+func _ready():
+	if GlobalSettings.WebBuild:
+		self.visible = false
+
 func _input(event):
 	if event.is_action_pressed("Quit"):
 		if get_parent().visible &&self.visible:

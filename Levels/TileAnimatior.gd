@@ -15,7 +15,8 @@ func _on_main_layer_trees_spawned(trees):
 #Code Function and works for trees but Assets are missing and looks weird
 #TODO: MAKE ASSETES THAT I KNOW HOW IT Looks
 func _on_rhythm_notifier_beat(_current_beat):
-	return
+	if !GlobalSettings.animations:
+		return
 	i = (i +1) % maxpool
 	d = (i +1) % maxpool
 	var deleteArray:Array[Vector2i] = []
