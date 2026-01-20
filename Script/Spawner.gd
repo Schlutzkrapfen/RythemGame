@@ -73,6 +73,8 @@ func addHouse():
 func addPoints():
 	if Global.pointsConnectDict.has(currentStats.unitType):
 		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
+	else:
+		Global.currentResources[currentStats.unitType] += currentStats.points
 	pointsDict[currentStats.unitType] += currentStats.points
 	
 func changeLayer():

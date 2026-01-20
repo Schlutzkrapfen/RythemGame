@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LevelDefinition" load_steps=3 format=3 uid="uid://cbm2alidfovqk"]
 
-[ext_resource type="Texture2D" uid="uid://clnwe6gcms8hs" path="res://UI/Points/#1 - Transparent Icons1.png" id="1_l15ey"]
+[ext_resource type="Texture2D" uid="uid://drribub13npt7" path="res://UI/Points/#1 - Transparent Icons3.png" id="1_l15ey"]
 [ext_resource type="Script" uid="uid://jbrfkyp0aknp" path="res://Script/Definitions/level_definition.gd" id="2_bdfmy"]
 
 [resource]
@@ -11,7 +11,7 @@ levelPath = "uid://b4plxikf88g6g"
 PossibleHouseUnlocks = 1
 MaxTime = 40
 UnlocksNeeded = Dictionary[int, int]({
-11: 4
+11: 3
 })
 treeSpawnThreshold = 0.2
 PointsPossible = Array[int]([6, 8])

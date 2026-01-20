@@ -34,7 +34,9 @@ var level_registery: Dictionary = {
 
 var pointsConnectDict: Dictionary[Points,Points] = {
 	Points.people:Points.unemployed , 
-	Points.wood:Points.unusedWood
+	Points.wood:Points.unusedWood,
+	Points.unemployed: Points.people,
+	Points.unusedWood: Points.wood
 }
 var pointsDict: Dictionary[Points, float] = {
 	Points.Miss: 0, 

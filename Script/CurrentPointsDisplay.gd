@@ -37,5 +37,12 @@ func _ready():
 func _on_node_2d_update_values():
 	var i:int = 0
 	for res in CurrentResources:
-		Labels[i].text = str(int(Global.currentResources[res]))
+		print(Global.labelRegistry)
+		if Global.pointsConnectDict.has(res):
+			Labels[i].text = str(int(Global.currentResources[res]))
+		else:
+			if Global.labelRegistry[res].needsFloat:
+				Labels[i].text = str(Global.currentResources[res])
+			else:
+				Labels[i].text = str(int(Global.currentResources[res]))
 		i+=1
