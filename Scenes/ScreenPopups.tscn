@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://cllktpxvbbbix"]
+
+[ext_resource type="Script" uid="uid://cacq63yqe6bdw" path="res://Script/main_screen_popups.gd" id="1_6wo6a"]
+[ext_resource type="Texture2D" uid="uid://cpil5anyl0s5y" path="res://UI/my-3.png" id="2_elh6i"]
+[ext_resource type="Texture2D" uid="uid://du3ue506nks4n" path="res://UI/my-2.png" id="3_alopt"]
+[ext_resource type="Texture2D" uid="uid://d2kjigd240r27" path="res://UI/my-1.png" id="4_lgl1e"]
+[ext_resource type="Texture2D" uid="uid://bqpqdakoe1658" path="res://UI/Points/my-GO.png" id="5_3ofb4"]
+[ext_resource type="Texture2D" uid="uid://rxg3rqqcf1yk" path="res://addons/controller_icons/assets/mouse/simple.png" id="6_ecsyw"]
+[ext_resource type="Texture2D" uid="uid://byehmyw7rglj" path="res://addons/controller_icons/assets/mouse/left.png" id="7_tk4m6"]
+
+[node name="MainScreenPopups" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6wo6a")
+Images = Array[Texture2D]([ExtResource("2_elh6i"), ExtResource("3_alopt"), ExtResource("4_lgl1e"), ExtResource("5_3ofb4"), ExtResource("6_ecsyw"), ExtResource("7_tk4m6")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ecsyw")
+expand_mode = 2
+stretch_mode = 3

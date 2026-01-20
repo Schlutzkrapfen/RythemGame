@@ -1,7 +1,9 @@
 extends Node
 @export var timer:Timer
 @export var rhytm:RhythmNotifier
+@export var offset:float = 0.1
 
 func _on_main_screen_popups_intro_finished():
+	await get_tree().create_timer(rhytm.beat_length -offset).timeout
 	rhytm.running = true
 	timer.start()

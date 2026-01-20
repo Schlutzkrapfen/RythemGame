@@ -1,47 +1,18 @@
-[gd_scene load_steps=34 format=3 uid="uid://7m6pjpcy6wg2"]
+[gd_scene load_steps=12 format=3 uid="uid://7m6pjpcy6wg2"]
 
 [ext_resource type="Script" uid="uid://bb2cqj5qgo0ey" path="res://Script/UI.gd" id="1_fhuq3"]
 [ext_resource type="Script" uid="uid://te58yek233mq" path="res://Script/CurrentPointsDisplay.gd" id="2_n7ate"]
 [ext_resource type="Script" uid="uid://xm5ughtwlhix" path="res://Script/LevelMisson.gd" id="2_tb15e"]
-[ext_resource type="Script" uid="uid://cxo5skiedmwkq" path="res://Script/PlayEmitter.gd" id="3_fvhal"]
 [ext_resource type="Script" uid="uid://bsjm44jbmbgn5" path="res://Script/Ui/ButtonController.gd" id="3_gqg5b"]
-[ext_resource type="Script" uid="uid://bxw6ss6sb6h6u" path="res://Script/rythemspawner.gd" id="3_wsyiy"]
+[ext_resource type="PackedScene" uid="uid://pck83rbqt25j" path="res://Scenes/RythemSpawner.tscn" id="4_mqm5i"]
 [ext_resource type="Texture2D" uid="uid://w1q3kccg8bt2" path="res://addons/controller_icons/assets/key/a.png" id="4_yjfl1"]
 [ext_resource type="Texture2D" uid="uid://byl4juwg6c2ho" path="res://addons/controller_icons/assets/key/s.png" id="6_i6uxd"]
 [ext_resource type="Texture2D" uid="uid://r1a726snkw0m" path="res://addons/controller_icons/assets/key/f.png" id="6_n7ate"]
-[ext_resource type="PackedScene" uid="uid://dt0ebo615ncli" path="res://ParticelEmmiters/ParticelEmiter.tscn" id="7_lyqli"]
 [ext_resource type="Texture2D" uid="uid://dj7x13s6n2bgc" path="res://addons/controller_icons/assets/key/d.png" id="8_lyqli"]
-[ext_resource type="Texture2D" uid="uid://quo45aykdrvr" path="res://UI/Points/my-MISS.png" id="8_sar7e"]
-[ext_resource type="Material" uid="uid://biuqruoy6bqus" path="res://ParticelEmmiters/Miss.tres" id="9_3658v"]
-[ext_resource type="Texture2D" uid="uid://cxpx1echlfbdq" path="res://UI/Points/my-EARLY.png" id="10_fvhal"]
-[ext_resource type="Texture2D" uid="uid://bb0gf4cccyaso" path="res://UI/Points/my-FULL.png" id="11_3658v"]
-[ext_resource type="Texture2D" uid="uid://bg5q367ovuh6c" path="res://UI/Points/my-OKAY.png" id="12_g44p1"]
-[ext_resource type="Texture2D" uid="uid://ndy6jyot7vck" path="res://UI/Points/my-PERFECT.png" id="13_cc5el"]
-[ext_resource type="Material" uid="uid://bnrxrib72ja17" path="res://ParticelEmmiters/Okay.tres" id="13_uc5al"]
-[ext_resource type="Material" uid="uid://cu67gmg83raru" path="res://ParticelEmmiters/Perfect.tres" id="15_wsyiy"]
-[ext_resource type="Material" uid="uid://cj2slrw1gxu0c" path="res://ParticelEmmiters/GoodEffect.tres" id="16_g44p1"]
-[ext_resource type="PackedScene" uid="uid://bsss88po8x7ji" path="res://ParticelEmmiters/Confetti.tscn" id="16_wsyiy"]
-[ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="17_cc5el"]
-[ext_resource type="Texture2D" uid="uid://bjcgucursnwcg" path="res://UI/Points/#1 - Transparent Icons6.png" id="17_gqg5b"]
-[ext_resource type="PackedScene" uid="uid://cfh2hfv8mqnin" path="res://ParticelEmmiters/BadEffect.tscn" id="17_ykemt"]
-[ext_resource type="Script" uid="uid://cacq63yqe6bdw" path="res://Script/main_screen_popups.gd" id="24_ggl5r"]
-[ext_resource type="Texture2D" uid="uid://cpil5anyl0s5y" path="res://UI/my-3.png" id="24_tut8g"]
-[ext_resource type="Texture2D" uid="uid://du3ue506nks4n" path="res://UI/my-2.png" id="26_aho4b"]
-[ext_resource type="Texture2D" uid="uid://d2kjigd240r27" path="res://UI/my-1.png" id="27_t01f5"]
-[ext_resource type="Texture2D" uid="uid://bqpqdakoe1658" path="res://UI/Points/my-GO.png" id="28_vcjx0"]
-[ext_resource type="Texture2D" uid="uid://rxg3rqqcf1yk" path="res://addons/controller_icons/assets/mouse/simple.png" id="29_t01f5"]
-[ext_resource type="Texture2D" uid="uid://byehmyw7rglj" path="res://addons/controller_icons/assets/mouse/left.png" id="30_vcjx0"]
+[ext_resource type="PackedScene" uid="uid://cllktpxvbbbix" path="res://Scenes/ScreenPopups.tscn" id="10_j04uc"]
+[ext_resource type="PackedScene" uid="uid://b6752hljsipqj" path="res://Scenes/Settings.tscn" id="11_vqx31"]
 
-[sub_resource type="Gradient" id="Gradient_73vad"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6wtpy"]
-gradient = SubResource("Gradient_73vad")
-width = 32
-height = 32
-
-[node name="Control" type="Control" node_paths=PackedStringArray("progress")]
+[node name="Control" type="Control" node_paths=PackedStringArray("progress", "rythms")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fhuq3")
 progress = NodePath("CanvasLayer/Control/MainUi/LevelMisson/Labels/ProgressBar")
+rythms = [NodePath("CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/RhythmNotifier")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -110,7 +82,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="Control2" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer"]
+[node name="Control3" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
@@ -130,95 +102,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="RythemSpawner" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2"]
+[node name="RythemSpawner" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2" instance=ExtResource("4_mqm5i")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-script = ExtResource("3_wsyiy")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -24.5
-offset_right = 32.0
-offset_bottom = 7.5
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.7853982
-texture = SubResource("GradientTexture2D_6wtpy")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ParticelEmmiter" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer" node_paths=PackedStringArray("Emmiters")]
-layout_mode = 2
-script = ExtResource("3_fvhal")
-Emmiters = [NodePath("Miss"), NodePath("Early"), NodePath("Full"), NodePath("Okay"), NodePath("Good"), NodePath("Perfect"), NodePath("ConfEffect"), NodePath("BadEffect"), NodePath("GoodEffect")]
-
-[node name="Miss" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
-position = Vector2(0, -15)
-texture = ExtResource("8_sar7e")
-process_material = ExtResource("9_3658v")
-
-[node name="Early" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
-position = Vector2(0, -15)
-texture = ExtResource("10_fvhal")
-process_material = ExtResource("9_3658v")
-
-[node name="Full" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
-position = Vector2(0, -15)
-texture = ExtResource("11_3658v")
-process_material = ExtResource("9_3658v")
-
-[node name="Okay" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
-position = Vector2(0, -15)
-texture = ExtResource("12_g44p1")
-process_material = ExtResource("13_uc5al")
-
-[node name="Good" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
-position = Vector2(0, -15)
-
-[node name="Perfect" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("7_lyqli")]
-position = Vector2(0, -15)
-texture = ExtResource("13_cc5el")
-process_material = ExtResource("15_wsyiy")
-
-[node name="ConfEffect" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("16_wsyiy")]
-position = Vector2(0, -15)
-
-[node name="BadEffect" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("17_ykemt")]
-position = Vector2(0, -15)
-
-[node name="GoodEffect" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" instance=ExtResource("16_wsyiy")]
-material = null
-position = Vector2(0, -15)
-amount = 10
-texture = ExtResource("17_gqg5b")
-process_material = ExtResource("16_g44p1")
-
-[node name="Control2" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RhythmNotifier" type="Node" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner"]
-script = ExtResource("17_cc5el")
-bpm = 140.0
-beat_length = 0.42857142857142855
-running = true
-metadata/_custom_type_script = "uid://dos3qhffr4v0a"
 
 [node name="Control4" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -229,6 +114,11 @@ size_flags_stretch_ratio = 0.5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
 
 [node name="Upgrades" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -279,26 +169,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
 
-[node name="MainScreenPopups" type="Control" parent="CanvasLayer/Control"]
+[node name="MainScreenPopups" parent="CanvasLayer/Control" instance=ExtResource("10_j04uc")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("24_ggl5r")
-Images = Array[Texture2D]([ExtResource("24_tut8g"), ExtResource("26_aho4b"), ExtResource("27_t01f5"), ExtResource("28_vcjx0"), ExtResource("29_t01f5"), ExtResource("30_vcjx0")])
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MainScreenPopups"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("29_t01f5")
-expand_mode = 2
-stretch_mode = 3
+[node name="Popup" parent="CanvasLayer/Control" instance=ExtResource("11_vqx31")]
+visible = false
 
-[connection signal="beat" from="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/RhythmNotifier" to="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner" method="_on_rhythm_notifier_beat"]
-[connection signal="beat" from="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/RhythmNotifier" to="CanvasLayer/Control/MainScreenPopups" method="_on_rhythm_notifier_beat"]
+[editable path="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner"]

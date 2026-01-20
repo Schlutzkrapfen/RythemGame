@@ -6,10 +6,13 @@
 script = ExtResource("2_j6mqo")
 tileMapPosition = Array[Vector2i]([Vector2i(6, 0)])
 size = Vector2i(2, 2)
-displayName = "HOUSE_MARKET_NAME"
-descriptions = "HOUSE_MARKET_DES"
+displayName = "YOU WIN"
+descriptions = "CONGRATULATIONS"
 houseRange = 3
+buildCost = 10
+points = 0.1
 usesType = 1
 houseType = 3
 unitType = 11
+buildType = 8
 metadata/_custom_type_script = "uid://8bue58jekekt"

@@ -3,7 +3,7 @@ extends VBoxContainer
 @export var spawnPoint:int = 4
 @export var ParticelTimeOffset:int = 20
 
-@onready var pointsDict: Dictionary[Global.Points, int] = Global.pointsDict
+@onready var pointsDict: Dictionary[Global.Points, float] = Global.pointsDict
 @onready var labelRegistry = Global.labelRegistry
 
 
@@ -20,6 +20,7 @@ signal shakeCamera(Amount:float )
 
 func _ready():
 	if Global.currentLevelStatus == Global.LevelStatus.Lost ||  Global.currentLevelStatus == Global.LevelStatus.LostTime:
+		timeDelaySinceNext = 0
 		skip = true
 	for x in labelRegistry:
 		if pointsDict[labelRegistry[x].stat] != 0:
@@ -31,7 +32,11 @@ func _ready():
 			#Change the Text
 			PointLabels.append(PointShower.get_node("./Label"))
 			PointLabels[-1].modulate = labelRegistry[x].color
-			PointLabels[-1].text = str(pointsDict[labelRegistry[x].stat])
+			if labelRegistry[x].needsFloat:
+				
+				PointLabels[-1].text = str(pointsDict[labelRegistry[x].stat])
+			else:
+				PointLabels[-1].text = str(int(pointsDict[labelRegistry[x].stat]))
 			#addToRainbow
 			if labelRegistry[x].Rainbow:
 				RainbowColorNodes.append(PointIcon)

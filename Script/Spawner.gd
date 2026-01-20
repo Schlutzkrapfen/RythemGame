@@ -35,7 +35,7 @@ var WoodAnoumtForWinHouse:int = 5
 var loop:int =1
 var TimesinstLastInput:float
 
-var pointsDict: Dictionary[Global.Points, int] = {
+var pointsDict: Dictionary[Global.Points, float] = {
 	Global.Points.Miss: 0, 
 	Global.Points.Early: 0, 
 	Global.Points.Full: 0, 
@@ -65,9 +65,9 @@ func addHouse():
 			var tile = Vector2i(tile_coords[0].x+x,tile_coords[0].y+y)
 			var currentShowTile = Vector2i(currentStats.tileMapPosition[0].x+x,currentStats.tileMapPosition[0].y+y)
 			tilemap.set_cell(tile,currentStats.tileMapID[0],currentShowTile)
-			Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
 			var globalTilePosition = tilemap.to_global(tilemap.map_to_local(tile))
 			emit_signal("ChangedHouseAtPosition",currentHouse,tile,globalTilePosition)
+	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
 	emit_signal("UpdateValues")
 
 func addPoints():
@@ -100,15 +100,15 @@ func _input(event) -> void:
 			HitId+=1
 			return
 		match(CurrentHit):
-			0:
-				emit_signal("Perfect")
-				pointsDict[Global.Points.Perfect] +=1
-			1:
+			0 , 4:
+				emit_signal("Okay")
+				pointsDict[Global.Points.Okay] +=1
+			1 , 3:
 				emit_signal("Good")
 				pointsDict[Global.Points.Good] +=1
 			2:
-				emit_signal("Okay")
-				pointsDict[Global.Points.Okay] +=1
+				emit_signal("Perfect")
+				pointsDict[Global.Points.Perfect] +=1
 		CurrentHit = 0
 		HitId= CurrentID
 #Add the AnimationPlayer the function gets called and is used to check how close the call is

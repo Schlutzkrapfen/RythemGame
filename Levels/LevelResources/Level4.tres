@@ -11,8 +11,8 @@ levelPath = "uid://b4plxikf88g6g"
 PossibleHouseUnlocks = 1
 MaxTime = 40
 UnlocksNeeded = Dictionary[int, int]({
-7: 25
+11: 4
 })
-treeSpawnThreshold = 0.8
+treeSpawnThreshold = 0.2
 PointsPossible = Array[int]([6, 8])
 metadata/_custom_type_script = "uid://jbrfkyp0aknp"

@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxsexogcl1dut"]
+
+[ext_resource type="PackedScene" uid="uid://pck83rbqt25j" path="res://Scenes/RythemSpawner.tscn" id="1_xi7fw"]
+[ext_resource type="PackedScene" uid="uid://cllktpxvbbbix" path="res://Scenes/ScreenPopups.tscn" id="2_1ugtj"]
+[ext_resource type="Texture2D" uid="uid://okt6823ouuqn" path="res://ControllerInput/MousePressed.tres" id="3_1tj7t"]
+[ext_resource type="Script" uid="uid://cldrq3gu4jr4d" path="res://Script/SynchroniseMaker.gd" id="3_kcqxu"]
+
+[node name="SynchroniseWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RythemSpawner" parent="CanvasLayer" instance=ExtResource("1_xi7fw")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainScreenPopups" parent="CanvasLayer" instance=ExtResource("2_1ugtj")]
+visible = false
+
+[node name="SynchroniseMaker" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("timer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_kcqxu")
+timer = NodePath("Timer")
+
+[node name="Button" type="Button" parent="CanvasLayer/SynchroniseMaker"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Press when they connect"
+icon = ExtResource("3_1tj7t")
+icon_alignment = 2
+
+[node name="Timer" type="Timer" parent="CanvasLayer/SynchroniseMaker"]
+
+[connection signal="beat" from="CanvasLayer/RythemSpawner/RhythmNotifier" to="CanvasLayer/SynchroniseMaker" method="_on_rhythm_notifier_beat"]
+
+[editable path="CanvasLayer/RythemSpawner"]

@@ -4,17 +4,19 @@ extends Node
 #Can be just changed in Editor
 const SETTINGS_PATH = "user://settings.cfg"
 
-@export var WebBuild:bool = false
+@export var WebBuild:bool = true
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 @onready var MASTER_BUS_ID = AudioServer.get_bus_index("Master")
 
 var config = ConfigFile.new()
+
 #Can be changed in SettingsMenu Settings
 var automaticSwitcher:bool = false
 var vsynch:bool = false
 var animations:bool = false
 var language = "automatic"
+var SynchroniseOffset:float = 0.0
 var MasterSound:float = 0.8
 var SFXSound:float = 0.8
 var MusicSound:float = 0.8

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dreu6sjmunp6u"]
 
 [ext_resource type="PackedScene" uid="uid://8yloef2upakm" path="res://Scenes/SelecetHouse.tscn" id="1_ojucv"]
-[ext_resource type="Script" uid="uid://bbu48ljexhnn7" path="res://Scenes/UpgradeRoom.gd" id="1_sckp7"]
+[ext_resource type="Script" uid="uid://bbu48ljexhnn7" path="res://Script/Menus/UpgradeRoom.gd" id="1_sckp7"]
 [ext_resource type="Script" uid="uid://dvnd2laiuxt85" path="res://Script/CurrentSelectedHouses.gd" id="2_ebes0"]
 
 [sub_resource type="Gradient" id="Gradient_ebes0"]

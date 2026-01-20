@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="10_b3vrs"]
 [ext_resource type="Material" uid="uid://dnu4j47rh5mfw" path="res://ParticelEmmiters/BadEffect.tres" id="11_0udrg"]
 [ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="11_5iqpk"]
-[ext_resource type="Script" uid="uid://d3h3momjifqcm" path="res://Scenes/lostlabel.gd" id="11_v2n38"]
+[ext_resource type="Script" uid="uid://d3h3momjifqcm" path="res://Script/Menus/lostlabel.gd" id="11_v2n38"]
 [ext_resource type="AudioStream" uid="uid://d0wdwqfejg4i4" path="res://Audio/cash-register-kaching-376867.mp3" id="12_yhux5"]
 [ext_resource type="PackedScene" uid="uid://cfh2hfv8mqnin" path="res://ParticelEmmiters/BadEffect.tscn" id="13_mxr6m"]
 [ext_resource type="Material" uid="uid://bwhewwh1kb4k5" path="res://ParticelEmmiters/BuildMatirial.tres" id="14_xi21b"]

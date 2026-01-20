@@ -9,6 +9,7 @@ script = ExtResource("2_5eca1")
 labelIcon = ExtResource("3_rhiik")
 CamershakeAmount = 0.4
 stat = 11
+needsFloat = true
 ParticelTexure = ExtResource("3_rhiik")
 ProcessMatiral = ExtResource("1_xutyi")
 metadata/_custom_type_script = "uid://ci2h7owl1v3fp"

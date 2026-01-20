@@ -7,7 +7,7 @@ func _input(event):
 
 
 func StartLevelLevel():
-	if Global.currentLevel == 0:
+	if Global.currentLevel == 0 :
 		get_tree().change_scene_to_file("res://Scenes/UnlockScreen.tscn")
 		return
 	Global.ResetLevel()

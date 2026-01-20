@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxnnkk5qul1qc"]
 
-[ext_resource type="Script" uid="uid://ckt38ajhg0een" path="res://Scenes/vsync.gd" id="1_m85o7"]
+[ext_resource type="Script" uid="uid://ckt38ajhg0een" path="res://Script/Menus/vsync.gd" id="1_m85o7"]
 
 [node name="TAB_GRAPHIC" type="VBoxContainer"]
 visible = false

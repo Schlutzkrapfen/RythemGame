@@ -99,9 +99,12 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.06, 0.12, 0.18),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.033333335, 0.06666667, 0.13333334, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [],
+"method": &"addOneToCurrentHit"
+}, {
 "args": [],
 "method": &"addOneToCurrentHit"
 }, {
@@ -119,10 +122,10 @@ tracks/1/path = NodePath("CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aay61"]
@@ -157,7 +160,8 @@ script = ExtResource("8_62xmr")
 [node name="HelpLayer" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("8_13mt1")]
 tilemap = NodePath("../MainLayer")
 
-[node name="Control" parent="." instance=ExtResource("9_pp47a")]
+[node name="Control" parent="." node_paths=PackedStringArray("rythms") instance=ExtResource("9_pp47a")]
+rythms = [NodePath("CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/RhythmNotifier"), NodePath("../RhythmNotifier")]
 
 [node name="CanvasLayer" parent="Control" index="0"]
 process_thread_group = 1
@@ -165,14 +169,17 @@ process_thread_group_order = 0
 process_thread_messages = 0
 follow_viewport_enabled = false
 
+[node name="TextureRect" parent="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner" index="0"]
+modulate = Color(1, 1, 1, 1)
+
 [node name="ButtonSpawner" parent="Control/CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer" index="1"]
 ButtonsIcon = Array[Texture2D]([ExtResource("10_k7tvq"), ExtResource("11_62xmr"), ExtResource("12_0cfxs"), ExtResource("13_2pfgx")])
 
 [node name="MainScreenPopups" parent="Control/CanvasLayer/Control" index="2"]
 Images = Array[Texture2D]([ExtResource("10_pp47a"), ExtResource("11_idi36"), ExtResource("12_8ubki"), ExtResource("13_d73st"), ExtResource("14_k7tvq"), ExtResource("10_p2sgf")])
 
-[node name="TextureRect" parent="Control/CanvasLayer/Control/MainScreenPopups" index="0"]
-texture = ExtResource("10_p2sgf")
+[node name="Popup" parent="Control/CanvasLayer/Control" index="3"]
+process_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="Control"]
 position = Vector2(582, 311)
@@ -192,7 +199,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_aay61")
 }
 
-[node name="Control2" parent="." instance=ExtResource("11_sbm5j")]
+[node name="Control2" parent="Control" instance=ExtResource("11_sbm5j")]
+layout_mode = 1
 
 [node name="AudioControl" parent="." instance=ExtResource("11_8ubki")]
 
@@ -243,7 +251,9 @@ timer = NodePath("../Timer")
 [connection signal="treesSpawned" from="MainLayer" to="MainLayer/Animator" method="_on_main_layer_trees_spawned"]
 [connection signal="CanBuildThere" from="HelpLayer" to="." method="_on_help_layer_can_build_there"]
 [connection signal="missionsMade" from="Control/CanvasLayer/Control/MainUi/LevelMisson" to="LevelSwitcher" method="_on_level_misson_missions_made"]
+[connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/RhythmNotifier" to="Control/CanvasLayer/Control/MainScreenPopups" method="_on_rhythm_notifier_beat"]
 [connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="IntroFinished" method="_on_main_screen_popups_intro_finished"]
+[connection signal="popup_hide" from="Control/CanvasLayer/Control/Popup" to="Control/CanvasLayer/Control/Popup" method="_on_popup_hide"]
 [connection signal="timeout" from="Timer" to="LevelSwitcher" method="_on_timer_timeout"]
 [connection signal="beat" from="RhythmNotifier" to="." method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="MainLayer/Animator" method="_on_rhythm_notifier_beat"]
@@ -251,3 +261,4 @@ timer = NodePath("../Timer")
 [connection signal="finished" from="LevelSwitcher" to="." method="_on_level_switcher_finished"]
 
 [editable path="Control"]
+[editable path="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner"]

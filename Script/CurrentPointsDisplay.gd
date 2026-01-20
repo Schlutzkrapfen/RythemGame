@@ -1,4 +1,5 @@
-###This Script adds the the list for the Labels and showes the correct amount for the label
+###This Script adds the the list for the Labels and 
+#showes the correct amount for the label
 extends HBoxContainer
 
 @onready var Icons: Array[Texture2D] = Global.PointsIcons
@@ -36,5 +37,5 @@ func _ready():
 func _on_node_2d_update_values():
 	var i:int = 0
 	for res in CurrentResources:
-		Labels[i].text = str(Global.currentResources[res])
+		Labels[i].text = str(int(Global.currentResources[res]))
 		i+=1

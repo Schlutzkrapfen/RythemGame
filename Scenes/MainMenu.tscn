@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cspuflcmisk5m" path="res://Script/Menus/ExitButton.gd" id="2_u5jnt"]
 [ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="3_itvm6"]
 [ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Tilemaps/dirt wall.png" id="4_gi1rj"]
-[ext_resource type="Script" uid="uid://bobshe2pubmrc" path="res://Scenes/SettingsButton.gd" id="4_riqfo"]
+[ext_resource type="Script" uid="uid://bobshe2pubmrc" path="res://Script/Menus/SettingsButton.gd" id="4_riqfo"]
 [ext_resource type="Texture2D" uid="uid://cmr4ljogk0n0x" path="res://Tilemaps/TX Props.png" id="5_b6alu"]
 [ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="6_ba7kx"]
 [ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Tilemaps/water - summer.png" id="7_4herb"]
@@ -303,6 +303,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Popup" parent="CanvasLayer/HBoxContainer/Control2" instance=ExtResource("16_2x1g0")]
+visible = false
 
 [node name="Backgorund" type="TileMapLayer" parent="."]
 position = Vector2(-6, 13)

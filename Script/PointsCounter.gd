@@ -17,7 +17,7 @@ signal finished
 
 @onready var pointsLabel:Label = $Points
 @onready var labelRegistry = Global.labelRegistry
-@onready var pointsDict: Dictionary[Global.Points, int] = Global.pointsDict
+@onready var pointsDict: Dictionary[Global.Points, float] = Global.pointsDict
 
 @export var ButtonNode:Control
 @export var pointsAddingSpeed:float = 10

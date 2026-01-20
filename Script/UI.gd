@@ -2,6 +2,9 @@ extends Control
 
 @export var progress:ProgressBar
 @onready var timer:Timer = $"../Timer"
+@onready var anim:AnimationPlayer = $AnimationPlayer
+@onready var pauseMenu:Popup = $CanvasLayer/Control/Popup
+@export var rythms:Array[RhythmNotifier]
 
 
 func _ready():
@@ -12,7 +15,17 @@ func _process(_delta):
 		if !timer.is_stopped():
 			progress.value = timer.time_left
 	pass
+#Controls the pause events.
+func _input(event):
+	if event.is_action_pressed("Quit"):
+		get_tree().paused = true
+		pauseMenu.visible = true
+		rythms[0].current_beat = 0
 
+		
+		
 
 func _on_rhythm_notifier_beat(_current_beat):
-	$AnimationPlayer.play("Tick")
+	if anim == null:
+		return
+	anim.play("Tick")

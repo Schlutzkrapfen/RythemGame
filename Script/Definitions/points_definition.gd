@@ -16,6 +16,7 @@ class_name PointsDefinition extends Resource
 @export var IconColor:Color = Color.WHITE
 @export var Rainbow:bool = false
 @export var Multiplayer:float = 1.0
+@export var needsFloat:bool = false
 
 
 @export_group("Particel")

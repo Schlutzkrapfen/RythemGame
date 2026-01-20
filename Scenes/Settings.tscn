@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6752hljsipqj"]
 
 [ext_resource type="Script" uid="uid://6nofdbibllpc" path="res://Script/settings.gd" id="1_4hxq3"]
-[ext_resource type="Script" uid="uid://jjm0k547mcnv" path="res://Scenes/languageButton.gd" id="2_mjqtt"]
-[ext_resource type="Script" uid="uid://jhj0pa2pp5gc" path="res://Scenes/tabSpawner.gd" id="2_ppjuv"]
+[ext_resource type="Script" uid="uid://jjm0k547mcnv" path="res://Script/Menus/languageButton.gd" id="2_mjqtt"]
+[ext_resource type="Script" uid="uid://jhj0pa2pp5gc" path="res://Script/Menus/tabSpawner.gd" id="2_ppjuv"]
 [ext_resource type="Script" uid="uid://cjdv1vul8mr1c" path="res://Script/BuildScriptButton.gd" id="2_w1nw0"]
 [ext_resource type="Script" uid="uid://dtig2t04p65y4" path="res://Script/animationsButton.gd" id="2_yrknh"]
 [ext_resource type="Script" uid="uid://b7fsi86512sq4" path="res://Script/masterSlieder.gd" id="6_ppjuv"]
-[ext_resource type="Script" uid="uid://cwvs8y8u4jdvy" path="res://Scenes/MusicSlider.gd" id="7_ipgag"]
-[ext_resource type="Script" uid="uid://d4g0p6v0kelfi" path="res://Scenes/SfxSlider.gd" id="8_646k0"]
+[ext_resource type="Script" uid="uid://cwvs8y8u4jdvy" path="res://Script/Menus/MusicSlider.gd" id="7_ipgag"]
+[ext_resource type="Script" uid="uid://d4g0p6v0kelfi" path="res://Script/Menus/SfxSlider.gd" id="8_646k0"]
 
 [node name="Popup" type="Popup"]
 oversampling_override = 1.0
