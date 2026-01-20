@@ -1,6 +1,6 @@
 extends Node
 @export var container: VBoxContainer
-@export var HighScorePath :String="user://highscores.json"
+@onready var HighScorePath :String="user://highscores"+str(Global.currentLevel)+".json"
 
 var name_input: LineEdit
 var score_saved: bool = false

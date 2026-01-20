@@ -1,6 +1,5 @@
 [gd_scene load_steps=18 format=4 uid="uid://yuudxxfwygmp"]
 
-[ext_resource type="Script" uid="uid://dab2e5m17ffdn" path="res://Script/Highscore.gd" id="1_cg07q"]
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="1_nwnrh"]
 [ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="1_r43mv"]
 [ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Tilemaps/dirt wall.png" id="2_ry27f"]
@@ -8,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="4_kkijf"]
 [ext_resource type="Script" uid="uid://cspuflcmisk5m" path="res://Script/Menus/ExitButton.gd" id="4_nwnrh"]
 [ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Tilemaps/water - summer.png" id="5_rmadt"]
+[ext_resource type="PackedScene" uid="uid://demff3tob8qww" path="res://Scenes/spawnHighscore.tscn" id="7_1ryyy"]
 [ext_resource type="PackedScene" uid="uid://uuw6qcotihjo" path="res://Scenes/restart_button.tscn" id="8_1ryyy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3lx12"]
@@ -258,14 +258,8 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Spawnname" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer2" node_paths=PackedStringArray("container")]
+[node name="Spawnname" parent="Control/HBoxContainer/VBoxContainer2" instance=ExtResource("7_1ryyy")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("1_nwnrh")
-script = ExtResource("1_cg07q")
-container = NodePath(".")
-metadata/_edit_use_anchors_ = true
 
 [node name="Control2" type="Control" parent="Control/HBoxContainer/VBoxContainer2"]
 layout_mode = 2

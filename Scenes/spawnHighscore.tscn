@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://demff3tob8qww"]
+
+[ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="1_5r0v6"]
+[ext_resource type="Script" uid="uid://dab2e5m17ffdn" path="res://Script/Highscore.gd" id="2_pcc3s"]
+
+[node name="Spawnname" type="VBoxContainer" node_paths=PackedStringArray("container")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_5r0v6")
+script = ExtResource("2_pcc3s")
+container = NodePath(".")
+metadata/_edit_use_anchors_ = true
