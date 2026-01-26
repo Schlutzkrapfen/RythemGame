@@ -1,0 +1,146 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba5dl84tmmore"]
+
+[ext_resource type="Texture2D" uid="uid://bwu2323vwq707" path="res://UI/ButtonIcons/Normal/NotUnlocked.png" id="1_4to16"]
+[ext_resource type="Texture2D" uid="uid://clnwe6gcms8hs" path="res://UI/Points/#1 - Transparent Icons1.png" id="2_7lb4k"]
+
+[node name="SingleHouse" type="Button"]
+offset_right = 131.0
+offset_bottom = 51.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+mouse_behavior_recursive = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_4to16")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+mouse_behavior_recursive = 1
+
+[node name="GoodPoints" type="Control" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+mouse_filter = 1
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/GoodPoints"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.01
+mouse_filter = 1
+mouse_behavior_recursive = 1
+text = "8"
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/GoodPoints"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -15.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+mouse_behavior_recursive = 1
+texture = ExtResource("2_7lb4k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2, 30)
+layout_mode = 2
+mouse_filter = 1
+mouse_behavior_recursive = 1
+color = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[node name="BadPoints" type="Control" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+mouse_filter = 1
+mouse_behavior_recursive = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/BadPoints"]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.01
+mouse_filter = 1
+mouse_behavior_recursive = 1
+text = "8"
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/BadPoints"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -15.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+mouse_behavior_recursive = 1
+texture = ExtResource("2_7lb4k")
+expand_mode = 1
+stretch_mode = 5

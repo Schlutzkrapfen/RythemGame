@@ -2,7 +2,7 @@ extends Node
 
 enum Points  {Miss = 0,Early = 1,Full =2,Okay=3,Good=4 ,Perfect=5 ,people=6 ,unemployed=7,wood=8 ,unusedWood=9,time=10,multiplaier =11}
 var endPoints: int = 0
-enum HouseID { Default = 0,Trees=1 ,WoodCutter= 2, Market=3, Backery=4  }
+enum HouseID {NONE = -1, Default = 0,Trees=1 ,WoodCutter= 2, Market=3, Backery=4 ,Destroyer = 5 }
 enum HouseType {Trees = 0, Houses = 1, ConstroctionBuilding =2,CityBuildings = 3}
 enum LevelStatus {Playing,Win,Lost,LostTime,Paused}
 
@@ -12,24 +12,26 @@ var BuildResources: Array[Points]
 var MakeResources: Array[Points]
 var PointsIcons: Array[Texture2D]
 var ButtonIcons: Array[Texture2D]
-var HouseUnlocked: Array[HouseID]
-var currentLevel:int= 4
+var HouseUnlocked: Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,HouseID.Trees]
+var currentLevel:int= 5
 
-var HouseSelected:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market]
-@onready var unlockedHouses:Array[HouseID] = HouseSelected
+var HouseSelected:Array[HouseID] = [HouseID.Default]
+#@onready var unlockedHouses:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,]
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),
 	HouseID.Trees: preload("res://Houses/Tree.tres"),
 	HouseID.WoodCutter: preload("res://Houses/WoodCutter.tres"),
 	HouseID.Market: preload("res://Houses/Market.tres"),
-	HouseID.Backery: preload("res://Houses/Backery.tres")
+	HouseID.Backery: preload("res://Houses/Backery.tres"),
+	HouseID.Destroyer:preload ("res://Houses/Destroyer.tres")
 }
 var level_registery: Dictionary = {
 	0: preload("res://Levels/LevelResources/Level0.tres"),
 	1: preload("res://Levels/LevelResources/Level1.tres"),
 	2: preload("res://Levels/LevelResources/Level2.tres"),
 	3: preload("res://Levels/LevelResources/Level3.tres"),
-	4: preload("res://Levels/LevelResources/Level4.tres")
+	4: preload("res://Levels/LevelResources/Level4.tres"),
+	5: preload("res://Levels/LevelResources/Level5.tres")
 }
 
 var pointsConnectDict: Dictionary[Points,Points] = {

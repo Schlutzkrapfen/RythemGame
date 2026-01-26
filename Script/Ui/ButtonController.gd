@@ -10,10 +10,9 @@ var IconSize: int
 
 @onready var Resouces: Array[Global.Points] = Global.BuildResources
 @onready var CostAmount: Array[int] = Global.BuildCostAmount
-
 #Adds for each House a button that the Player Knows what do Click
 #TODO:make the Buttons Pressable 
-func _ready():
+func addButtonts():
 	if Global.HouseSelected.size() == 1:
 		visible = false
 		return
@@ -39,6 +38,13 @@ func checkIfSomethingUnlocked():
 		else:
 			tween.tween_property(buttons[currentHouse],"position",Vector2(0,buttons[currentHouse].position.y),TweenDuration).set_trans(Tween.TRANS_BOUNCE)
 	
+	
 
 func _on_node_2d_update_values():
 	checkIfSomethingUnlocked()
+
+
+func _on_control_2_selected_finished():
+	Resouces  = Global.BuildResources
+	CostAmount = Global.BuildCostAmount
+	addButtonts() 

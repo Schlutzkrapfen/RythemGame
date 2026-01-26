@@ -23,6 +23,7 @@ func _process(delta):
 		self.position.x -= speed * delta
 	
 func _on_timer_timeout():
+	await get_tree().create_timer(fadeTime).timeout
 	self.queue_free()
 
 func stop():

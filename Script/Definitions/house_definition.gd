@@ -19,8 +19,10 @@ class_name HouseDefinition extends Resource
 
 
 @export_group("Types")
-##TO know which to to spawn
+##TO know which house tyoe is influenced by the house 
 @export var houseType:Global.HouseType
 @export var destroyes:bool
+## What type you get back from the Building 
 @export var unitType:Global.Points = Global.Points.people
+##What type is used to build the building
 @export var buildType: Global.Points = Global.Points.people

@@ -9,7 +9,7 @@ var score_saved: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func startaddingPoints() -> void:
 	if container==null:
 		return
 
@@ -147,3 +147,7 @@ func AddHighscore(player_name: String, score: int)->void:
 	highscores[player_name] = score
 	Serialize(highscores)
 	pass
+
+
+func _on_end_points_finished():
+	startaddingPoints()

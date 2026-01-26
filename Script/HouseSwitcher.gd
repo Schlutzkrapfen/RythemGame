@@ -9,6 +9,7 @@ extends TileMapLayer
 var currentHouse:int
 signal SwitchHouse(House)
 
+
 func _input(event) -> void:
 	if event.is_action_pressed("FirstHouse"):
 		if houseAmount >= 1:
@@ -40,3 +41,11 @@ func _on_node_2d_update_values():
 			if Global.currentResources[Resouces[x]] >=CostAmount[x]:
 				emit_signal("SwitchHouse",x)
 			
+
+
+func _on_control_2_selected_finished():
+	Resouces = Global.BuildResources
+	houseSelected= Global.HouseSelected
+	houseAmount = houseSelected.size()
+	CostAmount = Global.BuildCostAmount
+	_on_node_2d_update_values()

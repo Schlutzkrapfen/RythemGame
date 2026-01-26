@@ -64,7 +64,7 @@ func _process(_delta) ->void:
 	elif lastHelpVisual[0].distance_to(mousetile) > 2:
 		ControlerAktive = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	#elif lastHelpVisual == mousetile && !ControlerAktive:
+	#if tile == mousetile && !ControlerAktive:
 	#	return
 	if HouseRange !=  0:
 		RemoveHelpRemoveLayer()

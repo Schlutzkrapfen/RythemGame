@@ -26,6 +26,7 @@ func _ready():
 	for x in unlocksneeded:
 		var MissonNode:HBoxContainer = Missions.instantiate()
 		labels.append(MissonNode.get_child(1))
+		
 		labels.back().text =  str(unlocksneeded[x] - Global.currentResources[x])+ ":" 
 		add_child(MissonNode)
 		var icon:TextureRect = MissonNode.get_child(2)

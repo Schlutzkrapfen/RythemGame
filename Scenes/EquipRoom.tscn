@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dreu6sjmunp6u"]
+[gd_scene load_steps=7 format=3 uid="uid://dreu6sjmunp6u"]
 
 [ext_resource type="PackedScene" uid="uid://8yloef2upakm" path="res://Scenes/SelecetHouse.tscn" id="1_ojucv"]
 [ext_resource type="Script" uid="uid://bbu48ljexhnn7" path="res://Script/Menus/UpgradeRoom.gd" id="1_sckp7"]
+[ext_resource type="Script" uid="uid://bx0yf3dvwrsj7" path="res://Script/SpawnSelecthouses.gd" id="2_3fdco"]
 [ext_resource type="Script" uid="uid://dvnd2laiuxt85" path="res://Script/CurrentSelectedHouses.gd" id="2_ebes0"]
 
 [sub_resource type="Gradient" id="Gradient_ebes0"]
@@ -12,6 +13,7 @@ colors = PackedColorArray(0.7160871, 0.37478626, 1.92523e-07, 1)
 gradient = SubResource("Gradient_ebes0")
 
 [node name="Control" type="Control" node_paths=PackedStringArray("canvasLayer")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +24,6 @@ script = ExtResource("1_sckp7")
 canvasLayer = NodePath("CanvasLayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -67,7 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_1elkk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,153 +76,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer"]
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
 
-[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
 
-[node name="SingleHouse" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse2" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse3" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse4" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse5" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse6" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse7" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse8" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+[node name="SpawnSelecthouses" type="GridContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("overlaySpanwer")]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/v_separation = 30
+columns = 8
+script = ExtResource("2_3fdco")
+overlaySpanwer = NodePath("../../../../../../SpawnerForFAKEButtons")
 
-[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="SingleHouse" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse2" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse3" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse4" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse5" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse6" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse7" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse8" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+[node name="Control5" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
+size_flags_stretch_ratio = 0.01
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="SingleHouse" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse2" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse3" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse4" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse5" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse6" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse7" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="SingleHouse8" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_ojucv")]
-layout_mode = 2
-
-[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer"]
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/Control2"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -230,7 +117,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.4390491, 0.43904912, 0.43904912, 1)
 
-[node name="ContainerForConnectButton" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer" node_paths=PackedStringArray("buttonsArray", "SpaceArray")]
+[node name="ContainerForConnectButton" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("buttonsArray", "SpaceArray")]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
@@ -238,52 +125,55 @@ script = ExtResource("2_ebes0")
 buttonsArray = [NodePath("FirstButton"), NodePath("SecondButton"), NodePath("ThirdButton"), NodePath("LastButton")]
 SpaceArray = [NodePath("Control1"), NodePath("Control2"), NodePath("Control3"), NodePath("Control4")]
 
-[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
-[node name="FirstButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
-visible = false
+[node name="FirstButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
 layout_mode = 2
+focus_neighbor_right = NodePath("../SecondButton")
 
-[node name="Control1" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SecondButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
-visible = false
-layout_mode = 2
-
-[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
-visible = false
+[node name="Control1" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
-[node name="ThirdButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
-visible = false
+[node name="SecondButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../FirstButton")
+focus_neighbor_right = NodePath("../ThirdButton")
 
-[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="LastButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
-visible = false
-layout_mode = 2
-
-[node name="Control4" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton"]
-visible = false
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
-[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer"]
+[node name="ThirdButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../SecondButton")
+focus_neighbor_right = NodePath("../LastButton")
+
+[node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="LastButton" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" instance=ExtResource("1_ojucv")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../ThirdButton")
+
+[node name="Control4" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -291,6 +181,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "BTN_NEXT"
+
+[node name="Control4" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
 
 [node name="Control4" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -302,7 +202,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.02
 
-[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton/FirstButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [0]]
-[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton/SecondButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [1]]
-[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton/ThirdButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [2]]
-[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton/LastButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [3]]
+[node name="SpawnerForFAKEButtons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="buttonPress" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/SpawnSelecthouses" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" method="_on_spawn_selecthouses_button_press"]
+[connection signal="moveButtonImidiatly" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/SpawnSelecthouses" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" method="_on_spawn_selecthouses_move_button_imidiatly"]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton/FirstButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [0]]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton/SecondButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [1]]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton/ThirdButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [2]]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton/LastButton" to="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/ContainerForConnectButton" method="ButtonPressed" binds= [3]]
+[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Control3/HBoxContainer/VBoxContainer/Control/Button" to="." method="_on_button_button_up"]

@@ -105,7 +105,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -114,6 +113,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer/Control"]
 position = Vector2(577, 325)
@@ -282,20 +283,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1012.0
-offset_right = 500.0
+offset_left = 1001.0
+offset_right = 499.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/Highscores" node_paths=PackedStringArray("highscore")]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "BTN_HIGHSCORE"
-script = ExtResource("1_xi21b")
-highscore = NodePath("..")
-
-[node name="Spawnname" parent="CanvasLayer/Highscores" instance=ExtResource("1_mxr6m")]
+[node name="Control" type="Control" parent="CanvasLayer/Highscores"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 11
@@ -304,6 +298,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Highscores/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.28, 0.27384, 0.1568, 0.7529412)
+
+[node name="Spawnname" parent="CanvasLayer/Highscores/Control" instance=ExtResource("1_mxr6m")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonPositingControll" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/ButtonPositingControll" node_paths=PackedStringArray("highscore")]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "BTN_HIGHSCORE"
+autowrap_mode = 1
+script = ExtResource("1_xi21b")
+highscore = NodePath("../../Highscores")
 
 [node name="AudioControl" parent="." node_paths=PackedStringArray("AudioSource") instance=ExtResource("11_5iqpk")]
 AudioSource = [NodePath("Music"), NodePath("Hit"), NodePath("Miss"), NodePath("Miss2"), NodePath("Miss3"), NodePath("Kaching"), NodePath("PointsUpwards"), NodePath("StartPoint")]
@@ -330,11 +363,13 @@ volume_db = 5.0
 [connection signal="shakeCamera" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" to="CanvasLayer/Control/Camera2D" method="_on_win_point_spawner_shake_camera"]
 [connection signal="Kachinging" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_kachinging"]
 [connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" method="_on_end_points_finished"]
+[connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/Highscores/Control/Spawnname" method="_on_end_points_finished"]
+[connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/ButtonPositingControll/Button" method="_on_end_points_finished"]
 [connection signal="startCountUp" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_start_count_up"]
 [connection signal="stopCountUp" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_stop_count_up"]
 [connection signal="chamerashake" from="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" to="CanvasLayer/Control/Camera2D" method="_on_win_point_spawner_shake_camera"]
 [connection signal="playBadSound" from="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" to="AudioControl" method="_on_win_point_spawner_bad_sound"]
-[connection signal="button_up" from="CanvasLayer/Highscores/Button" to="CanvasLayer/Highscores/Button" method="_on_button_up"]
+[connection signal="button_up" from="CanvasLayer/ButtonPositingControll/Button" to="CanvasLayer/ButtonPositingControll/Button" method="_on_button_up"]
 [connection signal="finished" from="AudioControl/StartPoint" to="AudioControl" method="_on_start_point_finished"]
 
 [editable path="AudioControl"]

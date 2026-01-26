@@ -51,9 +51,10 @@ var pointsDict: Dictionary[Global.Points, float] = {
 var CurrentID:int 
 var HitId:int
 var CurrentHit:int
-
-func _ready():
+func getStartingStat():
 	currentStats = Global.house_registry.get(Global.HouseSelected[0])
+func _ready():
+	getStartingStat()
 
 func addHouse():
 	if currentStats.houseRange == 0:
@@ -137,3 +138,7 @@ func _on_rhythm_notifier_beat(_current_beat):
 
 func _on_level_switcher_finished():
 	Global.pointsDict = pointsDict
+
+
+func _on_control_2_selected_finished():
+	getStartingStat() # Replace with function body.
