@@ -18,32 +18,39 @@ func _ready():
 	unlocksTake.resize(unlocksCount)
 	unlocksTake.fill(false)
 
-
+##TODO:NEEDS MORE PLAYER FEEDBACK
 func _on_button_button_up():
 	#checks if any house is selecetde
 	var notselected:int = 0
 	#Looks if there is any building that needs no Resources to start
-	var notStarteible:int = 0
+	var starteible:int = 0
 	var currentHouses = Global.HouseSelected
+	var unlockArray:Array[Global.HouseID] =  Global.level_registery[Global.currentLevel].UnlocksNeeded.keys()
+	var alreadyUnlocked:Array[Global.HouseID] = []
 	for i in currentHouses:
 		if i == Global.HouseID.NONE:
 			notselected += 1
-			notStarteible +=1 
 			continue
-		if Global.house_registry[i].buildCost != 0:
-			notStarteible +=1
-		
+		if Global.house_registry[i].buildCost == 0:
+			starteible +=1
 		for unlocks in unlocksCount:
-			if Global.pointsConnectDict.has(Global.house_registry[i].buildType):
-				if Global.level_registery[Global.currentLevel].UnlocksNeeded.has(Global.pointsConnectDict[Global.house_registry[i].buildType]):
+			var breaks = false
+			for alreadys in alreadyUnlocked:
+				if alreadys == unlockArray[unlocks]:
+					breaks = true
+			print(breaks)
+			if breaks:
+				break
+			if Global.pointsConnectDict.has(Global.house_registry[i].unitType):
+				if unlockArray[unlocks] == Global.pointsConnectDict[Global.house_registry[i].unitType]:
 					unlocksTake[unlocks] = true
+					alreadyUnlocked.append(Global.house_registry[i].unitType)
 			else:
-				if Global.level_registery[Global.currentLevel].UnlocksNeeded.has(Global.house_registry[i].buildType):
+				if Global.level_registery[Global.currentLevel].UnlocksNeeded.has(Global.house_registry[i].unitType):
 					unlocksTake[unlocks] = true
-		
-	if notselected == maxSameHouses || Global.HouseSelected.size() == 0 || notStarteible == maxSameHouses:
+					alreadyUnlocked.append(Global.house_registry[i].unitType)
+	if notselected == maxSameHouses || Global.HouseSelected.size() == 0 || starteible == 0:
 		return
-	print(unlocksTake)
 	for i in unlocksTake:
 		if i == false:
 			return
