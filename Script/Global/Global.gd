@@ -12,8 +12,8 @@ var BuildResources: Array[Points]
 var MakeResources: Array[Points]
 var PointsIcons: Array[Texture2D]
 var ButtonIcons: Array[Texture2D]
-var HouseUnlocked: Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,HouseID.Trees]
-var currentLevel:int= 5
+var HouseUnlocked: Array[HouseID] = []
+var currentLevel:int= 1
 
 var HouseSelected:Array[HouseID] = [HouseID.Default]
 #@onready var unlockedHouses:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,]

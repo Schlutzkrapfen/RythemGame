@@ -13,6 +13,7 @@ displayName = "HOUSE_WOOD_CUTTER_NAME"
 descriptions = "HOUSE_WOOD_CUTTER_DES"
 houseRange = 3
 buildCost = 5
+usesType = Array[int]([0])
 houseType = 3
 destroyes = true
 unitType = 8

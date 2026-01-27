@@ -38,7 +38,6 @@ func _on_button_button_up():
 			for alreadys in alreadyUnlocked:
 				if alreadys == unlockArray[unlocks]:
 					breaks = true
-			print(breaks)
 			if breaks:
 				break
 			if Global.pointsConnectDict.has(Global.house_registry[i].unitType):

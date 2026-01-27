@@ -15,7 +15,7 @@ class_name HouseDefinition extends Resource
 @export var houseRange: int = 0
 @export var buildCost: int = 0
 @export var points:float = 1
-@export var usesType:Global.HouseType
+@export var usesType:Array[Global.HouseType]
 
 
 @export_group("Types")

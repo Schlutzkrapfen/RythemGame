@@ -1,20 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://pck83rbqt25j"]
+[gd_scene load_steps=6 format=3 uid="uid://pck83rbqt25j"]
 
 [ext_resource type="Script" uid="uid://bxw6ss6sb6h6u" path="res://Script/rythemspawner.gd" id="1_7dibn"]
-[ext_resource type="Script" uid="uid://cxo5skiedmwkq" path="res://Script/PlayEmitter.gd" id="2_eky1s"]
-[ext_resource type="PackedScene" uid="uid://dt0ebo615ncli" path="res://ParticelEmmiters/ParticelEmiter.tscn" id="3_yir2p"]
-[ext_resource type="Texture2D" uid="uid://quo45aykdrvr" path="res://UI/Points/my-MISS.png" id="4_qmb4y"]
-[ext_resource type="Material" uid="uid://biuqruoy6bqus" path="res://ParticelEmmiters/Miss.tres" id="5_engqk"]
-[ext_resource type="Texture2D" uid="uid://cxpx1echlfbdq" path="res://UI/Points/my-EARLY.png" id="6_pp71m"]
-[ext_resource type="Texture2D" uid="uid://bb0gf4cccyaso" path="res://UI/Points/my-FULL.png" id="7_y2b46"]
-[ext_resource type="Texture2D" uid="uid://bg5q367ovuh6c" path="res://UI/Points/my-OKAY.png" id="8_i277b"]
-[ext_resource type="Material" uid="uid://bnrxrib72ja17" path="res://ParticelEmmiters/Okay.tres" id="9_xcbqj"]
-[ext_resource type="Texture2D" uid="uid://ndy6jyot7vck" path="res://UI/Points/my-PERFECT.png" id="10_dpius"]
-[ext_resource type="Material" uid="uid://cu67gmg83raru" path="res://ParticelEmmiters/Perfect.tres" id="11_27rel"]
-[ext_resource type="PackedScene" uid="uid://bsss88po8x7ji" path="res://ParticelEmmiters/Confetti.tscn" id="12_o1prl"]
-[ext_resource type="PackedScene" uid="uid://cfh2hfv8mqnin" path="res://ParticelEmmiters/BadEffect.tscn" id="13_l5bbe"]
-[ext_resource type="Texture2D" uid="uid://bjcgucursnwcg" path="res://UI/Points/#1 - Transparent Icons6.png" id="14_v4o36"]
-[ext_resource type="Material" uid="uid://cj2slrw1gxu0c" path="res://ParticelEmmiters/GoodEffect.tres" id="15_20a4b"]
+[ext_resource type="PackedScene" uid="uid://dmjl0jjfdq4p0" path="res://Scenes/ParticelEmmiter.tscn" id="2_6kmb1"]
 [ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="16_ari8t"]
 
 [sub_resource type="Gradient" id="Gradient_73vad"]
@@ -61,51 +48,9 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ParticelEmmiter" type="Control" parent="HBoxContainer" node_paths=PackedStringArray("Emmiters")]
+[node name="ParticelEmmiter" parent="HBoxContainer" instance=ExtResource("2_6kmb1")]
+visible = false
 layout_mode = 2
-script = ExtResource("2_eky1s")
-Emmiters = [NodePath("Miss"), NodePath("Early"), NodePath("Full"), NodePath("Okay"), NodePath("Good"), NodePath("Perfect"), NodePath("ConfEffect"), NodePath("BadEffect"), NodePath("GoodEffect")]
-
-[node name="Miss" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("3_yir2p")]
-position = Vector2(0, -15)
-texture = ExtResource("4_qmb4y")
-process_material = ExtResource("5_engqk")
-
-[node name="Early" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("3_yir2p")]
-position = Vector2(0, -15)
-texture = ExtResource("6_pp71m")
-process_material = ExtResource("5_engqk")
-
-[node name="Full" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("3_yir2p")]
-position = Vector2(0, -15)
-texture = ExtResource("7_y2b46")
-process_material = ExtResource("5_engqk")
-
-[node name="Okay" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("3_yir2p")]
-position = Vector2(0, -15)
-texture = ExtResource("8_i277b")
-process_material = ExtResource("9_xcbqj")
-
-[node name="Good" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("3_yir2p")]
-position = Vector2(0, -15)
-
-[node name="Perfect" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("3_yir2p")]
-position = Vector2(0, -15)
-texture = ExtResource("10_dpius")
-process_material = ExtResource("11_27rel")
-
-[node name="ConfEffect" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("12_o1prl")]
-position = Vector2(0, -15)
-
-[node name="BadEffect" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("13_l5bbe")]
-position = Vector2(0, -15)
-
-[node name="GoodEffect" parent="HBoxContainer/ParticelEmmiter" instance=ExtResource("12_o1prl")]
-material = null
-position = Vector2(0, -15)
-amount = 10
-texture = ExtResource("14_v4o36")
-process_material = ExtResource("15_20a4b")
 
 [node name="Control2" type="Control" parent="HBoxContainer"]
 layout_mode = 2

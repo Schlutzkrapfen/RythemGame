@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://b4plxikf88g6g"]
+[gd_scene load_steps=36 format=4 uid="uid://b4plxikf88g6g"]
 
 [ext_resource type="Script" uid="uid://cssfytp2m1og" path="res://Script/Spawner.gd" id="1_104vp"]
 [ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="2_3momc"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://bskva3ehqaym" path="res://Script/tutorial.gd" id="14_62xmr"]
 [ext_resource type="Script" uid="uid://cs4km2exdthjm" path="res://Script/levelSwitcher.gd" id="14_104vp"]
 [ext_resource type="Texture2D" uid="uid://rxg3rqqcf1yk" path="res://addons/controller_icons/assets/mouse/simple.png" id="14_k7tvq"]
+[ext_resource type="PackedScene" uid="uid://dmjl0jjfdq4p0" path="res://Scenes/ParticelEmmiter.tscn" id="23_0cfxs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1h0o"]
 texture = ExtResource("3_sbm5j")
@@ -181,6 +182,14 @@ Images = Array[Texture2D]([ExtResource("10_pp47a"), ExtResource("11_idi36"), Ext
 [node name="Popup" parent="Control/CanvasLayer/Control" index="3"]
 process_mode = 3
 
+[node name="ParticelEmmiter" parent="Control/CanvasLayer" index="1" instance=ExtResource("23_0cfxs")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+moveToMouse = true
+
 [node name="Camera2D" type="Camera2D" parent="Control"]
 position = Vector2(582, 311)
 zoom = Vector2(2, 2)
@@ -227,18 +236,24 @@ timer = NodePath("../Timer")
 [connection signal="ChangedHouseAtPosition" from="." to="MainLayer/Animator" method="_on_node_2d_changed_house_at_position"]
 [connection signal="ChangedHouseAtPosition" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_changed_house_at_position"]
 [connection signal="Early" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_early"]
+[connection signal="Early" from="." to="Control/CanvasLayer/ParticelEmmiter" method="_on_node_2d_early"]
 [connection signal="EarlyFullMiss" from="." to="MainLayer/Animator" method="_on_node_2d_early_full_miss"]
 [connection signal="EarlyFullMiss" from="." to="Control/Camera2D" method="_on_node_2d_early_full_miss"]
 [connection signal="EarlyFullMiss" from="." to="AudioControl" method="_on_node_2d_early_full_miss"]
 [connection signal="Full" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_full"]
+[connection signal="Full" from="." to="Control/CanvasLayer/ParticelEmmiter" method="_on_node_2d_full"]
 [connection signal="Good" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_good"]
+[connection signal="Good" from="." to="Control/CanvasLayer/ParticelEmmiter" method="_on_node_2d_good"]
 [connection signal="Good" from="." to="Control/Camera2D" method="_on_node_2d_good"]
 [connection signal="Good" from="." to="AudioControl" method="_on_node_2d_good"]
 [connection signal="Miss" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_miss"]
+[connection signal="Miss" from="." to="Control/CanvasLayer/ParticelEmmiter" method="_on_node_2d_miss"]
 [connection signal="Okay" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_okay"]
+[connection signal="Okay" from="." to="Control/CanvasLayer/ParticelEmmiter" method="_on_node_2d_okay"]
 [connection signal="Okay" from="." to="Control/Camera2D" method="_on_node_2d_okay"]
 [connection signal="Okay" from="." to="AudioControl" method="_on_node_2d_okay"]
 [connection signal="Perfect" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_perfect"]
+[connection signal="Perfect" from="." to="Control/CanvasLayer/ParticelEmmiter" method="_on_node_2d_perfect"]
 [connection signal="Perfect" from="." to="Control/Camera2D" method="_on_node_2d_perfect"]
 [connection signal="Perfect" from="." to="AudioControl" method="_on_node_2d_perfect"]
 [connection signal="UpdateValues" from="." to="Backgorund" method="_on_node_2d_update_values"]

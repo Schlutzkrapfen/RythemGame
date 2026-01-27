@@ -1,10 +1,17 @@
 extends Control
 
 @export var Emmiters:Array[GPUParticles2D]
+@export var moveToMouse:bool = false
 
 
 enum ParticelsOrder {Miss,Early,Full,Okay,Good,Perfect,Confetti,BadEffect,GoodEffect}
 var buildEffect:PackedScene = preload("res://ParticelEmmiters/buildEffect.tscn")
+
+
+
+func _process(delta):
+	if moveToMouse:
+		self.position = get_global_mouse_position()
 
 func playEmitter(order:ParticelsOrder)-> void:
 	Emmiters[order].restart()

@@ -22,7 +22,7 @@ var world_pos: Vector2
 var world_contr_pos:Vector2 
 var tile_coords: Vector2i
 
-@onready var curretnHouse:Global.HouseID = Global.HouseSelected[0]
+@onready var curretnHouse:Global.HouseID 
 @onready var currentHousestats = Global.house_registry[curretnHouse]
 
 var ControlerAktive:bool
@@ -117,13 +117,14 @@ func AddHelpLayer(House:Global.HouseID, currentPosition:Vector2i):
 			if offset.length() <= HouseRange:
 				var target_coords: Vector2i = currentPosition + Vector2i(x, y)
 				var check_tile: TileData = tilemap.get_cell_tile_data(target_coords)
-				match currentHousestats.usesType:
-					Global.HouseType.Trees:
-						if tree_tile_data.has(check_tile):
-							addtileInRanges(target_coords)
-					Global.HouseType.Houses:
-						if house_tile_data.has(check_tile):
-							addtileInRanges(target_coords)
+				for types in currentHousestats.usesType:
+					match types:
+						Global.HouseType.Trees:
+							if tree_tile_data.has(check_tile):
+								addtileInRanges(target_coords)
+						Global.HouseType.Houses:
+							if house_tile_data.has(check_tile):
+								addtileInRanges(target_coords)
 		signalDictionary["RemovePositions"] = tileInRange
 
 
