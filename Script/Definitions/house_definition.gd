@@ -16,6 +16,7 @@ class_name HouseDefinition extends Resource
 @export var buildCost: int = 0
 @export var points:float = 1
 @export var usesType:Array[Global.HouseType]
+@export var musicSpeed:Global.musicSpeed = Global.musicSpeed.normal
 
 
 @export_group("Types")

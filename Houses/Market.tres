@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HouseDefinition" load_steps=2 format=3 uid="uid://wlhj7b2kfm2a"]
+[gd_resource type="Resource" script_class="HouseDefinition" format=3 uid="uid://wlhj7b2kfm2a"]
 
 [ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/Definitions/house_definition.gd" id="2_j6mqo"]
 
@@ -12,6 +12,7 @@ houseRange = 3
 buildCost = 10
 points = 0.1
 usesType = Array[int]([1, 2, 3])
+musicSpeed = 0
 houseType = 3
 unitType = 11
 buildType = 8

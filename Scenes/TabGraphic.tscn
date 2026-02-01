@@ -1,29 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxnnkk5qul1qc"]
+[gd_scene format=3 uid="uid://bxnnkk5qul1qc"]
 
+[ext_resource type="Script" uid="uid://b6n56o8h2r43i" path="res://Script/Menus/FocusGraberTabs.gd" id="1_4lbb6"]
 [ext_resource type="Script" uid="uid://ckt38ajhg0een" path="res://Script/Menus/vsync.gd" id="1_m85o7"]
 
-[node name="TAB_GRAPHIC" type="VBoxContainer"]
+[node name="TAB_GRAPHIC" type="VBoxContainer" unique_id=1371158838 node_paths=PackedStringArray("selcted")]
 visible = false
+script = ExtResource("1_4lbb6")
+selcted = NodePath("FullScreen/Control6/CheckBox")
 metadata/_tab_index = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=374877309]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="FullScreen" type="HBoxContainer" parent="."]
+[node name="FullScreen" type="HBoxContainer" parent="." unique_id=1254818605]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control1" type="Control" parent="FullScreen"]
+[node name="Control1" type="Control" parent="FullScreen" unique_id=767142913]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Text" type="Control" parent="FullScreen"]
+[node name="Text" type="Control" parent="FullScreen" unique_id=83458451]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="FullScreen/Text"]
+[node name="Label2" type="Label" parent="FullScreen/Text" unique_id=639616392]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -34,11 +37,11 @@ offset_bottom = 11.5
 grow_vertical = 2
 text = "SETTINGS_FULLSCREEN"
 
-[node name="Control6" type="Control" parent="FullScreen"]
+[node name="Control6" type="Control" parent="FullScreen" unique_id=347154230]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckBox" type="CheckBox" parent="FullScreen/Control6"]
+[node name="CheckBox" type="CheckBox" parent="FullScreen/Control6" unique_id=1069478806]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -51,25 +54,25 @@ offset_bottom = 23.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Control7" type="Control" parent="FullScreen"]
+[node name="Control7" type="Control" parent="FullScreen" unique_id=1848019547]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Resolution" type="HBoxContainer" parent="."]
+[node name="Resolution" type="HBoxContainer" parent="." unique_id=1664182224]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control1" type="Control" parent="Resolution"]
+[node name="Control1" type="Control" parent="Resolution" unique_id=585526345]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Control2" type="Control" parent="Resolution"]
+[node name="Control2" type="Control" parent="Resolution" unique_id=1491152349]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Resolution/Control2"]
+[node name="Label" type="Label" parent="Resolution/Control2" unique_id=1259653525]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -80,11 +83,11 @@ offset_bottom = 11.5
 grow_vertical = 2
 text = "SETTINGS_RESOLUTION"
 
-[node name="Control3" type="Control" parent="Resolution"]
+[node name="Control3" type="Control" parent="Resolution" unique_id=1127850591]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckBox" type="CheckBox" parent="Resolution/Control3"]
+[node name="CheckBox" type="CheckBox" parent="Resolution/Control3" unique_id=41915477]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -97,27 +100,27 @@ offset_bottom = 23.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Control4" type="Control" parent="Resolution"]
+[node name="Control4" type="Control" parent="Resolution" unique_id=1616216554]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Vsync" type="HBoxContainer" parent="." node_paths=PackedStringArray("checkbox")]
+[node name="Vsync" type="HBoxContainer" parent="." unique_id=813208995 node_paths=PackedStringArray("checkbox")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("1_m85o7")
 checkbox = NodePath("Control3/CheckBox")
 
-[node name="Control1" type="Control" parent="Vsync"]
+[node name="Control1" type="Control" parent="Vsync" unique_id=767482523]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Control2" type="Control" parent="Vsync"]
+[node name="Control2" type="Control" parent="Vsync" unique_id=425266361]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Vsync/Control2"]
+[node name="Label" type="Label" parent="Vsync/Control2" unique_id=2020977686]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -128,11 +131,11 @@ offset_bottom = 11.5
 grow_vertical = 2
 text = "SETTINGS_VSYNC"
 
-[node name="Control3" type="Control" parent="Vsync"]
+[node name="Control3" type="Control" parent="Vsync" unique_id=1449174357]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckBox" type="CheckBox" parent="Vsync/Control3"]
+[node name="CheckBox" type="CheckBox" parent="Vsync/Control3" unique_id=1909031840]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -145,11 +148,13 @@ offset_bottom = 20.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Control4" type="Control" parent="Vsync"]
+[node name="Control4" type="Control" parent="Vsync" unique_id=1035077232]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Control6" type="Control" parent="."]
+[node name="Control6" type="Control" parent="." unique_id=493177361]
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

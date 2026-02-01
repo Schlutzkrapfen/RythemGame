@@ -1,5 +1,6 @@
 extends Popup
 
+@export var rythms:RhythmNotifier
 
 func _on_check_box_toggled(toggled_on):
 	GlobalSettings.vsynch = toggled_on

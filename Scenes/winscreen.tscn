@@ -1,8 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://d2plfhokqusxu"]
+[gd_scene format=3 uid="uid://d2plfhokqusxu"]
 
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="1_b3vrs"]
 [ext_resource type="PackedScene" uid="uid://demff3tob8qww" path="res://Scenes/spawnHighscore.tscn" id="1_mxr6m"]
-[ext_resource type="Script" uid="uid://b4m7h7mh6r1ef" path="res://Scenes/MoveHighscore.gd" id="1_xi21b"]
+[ext_resource type="Script" uid="uid://b4m7h7mh6r1ef" path="res://Script/MoveHighscore.gd" id="1_xi21b"]
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="2_0udrg"]
 [ext_resource type="Script" uid="uid://c1bareaaqecv0" path="res://Script/WinPointSpawner.gd" id="3_e331a"]
 [ext_resource type="Script" uid="uid://ehunuv0l82x7" path="res://Script/PointsCounter.gd" id="4_fr20v"]
@@ -38,6 +38,8 @@ spread = 0.0
 gravity = Vector3(0, -9, 0)
 linear_accel_min = 20.849997
 linear_accel_max = 20.849997
+radial_accel_min = -100.0
+radial_accel_max = -46.100002
 
 [sub_resource type="Curve" id="Curve_6f31x"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.71428573, 1), 0.0, 0.0, 0, 0, Vector2(0.9849624, 0.59550565), 0.0, 0.0, 0, 0]
@@ -96,7 +98,7 @@ path = "NextLevel"
 show_mode = 2
 metadata/_custom_type_script = "uid://oyi0dvyexiek"
 
-[node name="WinScreen" type="Control"]
+[node name="WinScreen" type="Control" unique_id=753928273]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,9 +106,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1767730770]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1990268223]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,7 +118,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Control"]
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Control" unique_id=142877599]
 position = Vector2(577, 325)
 limit_enabled = false
 script = ExtResource("1_b3vrs")
@@ -124,7 +126,7 @@ decay = 0.4
 max_offset = Vector2(200, 185)
 noise = SubResource("FastNoiseLite_yupi4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=596369359]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,16 +134,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer" unique_id=970166077]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer" unique_id=353767213]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="WinPointSpawner" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3"]
+[node name="WinPointSpawner" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3" unique_id=2015280671]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -152,17 +154,17 @@ size_flags_horizontal = 3
 theme = ExtResource("2_0udrg")
 script = ExtResource("3_e331a")
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" unique_id=2010012388]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner"]
+[node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" unique_id=55233177]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="EndPoints" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" node_paths=PackedStringArray("ButtonNode", "ParticelEmmiters")]
+[node name="EndPoints" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" unique_id=1046524621 node_paths=PackedStringArray("ButtonNode", "ParticelEmmiters")]
 visible = false
 layout_mode = 2
 script = ExtResource("4_fr20v")
@@ -170,38 +172,38 @@ ButtonNode = NodePath("../Control2/Control/HBoxContainer")
 pointsAddingSpeed = 25.0
 ParticelEmmiters = [NodePath("Points/PointsUp"), NodePath("Points/Kaching")]
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" unique_id=435417168]
 layout_mode = 2
 theme_override_constants/line_spacing = 10
 theme_override_constants/outline_size = 0
 text = "BTN_POINTS"
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" unique_id=1844242427]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Points" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints"]
+[node name="Points" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" unique_id=973797048]
 layout_mode = 2
 
-[node name="PointsUp" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints/Points" instance=ExtResource("6_8uj3d")]
+[node name="PointsUp" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints/Points" unique_id=2120563539 instance=ExtResource("6_8uj3d")]
 position = Vector2(386, 16)
 emitting = false
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_nkwte")
 
-[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints/Points" instance=ExtResource("7_v2n38")]
+[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints/Points" unique_id=1753278414 instance=ExtResource("7_v2n38")]
 material = null
 position = Vector2(389, 17)
 texture = ExtResource("8_mxr6m")
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_81yy2")
 
-[node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner"]
+[node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" unique_id=81821429]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2" unique_id=1938406087]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -210,7 +212,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control" unique_id=1945452823]
 visible = false
 layout_mode = 1
 anchors_preset = 14
@@ -222,22 +224,22 @@ offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Restart" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("9_xi21b")]
+[node name="Restart" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" unique_id=1750158335 instance=ExtResource("9_xi21b")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 icon = SubResource("Texture2D_b3vrs")
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" unique_id=1728859398]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NextLevel" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" instance=ExtResource("10_2bjyx")]
+[node name="NextLevel" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" unique_id=719888407 instance=ExtResource("10_2bjyx")]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = SubResource("Texture2D_0udrg")
 
-[node name="LostLabel" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3"]
+[node name="LostLabel" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3" unique_id=930138532]
 visible = false
 modulate = Color(1, 0, 0, 1)
 layout_mode = 1
@@ -257,7 +259,7 @@ theme = ExtResource("2_0udrg")
 text = "LOST_TIME"
 script = ExtResource("11_v2n38")
 
-[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" instance=ExtResource("7_v2n38")]
+[node name="Kaching" parent="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" unique_id=1065385761 instance=ExtResource("7_v2n38")]
 material = null
 position = Vector2(157.68481, 20.506126)
 scale = Vector2(2, 2)
@@ -266,19 +268,19 @@ texture = ExtResource("8_mxr6m")
 local_coords = true
 process_material = ExtResource("11_0udrg")
 
-[node name="SpawnEffect" parent="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" instance=ExtResource("13_mxr6m")]
+[node name="SpawnEffect" parent="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" unique_id=1976726570 instance=ExtResource("13_mxr6m")]
 material = ExtResource("14_xi21b")
 position = Vector2(163.3417, 23.334564)
 texture = ExtResource("15_2bjyx")
 local_coords = true
 process_material = ExtResource("16_5iqpk")
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer" unique_id=29157203]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="Highscores" type="Control" parent="CanvasLayer"]
+[node name="Highscores" type="Control" parent="CanvasLayer" unique_id=704886663]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -288,8 +290,10 @@ offset_right = 499.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+mouse_filter = 1
+mouse_behavior_recursive = 1
 
-[node name="Control" type="Control" parent="CanvasLayer/Highscores"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Highscores" unique_id=1744885414]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 11
@@ -298,33 +302,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_behavior_recursive = 1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Highscores/Control"]
-layout_mode = 1
-anchors_preset = 15
+[node name="Control" type="Control" parent="CanvasLayer/Highscores/VBoxContainer" unique_id=2008214573]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_behavior_recursive = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Highscores/VBoxContainer/Control" unique_id=544179017]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.28, 0.27384, 0.1568, 0.7529412)
 
-[node name="Spawnname" parent="CanvasLayer/Highscores/Control" instance=ExtResource("1_mxr6m")]
-custom_minimum_size = Vector2(500, 0)
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Highscores/VBoxContainer/Control" unique_id=495961218]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
 
-[node name="ButtonPositingControll" type="Control" parent="CanvasLayer"]
+[node name="TAB_LOCAL" parent="CanvasLayer/Highscores/VBoxContainer/Control/TabContainer" unique_id=1532646604 instance=ExtResource("1_mxr6m")]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TAB_GLOBAL" parent="CanvasLayer/Highscores/VBoxContainer/Control/TabContainer" unique_id=1062261820 instance=ExtResource("1_mxr6m")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+global = true
+metadata/_tab_index = 1
+
+[node name="Control2" type="Control" parent="CanvasLayer/Highscores/VBoxContainer" unique_id=1062188275]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="ButtonPositingControll" type="Control" parent="CanvasLayer" unique_id=1254328833]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/ButtonPositingControll" node_paths=PackedStringArray("highscore")]
+[node name="Button" type="Button" parent="CanvasLayer/ButtonPositingControll" unique_id=512770675 node_paths=PackedStringArray("highscore")]
 visible = false
 layout_mode = 1
 anchors_preset = 1
@@ -338,7 +366,7 @@ autowrap_mode = 1
 script = ExtResource("1_xi21b")
 highscore = NodePath("../../Highscores")
 
-[node name="AudioControl" parent="." node_paths=PackedStringArray("AudioSource") instance=ExtResource("11_5iqpk")]
+[node name="AudioControl" parent="." unique_id=925753407 node_paths=PackedStringArray("AudioSource") instance=ExtResource("11_5iqpk")]
 AudioSource = [NodePath("Music"), NodePath("Hit"), NodePath("Miss"), NodePath("Miss2"), NodePath("Miss3"), NodePath("Kaching"), NodePath("PointsUpwards"), NodePath("StartPoint")]
 
 [node name="Music" parent="AudioControl" index="0"]
@@ -363,12 +391,15 @@ volume_db = 5.0
 [connection signal="shakeCamera" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" to="CanvasLayer/Control/Camera2D" method="_on_win_point_spawner_shake_camera"]
 [connection signal="Kachinging" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_kachinging"]
 [connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" method="_on_end_points_finished"]
-[connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/Highscores/Control/Spawnname" method="_on_end_points_finished"]
+[connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/Highscores/VBoxContainer/Control/TabContainer/TAB_LOCAL" method="_on_end_points_finished"]
+[connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/Highscores/VBoxContainer/Control/TabContainer/TAB_GLOBAL" method="_on_end_points_finished"]
 [connection signal="finished" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="CanvasLayer/ButtonPositingControll/Button" method="_on_end_points_finished"]
 [connection signal="startCountUp" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_start_count_up"]
 [connection signal="stopCountUp" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/EndPoints" to="AudioControl" method="_on_end_points_stop_count_up"]
 [connection signal="chamerashake" from="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" to="CanvasLayer/Control/Camera2D" method="_on_win_point_spawner_shake_camera"]
 [connection signal="playBadSound" from="CanvasLayer/Control/HBoxContainer/Control3/LostLabel" to="AudioControl" method="_on_win_point_spawner_bad_sound"]
+[connection signal="save" from="CanvasLayer/Highscores/VBoxContainer/Control/TabContainer/TAB_LOCAL" to="CanvasLayer/Highscores/VBoxContainer/Control/TabContainer/TAB_GLOBAL" method="_on_name_submitted"]
+[connection signal="save" from="CanvasLayer/Highscores/VBoxContainer/Control/TabContainer/TAB_GLOBAL" to="CanvasLayer/Highscores/VBoxContainer/Control/TabContainer/TAB_LOCAL" method="_on_name_submitted"]
 [connection signal="button_up" from="CanvasLayer/ButtonPositingControll/Button" to="CanvasLayer/ButtonPositingControll/Button" method="_on_button_up"]
 [connection signal="finished" from="AudioControl/StartPoint" to="AudioControl" method="_on_start_point_finished"]
 

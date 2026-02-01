@@ -2,9 +2,10 @@ extends Node
 
 enum Points  {Miss = 0,Early = 1,Full =2,Okay=3,Good=4 ,Perfect=5 ,people=6 ,unemployed=7,wood=8 ,unusedWood=9,time=10,multiplaier =11}
 var endPoints: int = 0
-enum HouseID {NONE = -1, Default = 0,Trees=1 ,WoodCutter= 2, Market=3, Backery=4 ,Destroyer = 5 }
+enum HouseID {NONE = -1, Default = 0,Trees=1 ,WoodCutter= 2, Market=3, Backery=4 ,Destroyer = 5,FastHouse }
 enum HouseType {Trees = 0, Houses = 1, ConstroctionBuilding =2,CityBuildings = 3}
 enum LevelStatus {Playing,Win,Lost,LostTime,Paused}
+enum musicSpeed {slow,normal,fast}
 
 var currentLevelStatus: LevelStatus 
 var BuildCostAmount: Array[int]
@@ -13,9 +14,11 @@ var MakeResources: Array[Points]
 var PointsIcons: Array[Texture2D]
 var ButtonIcons: Array[Texture2D]
 var HouseUnlocked: Array[HouseID] = []
+#How much is allowed to miss
+var musicOffset:float = 0.2
 var currentLevel:int= 1
 
-var HouseSelected:Array[HouseID] = [HouseID.Default]
+var HouseSelected:Array[HouseID] = [HouseID.Default, HouseID.Market,HouseID.FastHouse]
 #@onready var unlockedHouses:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,]
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),
@@ -23,7 +26,8 @@ var house_registry: Dictionary = {
 	HouseID.WoodCutter: preload("res://Houses/WoodCutter.tres"),
 	HouseID.Market: preload("res://Houses/Market.tres"),
 	HouseID.Backery: preload("res://Houses/Backery.tres"),
-	HouseID.Destroyer:preload ("res://Houses/Destroyer.tres")
+	HouseID.Destroyer:preload ("res://Houses/Destroyer.tres"),
+	HouseID.FastHouse:preload("res://Houses/HouseFast.tres")
 }
 var level_registery: Dictionary = {
 	0: preload("res://Levels/LevelResources/Level0.tres"),

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelDefinition" load_steps=3 format=3 uid="uid://cctfneerhkvqw"]
+[gd_resource type="Resource" script_class="LevelDefinition" format=3 uid="uid://cctfneerhkvqw"]
 
 [ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/ButtonIcons/Normal/House1.png" id="1_a66pa"]
 [ext_resource type="Script" uid="uid://jbrfkyp0aknp" path="res://Script/Definitions/level_definition.gd" id="2_fgtxh"]

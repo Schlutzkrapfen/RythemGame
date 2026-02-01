@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="HouseDefinition" format=3 uid="uid://contepxb6ene8"]
+
+[ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/ButtonIcons/Normal/House1.png" id="1_v51xg"]
+[ext_resource type="Texture2D" uid="uid://eskp35aiuckp" path="res://UI/ButtonIcons/Hd/House1.png" id="2_qm1hu"]
+[ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/Definitions/house_definition.gd" id="3_c4l2i"]
+
+[resource]
+script = ExtResource("3_c4l2i")
+buttonIcon = ExtResource("1_v51xg")
+buttonIconHD = ExtResource("2_qm1hu")
+tileMapPosition = Array[Vector2i]([Vector2i(0, 0)])
+displayName = "HOUSE_DEFAULT_NAME"
+descriptions = "HOUSE_DEFAULT_DES"
+houseRange = 1
+points = 0.5
+usesType = Array[int]([1, 3])
+musicSpeed = 2
+houseType = 1
+metadata/_custom_type_script = "uid://8bue58jekekt"

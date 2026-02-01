@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ptvgq3toy56r"]
+
+[sub_resource type="GDScript" id="GDScript_ionsf"]
+script/source = "extends Control
+var circleScene:PackedScene = preload(\"res://Scenes/BPMCircle.tscn\")
+
+func _process(_delta):
+	self.position = get_global_mouse_position()  
+
+
+func _on_rhythm_notifier_beat(_current_beat):
+	var circle:Control =circleScene.instantiate()
+	add_child(circle)
+"
+
+[node name="CircleSpawner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+script = SubResource("GDScript_ionsf")

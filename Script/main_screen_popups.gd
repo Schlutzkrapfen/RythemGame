@@ -12,12 +12,14 @@ func _input(event) -> void:
 	if event.is_action_pressed("Controller_Input"):
 		timesinslastInput = 0
 	
+#ATTION this Rythem Spawner is faster because it needs to be as fast that 
+#the rythem can be coupled
 func _on_rhythm_notifier_beat(current_beat):
-	if current_beat < 4:
-		textureRect.texture = Images[current_beat]
-	elif current_beat == 4:
+	if current_beat < 8:
+		textureRect.texture = Images[current_beat/2] 
+	elif current_beat == 8:
 		emit_signal("IntroFinished")
-	if current_beat == 5:
+	if current_beat == 9:
 		textureRect.visible = false
 		
 func _process(delta):

@@ -1,13 +1,14 @@
 
 extends ColorRect 
 
-@export var bpmbeat:float=140
 @export var beatuntildeleted:float = 3
 @export var anim:AnimationPlayer 
 @export var fadeTime:float = 0.1
 
-@onready var time_to_reach_center = (60.0 / bpmbeat) * beatuntildeleted
+var beatNumber: int = 0
 
+@onready var bpmbeat:float= Global.level_registery[Global.currentLevel].BPM
+@onready var time_to_reach_center = (60.0 / bpmbeat) * beatuntildeleted
 @onready var parent: Control = get_parent()
 @onready var distance_to_center = parent.size.x / 2
 @onready var speed = distance_to_center / time_to_reach_center

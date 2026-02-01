@@ -8,6 +8,7 @@ var maxpool: int = 2
 @onready var treeSpawnPoints:Array[Vector2i] = Global.house_registry[Global.HouseID.Trees].tileMapPosition
 @export var positionDic: Dictionary[Vector2i,Global.HouseID]
 
+#Adds the trees in the Tilemap to the trees[Array]
 func _on_main_layer_trees_spawned(trees):
 	for tree in trees:
 		positionDic.get_or_add(tree,Global.HouseID.Trees)

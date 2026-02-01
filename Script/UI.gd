@@ -15,17 +15,14 @@ func _process(_delta):
 		if !timer.is_stopped():
 			progress.value = timer.time_left
 	pass
-#Controls the pause events.
+func _on_rhythm_notifier_beat(_current_beat):
+	if anim == null:
+		return
+	anim.play("Tick")
+#Controlls the Pause Menu
 func _input(event):
 	if event.is_action_pressed("Quit"):
 		get_tree().paused = true
 		pauseMenu.visible = true
 		rythms[0].current_beat = 0
-
-		
-		
-
-func _on_rhythm_notifier_beat(_current_beat):
-	if anim == null:
-		return
-	anim.play("Tick")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

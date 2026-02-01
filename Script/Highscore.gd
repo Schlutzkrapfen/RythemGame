@@ -1,23 +1,37 @@
 extends Node
 @export var container: VBoxContainer
+@export var global:bool = false
 @onready var HighScorePath :String="user://highscores"+str(Global.currentLevel)+".json"
+@onready var leaderBoardName:String = "Level"+str(Global.currentLevel)
 
 var name_input: LineEdit
 var score_saved: bool = false
+signal save(player:String)
+
 @onready var font = load("res://Font/PublicSans-VariableFont_wght.ttf")
 
-
+func getGlobalPoints()->Dictionary:
+		var sw_result = await SilentWolf.Scores.get_scores(0, leaderBoardName).sw_get_scores_complete
+		var scores = sw_result.scores
+		var points:Dictionary
+		for score in scores:
+			points.get_or_add(score.player_name, score.score)
+		return points
 
 # Called when the node enters the scene tree for the first time.
 func startaddingPoints() -> void:
 	if container==null:
 		return
-
-	var highscores = Deserialize()
+	var highscores:Dictionary
+	if global:
+		highscores = await getGlobalPoints()
+	else:
+		highscores = Deserialize()
 	var player_position = find_player_position(highscores, Global.endPoints)
 	var current_position = 0
 	var display_number = 1
 
+	print(highscores)
 	for highscore in highscores:
 		# Insert player input at the correct position (only if in top 10)
 		if current_position == player_position and not score_saved and player_position < 10:
@@ -85,15 +99,25 @@ func find_player_position(highscores: Dictionary, score: int) -> int:
 func _on_name_submitted(player_name: String) -> void:
 	if player_name.strip_edges() == "":
 		return
-
+	if score_saved:
+		return 
 	AddHighscore(player_name, Global.endPoints)
 	score_saved = true
 
 	# Refresh the display
+	var highscores
+	if global:
+		await get_tree().create_timer(0.5).timeout
+		highscores = await getGlobalPoints()
+	else:
+		highscores = Deserialize()
 	for child in container.get_children():
 		child.queue_free()
+	addLabals(highscores)
+	emit_signal("save",player_name)
+	
 
-	var highscores = Deserialize()
+func addLabals(highscores)->void:
 	var display_number = 1
 	for highscore in highscores:
 		if display_number > 10:
@@ -146,8 +170,10 @@ func AddHighscore(player_name: String, score: int)->void:
 	var highscores: Dictionary = Deserialize()
 	highscores[player_name] = score
 	Serialize(highscores)
+	SilentWolf.Scores.save_score(player_name, score, leaderBoardName)
 	pass
 
 
+
 func _on_end_points_finished():
-	startaddingPoints()
+	startaddingPoints() # Replace with function body.

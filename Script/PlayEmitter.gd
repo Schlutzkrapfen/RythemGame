@@ -1,17 +1,12 @@
 extends Control
 
 @export var Emmiters:Array[GPUParticles2D]
-@export var moveToMouse:bool = false
+@export var onMouse:bool = false
 
 
 enum ParticelsOrder {Miss,Early,Full,Okay,Good,Perfect,Confetti,BadEffect,GoodEffect}
 var buildEffect:PackedScene = preload("res://ParticelEmmiters/buildEffect.tscn")
 
-
-
-func _process(delta):
-	if moveToMouse:
-		self.position = get_global_mouse_position()
 
 func playEmitter(order:ParticelsOrder)-> void:
 	Emmiters[order].restart()
@@ -56,8 +51,13 @@ func _on_node_2d_changed_house_at_position(House, _TilePosition,GlobalPosition):
 	Particel.lifetime = currentPointsStats.inGameLifeTime
 	Particel.amount = currentPointsStats.inGameAmount
 	Particel.top_level = true
-	#TODO:FIND A BETTER FIX
 	if get_tree().current_scene:
 		get_tree().current_scene.add_child(Particel)
 	Particel.global_position = GlobalPosition
 	Particel.emitting = true
+
+
+func _on_help_layer_current_position(pos):
+	if onMouse:
+		self.position = pos 
+				

@@ -1,35 +1,40 @@
 extends TileMapLayer
 
 signal CanBuildThere(signalDictionary)
+signal currentPosition(position:Vector2)
 @export var tilemap: TileMapLayer
 @export var controllerSpeed: float = 5
+
 @onready var Helplayer2: TileMapLayer = $HelpLayer
 
 var signalDictionary = {"CanBuild":false,"CurrentPosition":[],"RemovePositions":[]}
 
 var lastHelpVisual: Array[Vector2i] = [Vector2i(0,0)]
-var lastHelpVisualController: Array[Vector2i] = [Vector2i(0,0)]
 var tileInRange: Array[Variant] = [Vector2i(0,0)]
 
 var tree_tile_data:Array[TileData]
 var house_tile_data:Array[TileData]
+var constructionTileData:Array[TileData]
+var cityTileData:Array[TileData]
 var buildTiles:Array[Vector2i]
 var tile_data:TileData
 var HelpVisual:Dictionary = {"True":Vector2i(0,0),"False":Vector2i(1,0)}
 
 var world_pos: Vector2 
 
-var world_contr_pos:Vector2 
 var tile_coords: Vector2i
+#Adds the the Input to this function and than adds its togehter
+var controllerPosition:Vector2
 
 @onready var curretnHouse:Global.HouseID 
 @onready var currentHousestats = Global.house_registry[curretnHouse]
 
-var ControlerAktive:bool
 var HouseRange:int
 
-
+#Spawn some Tiles out of bounds that are used to check with other tiles
+#what kind out tile it is
 func _ready():
+	Input.warp_mouse(get_viewport_rect().size / 2)
 	var outOufBoundsSpawnPoints: Vector2i= Vector2i(-1000,-1000)
 	for house in Global.house_registry:
 		for i in Global.house_registry[house].tileMapPosition.size():
@@ -39,6 +44,17 @@ func _ready():
 					tree_tile_data.append(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
 				Global.HouseType.Houses:
 					house_tile_data.append(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+				Global.HouseType.ConstroctionBuilding:
+					constructionTileData.append(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+				Global.HouseType.CityBuildings:
+					cityTileData.append(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+#Resets the Controllpostion when the pause menu is open because it can lead to unwanted
+#behaver otherwise(Tile could spawn outside the window
+func _input(event):
+	if event.is_action_pressed("Quit"):
+		controllerPosition = Vector2()
+		
+#Controller Inputs 
 func _physics_process(_delta):
 	var direction = Vector2(
    	 Input.get_action_strength("Right") - Input.get_action_strength("Left"),
@@ -46,34 +62,23 @@ func _physics_process(_delta):
 	)
 	
 	direction.normalized()
-	if !ControlerAktive:
-		world_contr_pos = world_pos
-	world_contr_pos += direction *controllerSpeed
-	tile_coords = self.local_to_map(world_contr_pos) 
-	if direction != Vector2(0,0):
-		ControlerAktive = true
+	if direction == Vector2(0,0):
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
+		return
+	controllerPosition +=direction *controllerSpeed
 
 
 func _process(_delta) ->void:
-	world_pos= get_global_mouse_position()
+	world_pos= get_global_mouse_position() +controllerPosition
 	var mousetile = self.local_to_map(world_pos) 
-	if  lastHelpVisual[0] != mousetile && !ControlerAktive:
+	emit_signal("currentPosition",world_pos)
+	if  lastHelpVisual[0] != mousetile :
 		tile_coords = mousetile
-	elif lastHelpVisual[0].distance_to(mousetile) > 2:
-		ControlerAktive = false
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	#if tile == mousetile && !ControlerAktive:
-	#	return
 	if HouseRange !=  0:
 		RemoveHelpRemoveLayer()
 	for tile in lastHelpVisual:
 		self.set_cell(tile,0)
 		Helplayer2.set_cell(tile,0)
-	for tile in lastHelpVisualController:
-		Helplayer2.set_cell(tile,0)
-		self.set_cell(tile,0)
 	
 	signalDictionary["CanBuild"] = true
 	buildTiles.clear()
@@ -89,10 +94,7 @@ func _process(_delta) ->void:
 			else: 
 				signalDictionary["CanBuild"] = false
 			buildTiles.append(currenttileCoords)
-			if !ControlerAktive:
-				lastHelpVisual.append(currenttileCoords) 
-			else:
-				lastHelpVisualController.append(currenttileCoords)
+			lastHelpVisual.append(currenttileCoords) 
 	for tile in buildTiles:
 		if signalDictionary["CanBuild"]:
 			self.set_cell(tile,0, HelpVisual.get("True"))
@@ -103,7 +105,8 @@ func _process(_delta) ->void:
 	emit_signal("CanBuildThere",signalDictionary)
 	
 	
-func AddHelpLayer(House:Global.HouseID, currentPosition:Vector2i):
+#Adds the the green tiles around the house with the currentRange
+func AddHelpLayer(House:Global.HouseID, currentPos:Vector2i):
 	if Global.house_registry.has(House):
 		var stats = Global.house_registry[House]
 		HouseRange = stats.houseRange
@@ -115,7 +118,7 @@ func AddHelpLayer(House:Global.HouseID, currentPosition:Vector2i):
 		for y in range(-HouseRange, HouseRange + 1):
 			var offset: Vector2 = Vector2(x, y)
 			if offset.length() <= HouseRange:
-				var target_coords: Vector2i = currentPosition + Vector2i(x, y)
+				var target_coords: Vector2i = currentPos + Vector2i(x, y)
 				var check_tile: TileData = tilemap.get_cell_tile_data(target_coords)
 				for types in currentHousestats.usesType:
 					match types:
@@ -125,24 +128,29 @@ func AddHelpLayer(House:Global.HouseID, currentPosition:Vector2i):
 						Global.HouseType.Houses:
 							if house_tile_data.has(check_tile):
 								addtileInRanges(target_coords)
+						Global.HouseType.ConstroctionBuilding:
+							if constructionTileData.has(check_tile):
+								addtileInRanges(target_coords)
+						Global.HouseType.CityBuildings:
+							if cityTileData.has(check_tile):
+								addtileInRanges(target_coords)
 		signalDictionary["RemovePositions"] = tileInRange
 
-
-func addtileInRanges(currentPosition:Vector2i):
-	if tileInRange.has(currentPosition):
+##Checks if tiles are already in the array if there are not they are added
+func addtileInRanges(currentPos:Vector2i):
+	if tileInRange.has(currentPos):
 		return
-	self.set_cell(currentPosition,0,HelpVisual.get("True"))
-	tileInRange.append(currentPosition) 
+	self.set_cell(currentPos,0,HelpVisual.get("True"))
+	tileInRange.append(currentPos) 
 
+##Removes all the Green Tiles in Range
 func RemoveHelpRemoveLayer():
 	for n in tileInRange:
 		self.set_cell(n,0)
 	tileInRange.clear()
-	if signalDictionary.has("RemovePositions"):
-		signalDictionary["RemovePositions"].clear()
-	else:
-		signalDictionary["RemovePositions"] = []
+	signalDictionary["RemovePositions"].clear()
 
+##Switches Houses and Removes old Tiles
 func _on_backgorund_switch_house(House):
 	RemoveHelpRemoveLayer()
 	curretnHouse = Global.HouseSelected[House]
@@ -152,6 +160,7 @@ func _on_backgorund_switch_house(House):
 		Helplayer2.set_cell(tile_coords,currentHousestats.tileMapID[0],currentHousestats.tileMapPosition[0])
 		AddHelpLayer(House,tile_coords)
 
+##If the house is placed it. (The tile will be red)
 func _on_node_2d_update_values():
 	RemoveHelpRemoveLayer()
 	signalDictionary["CanBuild"] = false

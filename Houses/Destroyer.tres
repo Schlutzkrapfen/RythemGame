@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="HouseDefinition" load_steps=2 format=3 uid="uid://bro1xewd44aa0"]
+[gd_resource type="Resource" script_class="HouseDefinition" format=3 uid="uid://bro1xewd44aa0"]
 
 [ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/Definitions/house_definition.gd" id="2_0s146"]
 
 [resource]
 script = ExtResource("2_0s146")
-tileMapPosition = Array[Vector2i]([Vector2i(3, 0)])
-displayName = "HOUSE_BACKERY_NAME"
-descriptions = "HOUSE_BACKERY_DES"
+tileMapPosition = Array[Vector2i]([Vector2i(0, 0)])
 houseRange = 3
 buildCost = 2
 points = 0.0
 usesType = Array[int]([0, 1, 2, 3])
 houseType = 3
+destroyes = true
 metadata/_custom_type_script = "uid://8bue58jekekt"

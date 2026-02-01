@@ -17,3 +17,4 @@ class_name LevelDefinition extends Resource
 @export var PointsPossible:Array[Global.Points]
 
 @export_group("Music")
+@export var BPM:float = 140

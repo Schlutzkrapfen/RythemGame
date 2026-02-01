@@ -1,6 +1,6 @@
 extends Node2D
+#Spawns the Houses
 
-# We need a reference to the TileMap node.
 @export var tilemap: TileMapLayer
 @export var UnlockAnimations: Array[AnimationPlayer]
 @export var SoundAnimations: AnimationPlayer
@@ -51,11 +51,14 @@ var pointsDict: Dictionary[Global.Points, float] = {
 var CurrentID:int 
 var HitId:int
 var CurrentHit:int
+#Sets the currenstats of the hosue 
 func getStartingStat():
-	currentStats = Global.house_registry.get(Global.HouseSelected[0])
+	#currentStats = Global.house_registry.get(Global.HouseSelected[0])
+	pass
 func _ready():
 	getStartingStat()
 
+#Adds the house to the Tileset
 func addHouse():
 	if currentStats.houseRange == 0:
 		addPoints()
@@ -71,6 +74,8 @@ func addHouse():
 	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
 	emit_signal("UpdateValues")
 
+#adds the point to currentPoints and to the Points that get later converted in
+#Global points
 func addPoints():
 	if Global.pointsConnectDict.has(currentStats.unitType):
 		Global.currentResources[Global.pointsConnectDict[currentStats.unitType]] += currentStats.points
@@ -78,12 +83,14 @@ func addPoints():
 		Global.currentResources[currentStats.unitType] += currentStats.points
 	pointsDict[currentStats.unitType] += currentStats.points
 	
+#adds the Points for the building that are in Range and Destroyes them if the 
+#builing should do so
 func changeLayer():
 	for x in RemoveArray:
 		if currentStats.destroyes:
 			tilemap.set_cell(x,0)
 		addPoints()
-
+#Check if the house is Placed and how good is clicked
 func _input(event) -> void:
 	if  event.is_action_pressed("Controller_Input"):
 		if CurrentID == HitId:
@@ -124,10 +131,11 @@ func _on_help_layer_can_build_there(signalDictionary):
 	tile_coords = signalDictionary.get("CurrentPosition", [])
 	RemoveArray = signalDictionary.get("RemovePositions", [])
 	
+#Switches Houses
 func _on_backgorund_switch_house(House):
 	currentHouse = Global.HouseSelected[House]
 	currentStats = Global.house_registry.get(currentHouse)
-#Here Gets checked if Someone misses
+#Here Gets checked if Someone misses to click
 func _on_rhythm_notifier_beat(_current_beat):
 	CurrentHit = 0
 	if  CurrentID != HitId:
@@ -136,9 +144,6 @@ func _on_rhythm_notifier_beat(_current_beat):
 		pointsDict[Global.Points.Miss] +=1
 	CurrentID +=1;
 
+#loads the points in the Globaldict
 func _on_level_switcher_finished():
 	Global.pointsDict = pointsDict
-
-
-func _on_control_2_selected_finished():
-	getStartingStat() # Replace with function body.

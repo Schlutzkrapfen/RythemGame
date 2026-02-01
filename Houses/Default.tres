@@ -8,6 +8,7 @@
 script = ExtResource("1_sh2sf")
 buttonIcon = ExtResource("1_072qk")
 buttonIconHD = ExtResource("2_ttg28")
+tileMapID = Array[int]([7])
 tileMapPosition = Array[Vector2i]([Vector2i(0, 0)])
 displayName = "HOUSE_DEFAULT_NAME"
 descriptions = "HOUSE_DEFAULT_DES"

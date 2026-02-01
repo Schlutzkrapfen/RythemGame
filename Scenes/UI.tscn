@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7m6pjpcy6wg2"]
+[gd_scene format=3 uid="uid://7m6pjpcy6wg2"]
 
 [ext_resource type="Script" uid="uid://bb2cqj5qgo0ey" path="res://Script/UI.gd" id="1_fhuq3"]
 [ext_resource type="Script" uid="uid://te58yek233mq" path="res://Script/CurrentPointsDisplay.gd" id="2_n7ate"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cllktpxvbbbix" path="res://Scenes/ScreenPopups.tscn" id="10_j04uc"]
 [ext_resource type="PackedScene" uid="uid://b6752hljsipqj" path="res://Scenes/Settings.tscn" id="11_vqx31"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("progress", "rythms")]
+[node name="Control" type="Control" unique_id=1368838705 node_paths=PackedStringArray("progress", "rythms")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,13 +21,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fhuq3")
 progress = NodePath("CanvasLayer/Control/MainUi/LevelMisson/Labels/ProgressBar")
-rythms = [NodePath("CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner/RhythmNotifier")]
+rythms = [NodePath("CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=656219541]
 layer = 0
 follow_viewport_enabled = true
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=972051208]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +37,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MainUi" type="VBoxContainer" parent="CanvasLayer/Control"]
+[node name="MainUi" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1512777199]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,82 +45,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LevelMisson" type="VBoxContainer" parent="CanvasLayer/Control/MainUi"]
+[node name="LevelMisson" type="VBoxContainer" parent="CanvasLayer/Control/MainUi" unique_id=397246731]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_tb15e")
 
-[node name="Labels" type="HBoxContainer" parent="CanvasLayer/Control/MainUi/LevelMisson"]
+[node name="Labels" type="HBoxContainer" parent="CanvasLayer/Control/MainUi/LevelMisson" unique_id=1875304109]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 script = ExtResource("2_n7ate")
 
-[node name="Control5" type="Control" parent="CanvasLayer/Control/MainUi/LevelMisson/Labels"]
+[node name="Control5" type="Control" parent="CanvasLayer/Control/MainUi/LevelMisson/Labels" unique_id=370860125]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.2
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control/MainUi/LevelMisson/Labels"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control/MainUi/LevelMisson/Labels" unique_id=421276687]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 20.0
 value = 20.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MainUi"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MainUi" unique_id=1994015969]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.9
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer" unique_id=368427775]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MainUi/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MainUi/VBoxContainer" unique_id=522791670]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="Control3" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer"]
+[node name="Control3" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer" unique_id=1079105625]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/MainUi/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
-
-[node name="Control" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="Control2" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="RythemSpawner" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2" instance=ExtResource("4_mqm5i")]
-layout_mode = 2
-
-[node name="Control4" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="Control5" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="Control2" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer"]
+[node name="RythemSpawner" parent="CanvasLayer/Control/MainUi/VBoxContainer" unique_id=393467851 instance=ExtResource("4_mqm5i")]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Upgrades" type="Control" parent="CanvasLayer/Control"]
+[node name="ParticelEmmiter" parent="CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/HBoxContainer" index="1"]
+visible = true
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/MainUi/VBoxContainer" unique_id=367736795]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Upgrades" type="Control" parent="CanvasLayer/Control" unique_id=921707161]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -129,7 +111,7 @@ offset_left = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Upgrades"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Upgrades" unique_id=1798505327]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,18 +121,18 @@ grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Upgrades/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Upgrades/HBoxContainer" unique_id=1255083258]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Control2" type="Control" parent="CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer" unique_id=474143391]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="ButtonSpawner" type="VBoxContainer" parent="CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer"]
+[node name="ButtonSpawner" type="VBoxContainer" parent="CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer" unique_id=362859052]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -158,21 +140,24 @@ size_flags_stretch_ratio = 0.6
 script = ExtResource("3_gqg5b")
 ButtonsIcon = Array[Texture2D]([ExtResource("4_yjfl1"), ExtResource("6_i6uxd"), ExtResource("8_lyqli"), ExtResource("6_n7ate")])
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer" unique_id=1683433437]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/Upgrades/HBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Upgrades/HBoxContainer" unique_id=957473660]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
 
-[node name="MainScreenPopups" parent="CanvasLayer/Control" instance=ExtResource("10_j04uc")]
+[node name="MainScreenPopups" parent="CanvasLayer/Control" unique_id=875681649 instance=ExtResource("10_j04uc")]
 layout_mode = 1
 
-[node name="Popup" parent="CanvasLayer/Control" instance=ExtResource("11_vqx31")]
+[node name="Popup" parent="CanvasLayer/Control" unique_id=2046901749 instance=ExtResource("11_vqx31")]
 visible = false
 
-[editable path="CanvasLayer/Control/MainUi/VBoxContainer/HBoxContainer2/RythemSpawner"]
+[connection signal="beat" from="CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_rhythm_notifier_beat"]
+[connection signal="beat" from="CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="CanvasLayer/Control/MainScreenPopups" method="_on_rhythm_notifier_beat"]
+
+[editable path="CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner"]

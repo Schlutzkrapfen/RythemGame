@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dnoqwpbl1shag"]
+[gd_resource type="TileSet" format=3 uid="uid://dnoqwpbl1shag"]
 
 [ext_resource type="Texture2D" uid="uid://cdeyik114u8lh" path="res://Tilemaps/RightWrong.png" id="1_e8eod"]
 

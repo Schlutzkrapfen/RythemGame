@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://cdsa3lf23ilq7"]
+[gd_resource type="TileSet" format=3 uid="uid://cdsa3lf23ilq7"]
 
 [ext_resource type="Texture2D" uid="uid://dgcaa6cbgf1bm" path="res://Tilemaps/House.png" id="1_wmp6u"]
 [ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Tilemaps/water - summer.png" id="2_5g1cd"]
 [ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="2_333gt"]
 [ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="3_yofbg"]
 [ext_resource type="Texture2D" uid="uid://cmr4ljogk0n0x" path="res://Tilemaps/TX Props.png" id="5_yofbg"]
+[ext_resource type="Texture2D" uid="uid://dwbflsv3pvw0" path="res://Tilemaps/Test.png" id="6_80hcs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6h1g0"]
 texture = ExtResource("1_wmp6u")
@@ -213,6 +214,11 @@ texture_region_size = Vector2i(32, 32)
 3:2/0 = 0
 4:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vnrtn"]
+texture = ExtResource("6_80hcs")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_6h1g0")
@@ -222,3 +228,4 @@ sources/5 = SubResource("TileSetAtlasSource_aoe06")
 sources/6 = SubResource("TileSetAtlasSource_hh7sp")
 sources/2 = SubResource("TileSetAtlasSource_f27j4")
 sources/4 = SubResource("TileSetAtlasSource_80hcs")
+sources/7 = SubResource("TileSetAtlasSource_vnrtn")

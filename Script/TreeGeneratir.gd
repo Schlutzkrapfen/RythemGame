@@ -6,6 +6,7 @@ var ysize:Vector2i = Vector2i(2,17)
 var treePositions:Array[Vector2i]
 signal treesSpawned(Array)
 
+#Spawns the trees
 func _ready():
 	randomize()
 	for x in range(xsize.x,xsize.y):

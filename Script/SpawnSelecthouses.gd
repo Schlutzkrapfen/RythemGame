@@ -71,7 +71,7 @@ func addFakeButton():
 			badStatsVisible(i)
 			var badstat = Global.labelRegistry[currentstats.buildType]
 			badIcon[i].texture = badstat.labelIcon
-			badLabel[i].text = str(currentstats.buildCost)
+			badLabel[i].text = str(currentstats.buildCost);
 		
 		
 		
