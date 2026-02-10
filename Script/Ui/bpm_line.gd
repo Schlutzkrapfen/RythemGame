@@ -6,7 +6,6 @@ extends ColorRect
 @export var fadeTime:float = 0.1
 
 var beatNumber: int = 0
-
 @onready var bpmbeat:float= Global.level_registery[Global.currentLevel].BPM
 @onready var time_to_reach_center = (60.0 / bpmbeat) * beatuntildeleted
 @onready var parent: Control = get_parent()

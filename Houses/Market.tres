@@ -6,8 +6,8 @@
 script = ExtResource("2_j6mqo")
 tileMapPosition = Array[Vector2i]([Vector2i(6, 0)])
 size = Vector2i(2, 2)
-displayName = "YOU WIN"
-descriptions = "CONGRATULATIONS"
+displayName = "HOUSE_MARKET_NAME"
+descriptions = "HOUSE_MARKET_DES"
 houseRange = 3
 buildCost = 10
 points = 0.1

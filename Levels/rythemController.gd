@@ -3,6 +3,7 @@ extends Node
 #Ui Spawner needs always the fastest but the Main one needs 
 #to have the current one
 enum RythmRange {UiSpawner, Main}
+var introFinished:bool = false
 ##change the BPM of the RythemSpawner
 
 @export var rythm:Array[RhythmNotifier]
@@ -37,5 +38,10 @@ func _on_rhythm_notifier_beat(current_beat):
 			if  current_beat %2 != 0:
 				return
 	rythm[RythmRange.Main].bpm = currentbeatSpeed
-	rythm[RythmRange.Main].running = true
+	if introFinished:
+		rythm[RythmRange.Main].running = true
 	
+
+
+func _on_main_screen_popups_intro_finished():
+	introFinished = true

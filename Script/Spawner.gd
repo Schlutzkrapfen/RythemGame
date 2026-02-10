@@ -51,13 +51,6 @@ var pointsDict: Dictionary[Global.Points, float] = {
 var CurrentID:int 
 var HitId:int
 var CurrentHit:int
-#Sets the currenstats of the hosue 
-func getStartingStat():
-	#currentStats = Global.house_registry.get(Global.HouseSelected[0])
-	pass
-func _ready():
-	getStartingStat()
-
 #Adds the house to the Tileset
 func addHouse():
 	if currentStats.houseRange == 0:

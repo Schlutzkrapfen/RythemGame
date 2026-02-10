@@ -267,6 +267,7 @@ rythm = [NodePath("../Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpa
 [connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="RythemSpawner" method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="RythemController" method="_on_rhythm_notifier_beat"]
 [connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="IntroFinished" method="_on_main_screen_popups_intro_finished"]
+[connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="RythemController" method="_on_main_screen_popups_intro_finished"]
 [connection signal="popup_hide" from="Control/CanvasLayer/Control/Popup" to="Control/CanvasLayer/Control/Popup" method="_on_popup_hide"]
 [connection signal="SelectedFinished" from="Control/HouseSelecter" to="." method="_on_control_2_selected_finished"]
 [connection signal="SelectedFinished" from="Control/HouseSelecter" to="Backgorund" method="_on_control_2_selected_finished"]

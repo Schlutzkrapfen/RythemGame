@@ -16,9 +16,9 @@ var ButtonIcons: Array[Texture2D]
 var HouseUnlocked: Array[HouseID] = []
 #How much is allowed to miss
 var musicOffset:float = 0.2
-var currentLevel:int= 1
+var currentLevel:int= 2
 
-var HouseSelected:Array[HouseID] = [HouseID.Default, HouseID.Market,HouseID.FastHouse]
+var HouseSelected:Array[HouseID] = [HouseID.WoodCutter,HouseID.Default,HouseID.Market]
 #@onready var unlockedHouses:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,]
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),

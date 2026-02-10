@@ -1,33 +1,37 @@
 id,en,de,it
-BTN_PLAY,Play,Start,
-BTN_RESTART,Restart,Neustart,
-BTN_QUIT,Quit,Beenden,
-BTN_SETTINGS,Settings,Einstellungen,
-BTN_NEXTLEVEL,Next Level,Nächstes Level,
-BTN_NEXT,Next,Weiter,
-BTN_POINTS,Points,Punkte,
-BTN_HIGHSCORE,highscore,Highscore,
-LOST_TIME,NO TIME LEFT,KEINE ZEIT MEHR,
+BTN_PLAY,Play,Start,Avvia
+BTN_RESTART,Restart,Neustart,Riavvia
+BTN_QUIT,Quit,Beenden,Abbandona
+BTN_SETTINGS,Settings,Einstellungen,Impostazioni
+BTN_NEXTLEVEL,Next Level,Nächstes Level,Prossimo Livello
+BTN_NEXT,Next,Weiter,Successivo
+BTN_POINTS,Points,Punkte,Punti
+BTN_HIGHSCORE,highscore,Highscore,Highscore
+LOST_TIME,NO TIME LEFT,KEINE ZEIT MEHR,TEMPO ESAURITO
 LOST_POINTS,,,
-SETTINGS_RESOLUTION,Resolution,Auflösung,
-SETTINGS_FULLSCREEN,Fullscreen,Vollbild,
-SETTINGS_SWITCH_HOUSES,Switch the Houses Automaticly,Automatisches Hauswechseln,
-SETTINGS_LANGUAGE,Language,Sprache,
-SETTINGS_VSYNC,Vsync,Vsync,
-SETTINGS_ANIMATIONS,Disco mode,Disco Modus,
-SETTINGS_MASTER,Master,Master,
-SETTINGS_MUSIC,Music,Musik,
-SETTINGS_SFX,SFX,SFX,
-TAB_GAMEPLAY,Gameplay,Im Spiel,
-TAB_SOUND,Sound,Klang,
-TAB_GRAPHIC,Graphic,Grafik,
-TAB_LOCAL,Local,Lokal,
-TAB_GLOBAL,Global,Global,
-HOUSE_DEFAULT_NAME,[b]House[/b],[b]Haus[/b],
-HOUSE_DEFAULT_DES,Adds [color=green][b]1 PERSON[/b][/color] to your city. For free just hit the Beat.,Fügt [color=green][b]1 PERSON[/b][/color] hinzu ganz umsonst. Du musst einfach nur den Beat treffen.,
-HOUSE_WOOD_CUTTER_NAME,[b]Wood Cutter[/b],[b]Holzfäller[/b],
-HOUSE_WOOD_CUTTER_DES,Uses all [b]TREES[/b] in his surroundings to create[color=green][b] WOOD[/b][/color]. Uses up  [color=red][b]5 PEOPLE[/b][/color] don't ask what they are doing after finishing the build ,"Benutzt alle [b]BÄUME[/b] in seinem Umfeld, um [color=green][b]HOLZ[/b][/color] daraus zu gewinnen. Verbraucht [color=red][b]5 MENSCHEN[/b][/color], frag besser nicht, was sie nach dem Bau machen.",
-HOUSE_BACKERY_NAME,[b]Backery[/b],[b]Bäcker[/b],
-HOUSE_BACKERY_DES,"Adds [color=green][b]1 Person[/b][/color] per [b]House[/b] in its range, but needs [color=red][b]2 Wood[/b][/color] to be built. Who would have thought that when you give people food, they are willing to stay in your city?","Fügt [color=green][b]1 Person[/b][/color] pro Haus in seinem Umfeld hinzu, braucht aber [color=red][b]2 Holz[/b][/color], um gebaut zu werden. Wer hätte gedacht, dass Leute in einer Stadt bleiben, wenn man ihnen Essen gibt?",
-HOUSE_MARKET_NAME,[b]Market[b],[b]Markt[/b],
-HOUSE_MARKET_DES,"Such a thick … building. It can store so many Points in there. For each [b]Person[/b] in its range, it adds a small Multiplayer to your [color=green][b]POINTS[/b][/color] but its costs [color=red][b]10 WOOD[/b][/color]","Was für ein mächtiges Gebäude! Es kann so viele Punkte darin aufbewahren. Jede [b] Person[/b] in dem Radius bekommt einen kleinen[b][color=green] Punktemultiplikator[/color][/b], aber es kostet [color=red][b]10 Holz[/b] [/color]",
+SETTINGS_RESOLUTION,Resolution,Auflösung,Risoluzione
+SETTINGS_FULLSCREEN,Fullscreen,Vollbild,Schermo intero
+SETTINGS_SWITCH_HOUSES,Switch the Houses Automaticly,Automatisches Hauswechseln,Cambio struttura automatico
+SETTINGS_LANGUAGE,Language,Sprache,Lingua
+SETTINGS_VSYNC,Vsync,Vsync,Vsync
+SETTINGS_ANIMATIONS,Disco mode,Disco Modus,Disco Modus
+SETTINGS_MASTER,Master,Master,Master
+SETTINGS_MUSIC,Music,Musik,Musica
+SETTINGS_SFX,SFX,SFX,SFX
+TAB_GAMEPLAY,Gameplay,Im Spiel,In gioco
+TAB_SOUND,Sound,Klang,Suono
+TAB_GRAPHIC,Graphic,Grafik,Grafica
+TAB_LOCAL,Local,Lokal,Locale
+TAB_GLOBAL,Global,Global,Globale
+HOUSE_DEFAULT_NAME,[b]House[/b],[b]Haus[/b],[b]Haus[/b]
+HOUSE_DEFAULT_DES,Adds [color=green][b]1 PERSON[/b][/color] to your city. For free just hit the Beat.,Fügt [color=green][b]1 PERSON[/b][/color] hinzu ganz umsonst. Du musst einfach nur den Beat treffen.,Aggiunge [color=green][b]1 PERSONA[/b][/color] del tutto gratis. Devi solo andare a tempo con il beat.
+HOUSE_WOOD_CUTTER_NAME,[b]Wood Cutter[/b],[b]Holzfäller[/b],[b]Bosco[/b]
+HOUSE_WOOD_CUTTER_DES,Uses all [b]TREES[/b] in his surroundings to create[color=green][b] WOOD[/b][/color]. Uses up  [color=red][b]5 PEOPLE[/b][/color] don't ask what they are doing after finishing the build ,"Benutzt alle [b]BÄUME[/b] in seinem Umfeld, um [color=green][b]HOLZ[/b][/color] daraus zu gewinnen. Verbraucht [color=red][b]5 MENSCHEN[/b][/color], frag besser nicht, was sie nach dem Bau machen.","Usa tutti gli [b]ALBERI[/b] nei dintorni per ricavarne [color=green][b]LEGNO[/b][/color]. Consuma [color=red][b]5 PERSONE[/b][/color], meglio non chiedersi cosa facciano dopo la costruzione."
+HOUSE_BACKERY_NAME,[b]Backery[/b],[b]Bäcker[/b],[b]Fornaio[/b]
+HOUSE_BACKERY_DES,"Adds [color=green][b]1 Person[/b][/color] per [b]House[/b] in its range, but needs [color=red][b]2 Wood[/b][/color] to be built. Who would have thought that when you give people food, they are willing to stay in your city?","Fügt [color=green][b]1 Person[/b][/color] pro Haus in seinem Umfeld hinzu, braucht aber [color=red][b]2 Holz[/b][/color], um gebaut zu werden. Wer hätte gedacht, dass Leute in einer Stadt bleiben, wenn man ihnen Essen gibt?","Aggiunge [color=green][b]1 Persona[/b][/color] per casa nei dintorni, ma richiede [color=red][b]2 Legno[/b][/color] per essere costruita. Chi l’avrebbe mai detto che la gente resta in una città se le dai da mangiare?"
+HOUSE_MARKET_NAME,[b]Market[b],[b]Markt[/b],[b]Mercato[/b]
+HOUSE_MARKET_DES,"Such a thick … building. It can store so many Points in there. For each [b]Person[/b] in its range, it adds a small Multiplayer to your [color=green][b]POINTS[/b][/color] but its costs [color=red][b]10 WOOD[/b][/color]","Was für ein mächtiges Gebäude! Es kann so viele Punkte darin aufbewahren. Jede [b] Person[/b] in dem Radius bekommt einen kleinen[b][color=green] Punktemultiplikator[/color][/b], aber es kostet [color=red][b]10 Holz[/b] [/color]","Che edificio potente! Può conservare così tanti punti al suo interno. Ogni [b] Persona[/b] nel raggio ottiene un piccolo[b][color=green] moltiplicatore di punti[/color][/b], ma costa [color=red][b]10 Legno[/b] [/color]"
+HOUSE_DESTROYER_NAME,[b]Destroyer[/b],[b]Zerstörer[/b],
+HOUSE_DESTROYER_DES,I am destroyer of worlds. It sacrefices [color=red][b]2 Persons[/b][/color] to destroy everything in his Range. ,Opfert [color = red][b]2 Personen[/b][/color} um alles in seiner Reichweite zu zerstören.,
+HOUSE_FASTHOUSE_NAME,[b],,
+HOUSE_FASTHOUSE_DES,What for a shitty place it needs city Buildings in Range that [color=green][b]people[/b][/color] are willing to live in there,Was für eine Schäbige bude. Sie ist so schäbig das es Stadtgebäude im Umkreis braucht das [color=green][b]Personen[/b][/color] überhaupt in betracht ziehen hier einzuziehen,

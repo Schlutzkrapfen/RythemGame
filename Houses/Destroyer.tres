@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("2_0s146")
 tileMapPosition = Array[Vector2i]([Vector2i(0, 0)])
+displayName = "HOUSE_DESTROYER_NAME"
+descriptions = "HOUSE_DESTROYER_DES"
 houseRange = 3
 buildCost = 2
 points = 0.0

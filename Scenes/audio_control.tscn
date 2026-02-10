@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://de7nkl3b3m4j6"]
+[gd_scene format=3 uid="uid://de7nkl3b3m4j6"]
 
 [ext_resource type="Script" uid="uid://bgtvqi5bkhhmx" path="res://Script/audio_control.gd" id="1_hx2gf"]
-[ext_resource type="AudioStream" uid="uid://bacurlmxtmwja" path="res://Audio/Music.wav" id="2_50mn8"]
 [ext_resource type="AudioStream" uid="uid://djeg8n5e7y4lf" path="res://Audio/Hit.wav" id="3_w1fxp"]
 [ext_resource type="AudioStream" uid="uid://735jf54ruxix" path="res://Audio/Miss0.wav" id="4_a6862"]
 [ext_resource type="AudioStream" uid="uid://d3uxnc1we02mv" path="res://Audio/Miss1.wav" id="5_1m1dn"]
@@ -14,42 +13,41 @@ _limits = [-10.0, 10.0, 0.0, 1.0]
 _data = [Vector2(0, -10), 0.0, 20.0, 0, 1, Vector2(1, 10), 20.0, 0.0, 1, 0]
 point_count = 2
 
-[node name="AudioControl" type="Node" node_paths=PackedStringArray("AudioSource")]
+[node name="AudioControl" type="Node" unique_id=841160657 node_paths=PackedStringArray("AudioSource")]
 script = ExtResource("1_hx2gf")
 AudioSource = [NodePath("Music"), NodePath("Hit"), NodePath("Miss"), NodePath("Miss2"), NodePath("Miss3")]
 Volume = SubResource("Curve_hx2gf")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_50mn8")
-volume_db = -10.0
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1100386042]
+volume_db = -20.0
 autoplay = true
 bus = &"Music"
 
-[node name="Hit" type="AudioStreamPlayer" parent="."]
+[node name="Hit" type="AudioStreamPlayer" parent="." unique_id=1046159012]
 stream = ExtResource("3_w1fxp")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="Miss" type="AudioStreamPlayer" parent="."]
+[node name="Miss" type="AudioStreamPlayer" parent="." unique_id=1316704832]
 stream = ExtResource("4_a6862")
 bus = &"SFX"
 
-[node name="Miss2" type="AudioStreamPlayer" parent="."]
+[node name="Miss2" type="AudioStreamPlayer" parent="." unique_id=1855633947]
 stream = ExtResource("5_1m1dn")
 bus = &"SFX"
 
-[node name="Miss3" type="AudioStreamPlayer" parent="."]
+[node name="Miss3" type="AudioStreamPlayer" parent="." unique_id=608029012]
 stream = ExtResource("6_gnp6p")
 bus = &"SFX"
 
-[node name="Kaching" type="AudioStreamPlayer" parent="."]
+[node name="Kaching" type="AudioStreamPlayer" parent="." unique_id=1605809315]
 bus = &"SFX"
 
-[node name="PointsUpwards" type="AudioStreamPlayer" parent="."]
+[node name="PointsUpwards" type="AudioStreamPlayer" parent="." unique_id=1954053513]
 stream = ExtResource("7_w1fxp")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="StartPoint" type="AudioStreamPlayer" parent="."]
+[node name="StartPoint" type="AudioStreamPlayer" parent="." unique_id=1333415519]
 stream = ExtResource("7_50mn8")
 bus = &"SFX"

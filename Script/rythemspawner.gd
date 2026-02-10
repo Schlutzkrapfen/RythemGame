@@ -6,6 +6,7 @@ extends Control
 var rythemInvisible:int  =2 
 var RythemSpawner:PackedScene = preload("res://Scenes/BPMLine.tscn")
 var lineSizeX:int = 2
+var offset:float = Global.musicOffset/2
 
 const BPMLineType = preload("res://Script/Ui/bpm_line.gd")
 var BPMLinesL:Array[BPMLineType] 
@@ -16,6 +17,7 @@ func _on_rhythm_notifier_beat(current_beat):
 
 ##Spawns a Line that than moves in the center of the object
 func SpanwLine(beat,right):
+	await get_tree().create_timer(offset).timeout
 	var BPMLine:BPMLineType =RythemSpawner.instantiate()
 	BPMLine.visible = false
 	BPMLine.beatNumber = beat
