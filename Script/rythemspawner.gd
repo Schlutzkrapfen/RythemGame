@@ -11,11 +11,11 @@ var offset:float = Global.musicOffset/2
 const BPMLineType = preload("res://Script/Ui/bpm_line.gd")
 var BPMLinesL:Array[BPMLineType] 
 var BPMLinesR:Array[BPMLineType] 
-func _on_rhythm_notifier_beat(current_beat):
+func _on_rhythm_notifier_beat1(current_beat):
 	SpanwLine(current_beat,false)
 	SpanwLine(current_beat,true)
 
-##Spawns a Line that than moves in the center of the object
+##Spawns a Line 
 func SpanwLine(beat,right):
 	await get_tree().create_timer(offset).timeout
 	var BPMLine:BPMLineType =RythemSpawner.instantiate()
@@ -53,11 +53,10 @@ func stopLine():
 func _input(event):
 	if event.is_action_pressed("Controller_Input"):
 		stopLine()
-		
 
 func _on_help_layer_current_position(pos):
 	if onMouse:
-		self.position = pos -self.size/2
+		self.position = pos - self.size/2
 
 func _on_backgorund_switch_house(House):
 	var houseSpeed:Global.musicSpeed = Global.house_registry[Global.HouseSelected[House]].musicSpeed
@@ -69,6 +68,7 @@ func _on_backgorund_switch_house(House):
 		Global.musicSpeed.fast:
 			rythemInvisible = 1
 	CheckIfLineShouldVisible()
+
 func CheckIfLineShouldVisible():
 	for line in BPMLinesL:
 		if is_instance_valid(line):

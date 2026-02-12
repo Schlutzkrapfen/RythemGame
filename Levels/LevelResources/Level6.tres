@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LevelDefinition" format=3 uid="uid://bdwxivkskhvyi"]
+
+[ext_resource type="Texture2D" uid="uid://drribub13npt7" path="res://UI/Points/#1 - Transparent Icons3.png" id="1_1d3gs"]
+[ext_resource type="Script" uid="uid://jbrfkyp0aknp" path="res://Script/Definitions/level_definition.gd" id="2_tayqe"]
+
+[resource]
+script = ExtResource("2_tayqe")
+UnlockIcon = Array[Texture2D]([ExtResource("1_1d3gs")])
+Level = 2
+levelPath = "uid://b4plxikf88g6g"
+PossibleHouseUnlocks = 1
+UnlocksNeeded = Dictionary[int, int]({
+11: 4
+})
+treeSpawnThreshold = 0.2
+PointsPossible = Array[int]([6, 8])
+metadata/_custom_type_script = "uid://jbrfkyp0aknp"

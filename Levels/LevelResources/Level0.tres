@@ -11,4 +11,5 @@ UnlocksNeeded = Dictionary[int, int]({
 7: 10
 })
 PointsPossible = Array[int]([6])
+BPM = 80.0
 metadata/_custom_type_script = "uid://jbrfkyp0aknp"
