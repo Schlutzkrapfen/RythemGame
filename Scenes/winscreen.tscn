@@ -366,23 +366,22 @@ autowrap_mode = 1
 script = ExtResource("1_xi21b")
 highscore = NodePath("../../Highscores")
 
-[node name="AudioControl" parent="." unique_id=925753407 node_paths=PackedStringArray("AudioSource") instance=ExtResource("11_5iqpk")]
-AudioSource = [NodePath("Music"), NodePath("Hit"), NodePath("Miss"), NodePath("Miss2"), NodePath("Miss3"), NodePath("Kaching"), NodePath("PointsUpwards"), NodePath("StartPoint")]
+[node name="AudioControl" parent="." unique_id=925753407 instance=ExtResource("11_5iqpk")]
 
-[node name="Music" parent="AudioControl" index="0"]
+[node name="Music" parent="AudioControl" index="0" unique_id=1100386042]
 autoplay = false
 
-[node name="Hit" parent="AudioControl" index="1"]
+[node name="Hit" parent="AudioControl" index="3" unique_id=1046159012]
 volume_db = 0.0
 
-[node name="Kaching" parent="AudioControl" index="5"]
+[node name="Kaching" parent="AudioControl" index="7" unique_id=1605809315]
 stream = ExtResource("12_yhux5")
 volume_db = -10.0
 
-[node name="PointsUpwards" parent="AudioControl" index="6"]
+[node name="PointsUpwards" parent="AudioControl" index="8" unique_id=1954053513]
 volume_db = 5.0
 
-[node name="StartPoint" parent="AudioControl" index="7"]
+[node name="StartPoint" parent="AudioControl" index="9" unique_id=1333415519]
 volume_db = 5.0
 
 [connection signal="badSound" from="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner" to="AudioControl" method="_on_win_point_spawner_bad_sound"]

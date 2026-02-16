@@ -8,6 +8,7 @@ extends TileMapLayer
 @onready var houseAmount:int = houseSelected.size()
 @onready var Resouces: Array[Global.Points] = Global.BuildResources
 var currentHouse:int
+##Gives the housenummer that is selected currently(need to do global.Houseselected to get the right one)
 signal SwitchHouse(House)
 
 

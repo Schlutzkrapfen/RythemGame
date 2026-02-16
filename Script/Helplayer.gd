@@ -35,19 +35,21 @@ var HouseRange:int
 #what kind out tile it is
 func _ready():
 	Input.warp_mouse(get_viewport_rect().size / 2)
-	var outOufBoundsSpawnPoints: Vector2i= Vector2i(-1000,-1000)
 	for house in Global.house_registry:
 		for i in Global.house_registry[house].tileMapPosition.size():
-			tilemap.set_cell(outOufBoundsSpawnPoints,Global.house_registry[house].tileMapID[i],Global.house_registry[house].tileMapPosition[i])
+			var source_id = Global.house_registry[house].tileMapID[i]
+			var atlas_coords = Global.house_registry[house].tileMapPosition[i]
+			var tile_set_source: TileSetAtlasSource = tilemap.tile_set.get_source(source_id)
+			var tile_data: TileData = tile_set_source.get_tile_data(atlas_coords, 0)
 			match Global.house_registry[house].houseType:
 				Global.HouseType.Trees:
-					tree_tile_data.append(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+					tree_tile_data.append(tile_data)
 				Global.HouseType.Houses:
-					house_tile_data.append(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+					house_tile_data.append(tile_data)
 				Global.HouseType.ConstroctionBuilding:
-					constructionTileData.append(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+					constructionTileData.append(tile_data)
 				Global.HouseType.CityBuildings:
-					cityTileData.append(tilemap.get_cell_tile_data(outOufBoundsSpawnPoints))
+					cityTileData.append(tile_data)
 #Resets the Controllpostion when the pause menu is open because it can lead to unwanted
 #behaver otherwise(Tile could spawn outside the window
 func _input(event):

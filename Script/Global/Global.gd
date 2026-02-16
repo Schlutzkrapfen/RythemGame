@@ -16,8 +16,8 @@ var ButtonIcons: Array[Texture2D]
 var HouseUnlocked: Array[HouseID] = []
 #How much is allowed to miss
 var musicOffset:float = 0.2
-var currentLevel:int= 2
-var HouseSelected:Array[HouseID] = [HouseID.FastHouse, HouseID.Default,HouseID.WoodCutter,HouseID.Market]
+var currentLevel:int= 0
+var HouseSelected:Array[HouseID] = [HouseID.Default, HouseID.WoodCutter,HouseID.Backery]
 #@onready var unlockedHouses:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,]
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),
@@ -76,6 +76,9 @@ func ResetLevel():
 	ResetVeriables()
 	GetHousesVeriables()
 func _ready():
+	if GlobalSettings.Build:
+		HouseSelected = []
+		HouseUnlocked = []
 	GetHousesVeriables()
 	
 func ResetVeriables():

@@ -1,11 +1,13 @@
 extends Node
 
 @export var AudioSource: Array[AudioStreamPlayer]
-
-enum {Music,Hit,Miss0,Miss1,Miss2,Kaching,PointsUp,startPoint}
+@export var switchTime:float = 0.1
+@onready var offset:float = Global.musicOffset *2
+var music_tween: Tween
+enum {MusicSlow,Music,MusicFast,Hit,Miss0,Miss1,Miss2,Kaching,PointsUp,startPoint}
 var CurrentBadSound = 0
-@export var Volume:Curve
 
+@export var musicVolume:float = 0
 
 func _on_node_2d_perfect():
 	if is_inside_tree():
@@ -17,7 +19,6 @@ func _on_node_2d_okay():
 	if is_inside_tree():
 		AudioSource[Hit].volume_db = -20
 		AudioSource[Hit].play()
-
 
 func _on_node_2d_good():
 	if is_inside_tree():
@@ -31,7 +32,6 @@ func _on_node_2d_early_full_miss():
 		AudioSource[random].volume_db = -20
 		AudioSource[random].play()
 	
-
 func _on_start_point_finished():
 	if is_inside_tree():
 		AudioSource[PointsUp].play()
@@ -60,3 +60,19 @@ func _on_end_points_start_count_up():
 func _on_end_points_stop_count_up():
 	AudioSource[PointsUp].stop()
 	AudioSource[startPoint].stop()
+
+func _ready():
+	await get_tree().create_timer(offset).timeout
+	for i in 3:
+		AudioSource[i].play()
+
+func _on_backgorund_switch_house(House):
+	if music_tween:
+		music_tween.kill()
+	music_tween = get_tree().create_tween()
+	var speed: int = Global.house_registry[Global.HouseSelected[House]].musicSpeed
+	music_tween.tween_property(AudioSource[speed], "volume_db", musicVolume, switchTime).set_trans(Tween.TRANS_SINE)
+	for i in 3:
+		if i == speed:
+			continue
+		music_tween.tween_property(AudioSource[i], "volume_db", -80.0, switchTime).set_trans(Tween.TRANS_SINE)

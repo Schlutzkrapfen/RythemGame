@@ -1,27 +1,37 @@
 [gd_scene format=3 uid="uid://de7nkl3b3m4j6"]
 
 [ext_resource type="Script" uid="uid://bgtvqi5bkhhmx" path="res://Script/audio_control.gd" id="1_hx2gf"]
+[ext_resource type="AudioStream" uid="uid://bpx0lrs5jbg8p" path="res://Audio/Music/MUSIC_NormalTime_80bpm_Loop.ogg" id="2_23mwi"]
+[ext_resource type="AudioStream" uid="uid://cr3vr1tcvi386" path="res://Audio/Music/MUSIC_HalfTime_40bpm_Loop.ogg" id="3_24y2f"]
 [ext_resource type="AudioStream" uid="uid://djeg8n5e7y4lf" path="res://Audio/Hit.wav" id="3_w1fxp"]
 [ext_resource type="AudioStream" uid="uid://735jf54ruxix" path="res://Audio/Miss0.wav" id="4_a6862"]
+[ext_resource type="AudioStream" uid="uid://cqgjdrincx85m" path="res://Audio/Music/MUSIC_DoubleTime_160bpm_Loop.ogg" id="4_fviep"]
 [ext_resource type="AudioStream" uid="uid://d3uxnc1we02mv" path="res://Audio/Miss1.wav" id="5_1m1dn"]
 [ext_resource type="AudioStream" uid="uid://by4f5piu7ywsj" path="res://Audio/Miss2.wav" id="6_gnp6p"]
 [ext_resource type="AudioStream" uid="uid://wnggrg1ksajw" path="res://Audio/StartPointsCountUp.mp3" id="7_50mn8"]
 [ext_resource type="AudioStream" uid="uid://cv1cyygwfta4h" path="res://Audio/Pointsupwards.mp3" id="7_w1fxp"]
 
-[sub_resource type="Curve" id="Curve_hx2gf"]
-_limits = [-10.0, 10.0, 0.0, 1.0]
-_data = [Vector2(0, -10), 0.0, 20.0, 0, 1, Vector2(1, 10), 20.0, 0.0, 1, 0]
-point_count = 2
-
 [node name="AudioControl" type="Node" unique_id=841160657 node_paths=PackedStringArray("AudioSource")]
 script = ExtResource("1_hx2gf")
-AudioSource = [NodePath("Music"), NodePath("Hit"), NodePath("Miss"), NodePath("Miss2"), NodePath("Miss3")]
-Volume = SubResource("Curve_hx2gf")
+AudioSource = [NodePath("MusicSlow"), NodePath("Music"), NodePath("MusicFast"), NodePath("Hit"), NodePath("Miss"), NodePath("Miss2"), NodePath("Miss3"), NodePath("Kaching"), NodePath("PointsUpwards"), NodePath("StartPoint")]
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1100386042]
+stream = ExtResource("2_23mwi")
 volume_db = -20.0
-autoplay = true
 bus = &"Music"
+parameters/looping = true
+
+[node name="MusicSlow" type="AudioStreamPlayer" parent="." unique_id=1792197453]
+stream = ExtResource("3_24y2f")
+volume_db = -20.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="MusicFast" type="AudioStreamPlayer" parent="." unique_id=720704109]
+stream = ExtResource("4_fviep")
+volume_db = -20.0
+bus = &"Music"
+parameters/looping = true
 
 [node name="Hit" type="AudioStreamPlayer" parent="." unique_id=1046159012]
 stream = ExtResource("3_w1fxp")

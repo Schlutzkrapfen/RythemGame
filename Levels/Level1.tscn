@@ -213,8 +213,6 @@ script = ExtResource("12_3momc")
 
 [node name="RhythmNotifier" type="Node" parent="." unique_id=257067513]
 script = ExtResource("13_k7tvq")
-bpm = 140.0
-beat_length = 0.42857142857142855
 metadata/_custom_type_script = "uid://dos3qhffr4v0a"
 
 [node name="IntroFinished" type="Node" parent="." unique_id=199439234 node_paths=PackedStringArray("timer", "rhytm")]
@@ -262,6 +260,7 @@ rythm = [NodePath("../Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpa
 [connection signal="SwitchHouse" from="Backgorund" to="HelpLayer" method="_on_backgorund_switch_house"]
 [connection signal="SwitchHouse" from="Backgorund" to="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner" method="_on_backgorund_switch_house"]
 [connection signal="SwitchHouse" from="Backgorund" to="RythemSpawner" method="_on_backgorund_switch_house"]
+[connection signal="SwitchHouse" from="Backgorund" to="AudioControl" method="_on_backgorund_switch_house"]
 [connection signal="SwitchHouse" from="Backgorund" to="RythemController" method="_on_backgorund_switch_house"]
 [connection signal="treesSpawned" from="MainLayer" to="MainLayer/Animator" method="_on_main_layer_trees_spawned"]
 [connection signal="CanBuildThere" from="HelpLayer" to="." method="_on_help_layer_can_build_there"]
@@ -271,6 +270,7 @@ rythm = [NodePath("../Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpa
 [connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner" method="_on_rhythm_notifier_beat1"]
 [connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="RythemSpawner" method="_on_rhythm_notifier_beat1"]
 [connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="RythemController" method="_on_rhythm_notifier_beat"]
+[connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="AudioControl" method="_on_main_screen_popups_intro_finished"]
 [connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="IntroFinished" method="_on_main_screen_popups_intro_finished"]
 [connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="RythemController" method="_on_main_screen_popups_intro_finished"]
 [connection signal="popup_hide" from="Control/CanvasLayer/Control/Popup" to="Control/CanvasLayer/Control/Popup" method="_on_popup_hide"]
@@ -281,6 +281,7 @@ rythm = [NodePath("../Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpa
 [connection signal="beat" from="RhythmNotifier" to="." method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="MainLayer/Animator" method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="Control" method="_on_rhythm_notifier_beat"]
+[connection signal="beat" from="RhythmNotifier" to="AudioControl" method="_on_rhythm_notifier_beat"]
 [connection signal="finished" from="LevelSwitcher" to="." method="_on_level_switcher_finished"]
 
 [editable path="Control"]

@@ -5,6 +5,7 @@ extends Node
 const SETTINGS_PATH = "user://settings.cfg"
 
 @export var WebBuild:bool = true
+@export var Build:bool = false
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 @onready var MASTER_BUS_ID = AudioServer.get_bus_index("Master")

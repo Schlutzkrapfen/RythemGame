@@ -14,6 +14,8 @@ func _ready():
 		canvasLayer.visible = false
 		emit_signal("SelectedFinished")
 		return
+	
+	canvasLayer.visible = true
 	get_tree().paused = true
 	unlocksTake.resize(unlocksCount)
 	unlocksTake.fill(false)
