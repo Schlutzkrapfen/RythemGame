@@ -132,3 +132,7 @@ SwichToRightTab={
 
 locale/translations=PackedStringArray("res://TEXT/Localitation.de.translation", "res://TEXT/Localitation.en.translation", "res://TEXT/Localitation.it.translation")
 locale/test="de"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

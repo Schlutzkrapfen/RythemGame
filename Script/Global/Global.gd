@@ -14,6 +14,7 @@ var MakeResources: Array[Points]
 var PointsIcons: Array[Texture2D]
 var ButtonIcons: Array[Texture2D]
 var HouseUnlocked: Array[HouseID] = []
+var currentHouse:int 
 #How much is allowed to miss
 var musicOffset:float = 0.2
 var currentLevel:int= 0
@@ -94,6 +95,11 @@ func ResetVeriables():
 }
 	currentLevelStatus = LevelStatus.Playing
 
+
+func CheckIfHouseEnoughResources()-> bool:
+	if currentResources[BuildResources[currentHouse]] >=BuildCostAmount[currentHouse]:
+		return true
+	return false
 func GetHousesVeriables() -> void:
 	for x in HouseSelected :
 		BuildCostAmount.append(house_registry[x].buildCost)

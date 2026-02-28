@@ -31,8 +31,6 @@ var controllerPosition:Vector2
 
 var HouseRange:int
 
-#Spawn some Tiles out of bounds that are used to check with other tiles
-#what kind out tile it is
 func _ready():
 	Input.warp_mouse(get_viewport_rect().size / 2)
 	for house in Global.house_registry:
@@ -40,7 +38,7 @@ func _ready():
 			var source_id = Global.house_registry[house].tileMapID[i]
 			var atlas_coords = Global.house_registry[house].tileMapPosition[i]
 			var tile_set_source: TileSetAtlasSource = tilemap.tile_set.get_source(source_id)
-			var tile_data: TileData = tile_set_source.get_tile_data(atlas_coords, 0)
+			tile_data = tile_set_source.get_tile_data(atlas_coords, 0)
 			match Global.house_registry[house].houseType:
 				Global.HouseType.Trees:
 					tree_tile_data.append(tile_data)
@@ -82,7 +80,7 @@ func _process(_delta) ->void:
 		self.set_cell(tile,0)
 		Helplayer2.set_cell(tile,0)
 	
-	signalDictionary["CanBuild"] = true
+	signalDictionary["CanBuild"] = Global.CheckIfHouseEnoughResources()
 	buildTiles.clear()
 	signalDictionary["CurrentPosition"] = []
 	for x in currentHousestats.size.x:
@@ -98,7 +96,7 @@ func _process(_delta) ->void:
 			buildTiles.append(currenttileCoords)
 			lastHelpVisual.append(currenttileCoords) 
 	for tile in buildTiles:
-		if signalDictionary["CanBuild"]:
+		if signalDictionary["CanBuild"] :
 			self.set_cell(tile,0, HelpVisual.get("True"))
 			AddHelpLayer(curretnHouse,tile)
 		else:
@@ -145,6 +143,9 @@ func addtileInRanges(currentPos:Vector2i):
 	self.set_cell(currentPos,0,HelpVisual.get("True"))
 	tileInRange.append(currentPos) 
 
+func EnoughResourcesForHouse()->bool:
+	
+	return false
 ##Removes all the Green Tiles in Range
 func RemoveHelpRemoveLayer():
 	for n in tileInRange:

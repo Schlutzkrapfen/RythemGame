@@ -14,6 +14,7 @@ var config = ConfigFile.new()
 
 #Can be changed in SettingsMenu Settings
 var automaticSwitcher:bool = false
+
 var vsynch:bool = false
 var animations:bool = false
 var language = "automatic"
@@ -21,6 +22,10 @@ var SynchroniseOffset:float = 0.0
 var MasterSound:float = 0.8
 var SFXSound:float = 0.8
 var MusicSound:float = 0.8
+
+#VALUES THAT SHOULD BE CHANGED IN THE SWITCH BUT CAN'T AT THE MOMENT
+
+var autoSwitchOnDepletion:bool = false
 
 
 func loadSettings():

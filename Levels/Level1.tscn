@@ -177,6 +177,9 @@ decay = 0.95
 max_offset = Vector2(50, 25)
 noise = SubResource("FastNoiseLite_hlqct")
 
+[node name="LabelStartAnimation" type="AnimationPlayer" parent="Control" unique_id=184021074]
+root_node = NodePath("../AnimationPlayer2")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=132029695]
 libraries/ = SubResource("AnimationLibrary_aay61")
 

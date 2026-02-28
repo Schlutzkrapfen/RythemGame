@@ -7,6 +7,8 @@ extends HBoxContainer
 @onready var Resources: Array[Global.Points] = Global.MakeResources
 var CurrentResources: Array[Global.Points]
 
+@export var startAnimationTime:float = 4
+
 var IconScene:Resource = preload("res://Scenes/icon.tscn")
 var LabelScene:Resource = preload("res://Scenes/icon_label.tscn")
 

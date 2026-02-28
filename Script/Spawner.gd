@@ -85,6 +85,7 @@ func changeLayer():
 		addPoints()
 #Check if the house is Placed and how good is clicked
 func _input(event) -> void:
+	
 	if  event.is_action_pressed("Controller_Input"):
 		if CurrentID == HitId:
 			return
@@ -94,7 +95,7 @@ func _input(event) -> void:
 			pointsDict[Global.Points.Early] +=1
 			HitId=CurrentID
 			return
-		if CanBuild :
+		if CanBuild:
 			addHouse()
 		else:
 			emit_signal("EarlyFullMiss")
@@ -118,7 +119,7 @@ func _input(event) -> void:
 func addOneToCurrentHit():
 	CurrentHit +=1;
 
-#Gets all the Info for building from a Second Script
+#Gets all the Info for building from a the CheckIfSpawnable
 func _on_help_layer_can_build_there(signalDictionary):
 	CanBuild = signalDictionary.get("CanBuild", false)
 	tile_coords = signalDictionary.get("CurrentPosition", [])
