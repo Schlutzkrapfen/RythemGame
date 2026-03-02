@@ -2,7 +2,7 @@ extends Button
 
 func _input(event):
 	if event.is_action_pressed("NextLevel"):
-		if get_parent().visible && self.visible:
+		if get_parent().visible && !self.disabled:
 			NextLevel()
 
 func NextLevel():
@@ -15,6 +15,6 @@ func NextLevel():
 
 func _ready():
 	if Global.currentLevelStatus == Global.LevelStatus.Lost ||  Global.currentLevelStatus == Global.LevelStatus.LostTime:
-		self.visible = false
+		self.disabled = true
 func _on_button_up():
 	NextLevel()

@@ -2,10 +2,12 @@ extends Node
 
 @export var AudioSource: Array[AudioStreamPlayer]
 @export var switchTime:float = 0.1
-@onready var offset:float = Global.musicOffset *2
+@onready var offset:float = Global.musicOffset
+
 var music_tween: Tween
 enum {MusicSlow,Music,MusicFast,Hit,Miss0,Miss1,Miss2,Kaching,PointsUp,startPoint}
 var CurrentBadSound = 0
+var rythemOffset
 
 @export var musicVolume:float = 0
 
@@ -13,7 +15,6 @@ func _on_node_2d_perfect():
 	if is_inside_tree():
 		AudioSource[Hit].volume_db = -10
 		AudioSource[Hit].play()
-
 
 func _on_node_2d_okay():
 	if is_inside_tree():
@@ -48,23 +49,28 @@ func _on_win_point_spawner_bad_sound(volume):
 		AudioSource[Miss0+CurrentBadSound].play()
 		CurrentBadSound=(CurrentBadSound +1) %3
 
-
 func _on_end_points_kachinging():
 	AudioSource[Kaching].play()
 
-
 func _on_end_points_start_count_up():
 	AudioSource[PointsUp].play()
-
 
 func _on_end_points_stop_count_up():
 	AudioSource[PointsUp].stop()
 	AudioSource[startPoint].stop()
 
 func _ready():
-	await get_tree().create_timer(offset).timeout
-	for i in 3:
+	#if $"../RhythmNotifier":
+	
+	#	var rythm:RhythmNotifier = $"../RhythmNotifier"
+	#	rythemOffset = rythm.beat_length -offset/10
+		
+	await get_tree().create_timer(0.75).timeout
+	#	for i in 10:
+	#		print(rythm.beat_length *i)
+	for i in 3:	
 		AudioSource[i].play()
+
 
 func _on_backgorund_switch_house(House):
 	if music_tween:

@@ -1,12 +1,11 @@
 [gd_scene format=4 uid="uid://cxwuk0x08sudc"]
 
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="1_ryiiw"]
-[ext_resource type="Script" uid="uid://dsk8von4lsm8l" path="res://Script/Menus/StartButton.gd" id="2_8e205"]
-[ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="2_7467j"]
-[ext_resource type="Script" uid="uid://cspuflcmisk5m" path="res://Script/Menus/ExitButton.gd" id="2_u5jnt"]
+[ext_resource type="PackedScene" uid="uid://dd4uigqa0ybv2" path="res://Scenes/UIParts/StartButton.tscn" id="2_2x1g0"]
+[ext_resource type="PackedScene" uid="uid://bxoju02rys7e" path="res://Scenes/UIParts/settingsButton.tscn" id="3_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="3_itvm6"]
+[ext_resource type="PackedScene" uid="uid://dli8kvn4p0vmc" path="res://Scenes/UIParts/QuitButton.tscn" id="4_2x1g0"]
 [ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Tilemaps/dirt wall.png" id="4_gi1rj"]
-[ext_resource type="Script" uid="uid://bobshe2pubmrc" path="res://Script/Menus/SettingsButton.gd" id="4_riqfo"]
 [ext_resource type="Texture2D" uid="uid://cmr4ljogk0n0x" path="res://Tilemaps/TX Props.png" id="5_b6alu"]
 [ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="6_ba7kx"]
 [ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Tilemaps/water - summer.png" id="7_4herb"]
@@ -17,14 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c18gko4qj1dqv" path="res://Tilemaps/water lily 1.png" id="12_2tsqr"]
 [ext_resource type="Texture2D" uid="uid://d34p8d2pr8g6f" path="res://Tilemaps/water lily 2.png" id="12_psshx"]
 [ext_resource type="PackedScene" uid="uid://b6752hljsipqj" path="res://Scenes/Settings.tscn" id="16_2x1g0"]
-
-[sub_resource type="Texture2D" id="Texture2D_2x1g0"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("2_7467j")
-path = "NextLevel"
-show_mode = 2
-metadata/_custom_type_script = "uid://oyi0dvyexiek"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tsqr"]
 texture = ExtResource("3_itvm6")
@@ -266,33 +257,24 @@ theme = ExtResource("1_ryiiw")
 text = "Rhythm Builder"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=317439122]
+[node name="Start" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1274935776 instance=ExtResource("2_2x1g0")]
 layout_mode = 2
-text = "BTN_PLAY"
-icon = SubResource("Texture2D_2x1g0")
-expand_icon = true
-script = ExtResource("2_8e205")
 
 [node name="Control4" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1350448575]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Settings" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=335018155 node_paths=PackedStringArray("Settings")]
+[node name="Settings" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=760064066 instance=ExtResource("3_2x1g0")]
 layout_mode = 2
-text = "BTN_SETTINGS"
-script = ExtResource("4_riqfo")
-Settings = NodePath("../../Control2/Popup")
 
 [node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=350191024]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=597965884]
+[node name="QuitButton" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=2012797963 instance=ExtResource("4_2x1g0")]
 layout_mode = 2
-text = "BTN_QUIT"
-script = ExtResource("2_u5jnt")
 
 [node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=472896964]
 layout_mode = 2
@@ -644,7 +626,3 @@ currentSPritepoition = 1
 [node name="Camera2D" type="Camera2D" parent="." unique_id=544679206]
 position = Vector2(574, 315)
 zoom = Vector2(2, 2)
-
-[connection signal="button_down" from="CanvasLayer/HBoxContainer/VBoxContainer/Button" to="CanvasLayer/HBoxContainer/VBoxContainer/Button" method="_on_button_down"]
-[connection signal="button_up" from="CanvasLayer/HBoxContainer/VBoxContainer/Settings" to="CanvasLayer/HBoxContainer/VBoxContainer/Settings" method="_on_button_up"]
-[connection signal="button_down" from="CanvasLayer/HBoxContainer/VBoxContainer/Button2" to="CanvasLayer/HBoxContainer/VBoxContainer/Button2" method="_on_button_down"]

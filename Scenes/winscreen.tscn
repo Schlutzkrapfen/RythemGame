@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://drribub13npt7" path="res://UI/Points/#1 - Transparent Icons3.png" id="8_mxr6m"]
 [ext_resource type="PackedScene" uid="uid://uuw6qcotihjo" path="res://Scenes/restart_button.tscn" id="9_xi21b"]
 [ext_resource type="PackedScene" uid="uid://bfeh503ya5cob" path="res://Scenes/NextLevelButton.tscn" id="10_2bjyx"]
-[ext_resource type="Script" uid="uid://oyi0dvyexiek" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="10_b3vrs"]
 [ext_resource type="Material" uid="uid://dnu4j47rh5mfw" path="res://ParticelEmmiters/BadEffect.tres" id="11_0udrg"]
 [ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="11_5iqpk"]
 [ext_resource type="Script" uid="uid://d3h3momjifqcm" path="res://Script/Menus/lostlabel.gd" id="11_v2n38"]
@@ -81,22 +80,6 @@ scale_curve = SubResource("CurveTexture_jewl8")
 alpha_curve = SubResource("CurveTexture_rf4lr")
 hue_variation_min = -0.020000022
 hue_variation_max = 0.019999977
-
-[sub_resource type="Texture2D" id="Texture2D_b3vrs"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("10_b3vrs")
-path = "Restart"
-show_mode = 2
-metadata/_custom_type_script = "uid://oyi0dvyexiek"
-
-[sub_resource type="Texture2D" id="Texture2D_0udrg"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("10_b3vrs")
-path = "NextLevel"
-show_mode = 2
-metadata/_custom_type_script = "uid://oyi0dvyexiek"
 
 [node name="WinScreen" type="Control" unique_id=753928273]
 layout_mode = 3
@@ -228,16 +211,15 @@ grow_vertical = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-icon = SubResource("Texture2D_b3vrs")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" unique_id=1728859398]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
 
 [node name="NextLevel" parent="CanvasLayer/Control/HBoxContainer/Control3/WinPointSpawner/Control2/Control/HBoxContainer" unique_id=719888407 instance=ExtResource("10_2bjyx")]
 layout_mode = 2
 size_flags_horizontal = 3
-icon = SubResource("Texture2D_0udrg")
 
 [node name="LostLabel" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3" unique_id=930138532]
 visible = false
@@ -367,9 +349,6 @@ script = ExtResource("1_xi21b")
 highscore = NodePath("../../Highscores")
 
 [node name="AudioControl" parent="." unique_id=925753407 instance=ExtResource("11_5iqpk")]
-
-[node name="Music" parent="AudioControl" index="0" unique_id=1100386042]
-autoplay = false
 
 [node name="Hit" parent="AudioControl" index="3" unique_id=1046159012]
 volume_db = 0.0

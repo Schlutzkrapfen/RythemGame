@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dli8kvn4p0vmc"]
+
+[ext_resource type="Script" uid="uid://cspuflcmisk5m" path="res://Script/Menus/ExitButton.gd" id="1_w57l1"]
+[ext_resource type="Texture2D" uid="uid://c7u4r0p8kn1eg" path="res://ControllerInput/Quit.tres" id="2_8nvtg"]
+
+[node name="QuitButton" type="Button" unique_id=2012797963]
+text = "BTN_QUIT"
+script = ExtResource("1_w57l1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1872571015]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("2_8nvtg")
+expand_mode = 2
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

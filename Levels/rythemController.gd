@@ -38,8 +38,6 @@ func _on_rhythm_notifier_beat(current_beat):
 			if  current_beat %2 != 0:
 				return
 	rythm[RythmRange.Main].bpm = currentbeatSpeed
-	if introFinished:
-		rythm[RythmRange.Main].running = true
 	
 
 

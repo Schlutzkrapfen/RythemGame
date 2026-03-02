@@ -6,6 +6,8 @@ enum  ImagesEnum  {Three = 0, Two=1, One =2, Go = 3, Mouse=4,MousePressed=5}
 var timesinslastInput:float = 0
 @export var timeUntilTipGetsShown:float = 5
 var loop:int = 0
+var offset:float = Global.musicOffset
+
 signal IntroFinished
 
 func _input(event) -> void:
@@ -37,7 +39,7 @@ func animation():
 		textureRect.texture =Images[ImagesEnum.Mouse]
 	else:
 		textureRect.texture =Images[ImagesEnum.MousePressed]
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(offset).timeout
 	if timesinslastInput > timeUntilTipGetsShown:
 		animation()
 	else:
