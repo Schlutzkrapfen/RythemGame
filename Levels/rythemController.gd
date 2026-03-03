@@ -24,8 +24,8 @@ func _on_backgorund_switch_house(House):
 		Global.musicSpeed.fast:
 			currentbeatSpeed= BPM *2
 	nowHouse = Global.house_registry[currentHouses[House]].musicSpeed
-	rythm[RythmRange.Main].current_position = 0
-	rythm[RythmRange.Main].running = false
+	#rythm[RythmRange.Main].current_position = 0
+	#rythm[RythmRange.Main].running = false
 	
 
 

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/MUSIC_HalfTime_40bpm_Loop.ogg-833f797eeacbcaa
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0.0
 bpm=0.0
 beat_count=0

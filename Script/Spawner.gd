@@ -133,7 +133,6 @@ func _on_backgorund_switch_house(House):
 	currentStats = Global.house_registry.get(currentHouse)
 #Here Gets checked if Someone misses to click
 func _on_rhythm_notifier_beat(_current_beat):
-	printDelta()
 	CurrentHit = 0
 	if  CurrentID != HitId:
 		emit_signal("Miss")

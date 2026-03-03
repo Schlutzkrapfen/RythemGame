@@ -265,8 +265,9 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Settings" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=760064066 instance=ExtResource("3_2x1g0")]
+[node name="Settings" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=760064066 node_paths=PackedStringArray("Settings") instance=ExtResource("3_2x1g0")]
 layout_mode = 2
+Settings = NodePath("../../Control2/Popup")
 
 [node name="Control3" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=350191024]
 layout_mode = 2

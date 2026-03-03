@@ -22,22 +22,25 @@ func _input(event) -> void:
 			currentHouse = 0
 			if Global.currentResources[Resouces[currentHouse]] >=CostAmount[currentHouse]:
 					emit_signal("SwitchHouse",currentHouse)
+					Global.currentHouse = currentHouse
 	if event.is_action_pressed("SecondHouse"):
 		if houseAmount >= 2:
 			currentHouse = 1
 			if Global.currentResources[Resouces[currentHouse]] >=CostAmount[currentHouse]:
 					emit_signal("SwitchHouse",currentHouse)
+					Global.currentHouse = currentHouse
 	if event.is_action_pressed("ThirdHouse"):
 		if houseAmount >= 3:
 			currentHouse = 2
 			if Global.currentResources[Resouces[currentHouse]] >=CostAmount[currentHouse]:
 					emit_signal("SwitchHouse",currentHouse)
+					Global.currentHouse = currentHouse
 	if event.is_action_pressed("FourthHouse"):
 		if houseAmount >= 4:
 			currentHouse = 3
 			if Global.currentResources[Resouces[currentHouse]] >=CostAmount[currentHouse]:
 					emit_signal("SwitchHouse",currentHouse)
-	Global.currentHouse = currentHouse#
+					Global.currentHouse = currentHouse
 	
 func _on_node_2d_update_values():
 	if Global.CheckIfHouseEnoughResources() && GlobalSettings.autoSwitchOnDepletion || GlobalSettings.automaticSwitcher: 

@@ -18,12 +18,9 @@ func _ready():
 	var currentPosition : int = 0
 	for x in houseSelected.size():
 		var current_res = Resources[x] 
-		
 		if current_res in CurrentResources:
 			continue
-		
 		CurrentResources.append(current_res)
-	
 		var instance: TextureRect = IconScene.instantiate()
 		instance.texture = Icons[x]
 		add_child(instance)

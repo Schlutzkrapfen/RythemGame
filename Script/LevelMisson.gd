@@ -3,6 +3,8 @@ extends VBoxContainer
 @onready var unlocksneeded = levelRegister.UnlocksNeeded
 @onready var unlockIcons = levelRegister.UnlockIcon
 
+@export var control:Control 
+
 var labels:Array[Label]
 var Missions:PackedScene = preload("res://Scenes/mission.tscn")
 signal missionsMade
@@ -23,14 +25,11 @@ func _ready():
 	for x in unlocksneeded:
 		var MissonNode:HBoxContainer = Missions.instantiate()
 		labels.append(MissonNode.get_child(1))
-		
 		labels.back().text =  str(unlocksneeded[x] - Global.currentResources[x])+ ":" 
 		add_child(MissonNode)
 		var icon:TextureRect = MissonNode.get_child(2)
 		icon.texture =unlockIcons[i]
 		i+=1
-		
-
 
 func _on_node_2d_update_values():
 	checkIfMissionFinished()

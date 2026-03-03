@@ -24,6 +24,7 @@ func _on_rhythm_notifier_beat(current_beat):
 	if current_beat == 9:
 		textureRect.visible = false
 		
+
 func _process(delta):
 	timesinslastInput += delta
 	if timesinslastInput > timeUntilTipGetsShown && !textureRect.visible :

@@ -13,14 +13,11 @@
 [ext_resource type="Script" uid="uid://ctfmtfd66gnqy" path="res://Script/CamaraShake.gd" id="10_idi36"]
 [ext_resource type="Texture2D" uid="uid://bcyrw0e7thwx5" path="res://ControllerInput/firstHouse.tres" id="10_k7tvq"]
 [ext_resource type="Texture2D" uid="uid://okt6823ouuqn" path="res://ControllerInput/MousePressed.tres" id="10_p2sgf"]
-[ext_resource type="Texture2D" uid="uid://cpil5anyl0s5y" path="res://UI/my-3.png" id="10_pp47a"]
 [ext_resource type="PackedScene" uid="uid://de7nkl3b3m4j6" path="res://Scenes/audio_control.tscn" id="11_8ubki"]
 [ext_resource type="Texture2D" uid="uid://csaubkhlrffn0" path="res://ControllerInput/SecondHouse.tres" id="11_62xmr"]
-[ext_resource type="Texture2D" uid="uid://du3ue506nks4n" path="res://UI/my-2.png" id="11_idi36"]
 [ext_resource type="PackedScene" uid="uid://dreu6sjmunp6u" path="res://Scenes/EquipRoom.tscn" id="11_sbm5j"]
 [ext_resource type="Texture2D" uid="uid://cpp4bjxo58sdu" path="res://ControllerInput/ThirdHouse.tres" id="12_0cfxs"]
 [ext_resource type="Script" uid="uid://bkg3ocaltn2vi" path="res://Script/timer.gd" id="12_3momc"]
-[ext_resource type="Texture2D" uid="uid://d2kjigd240r27" path="res://UI/my-1.png" id="12_8ubki"]
 [ext_resource type="Texture2D" uid="uid://c8ak16slurvu8" path="res://ControllerInput/FourthHouse.tres" id="13_2pfgx"]
 [ext_resource type="Texture2D" uid="uid://bqpqdakoe1658" path="res://UI/Points/my-GO.png" id="13_d73st"]
 [ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="13_k7tvq"]
@@ -260,9 +257,9 @@ size_flags_stretch_ratio = 1.0
 ButtonsIcon = Array[Texture2D]([ExtResource("10_k7tvq"), ExtResource("11_62xmr"), ExtResource("12_0cfxs"), ExtResource("13_2pfgx")])
 
 [node name="MainScreenPopups" parent="Control/CanvasLayer/Control" parent_id_path=PackedInt32Array(259595763, 972051208) index="2" unique_id=875681649]
-Images = Array[Texture2D]([ExtResource("10_pp47a"), ExtResource("11_idi36"), ExtResource("12_8ubki"), ExtResource("13_d73st"), ExtResource("14_k7tvq"), ExtResource("10_p2sgf")])
+Images = Array[Texture2D]([null, null, null, ExtResource("13_d73st"), ExtResource("14_k7tvq"), ExtResource("10_p2sgf")])
 
-[node name="Popup" parent="Control/CanvasLayer/Control" parent_id_path=PackedInt32Array(259595763, 972051208) index="3" unique_id=2046901749 node_paths=PackedStringArray("rythms")]
+[node name="Popup" parent="Control/CanvasLayer/Control" parent_id_path=PackedInt32Array(259595763, 972051208) index="4" unique_id=2046901749 node_paths=PackedStringArray("rythms")]
 process_mode = 3
 rythms = NodePath("../../../../RhythmNotifier")
 
@@ -359,6 +356,7 @@ stream = ExtResource("31_ruoxf")
 [connection signal="UpdateValues" from="." to="Control/CanvasLayer/Control/MainUi/LevelMisson" method="_on_node_2d_update_values"]
 [connection signal="UpdateValues" from="." to="Control/CanvasLayer/Control/MainUi/LevelMisson/Labels" method="_on_node_2d_update_values"]
 [connection signal="UpdateValues" from="." to="Control/CanvasLayer/Control/Upgrades/HBoxContainer/VBoxContainer/ButtonSpawner" method="_on_node_2d_update_values"]
+[connection signal="UpdateValues" from="." to="Control/CanvasLayer/Control/NeededUpgradeScreen/LevelMisson" method="checkIfMissionFinished"]
 [connection signal="SwitchHouse" from="Backgorund" to="." method="_on_backgorund_switch_house"]
 [connection signal="SwitchHouse" from="Backgorund" to="HelpLayer" method="_on_backgorund_switch_house"]
 [connection signal="SwitchHouse" from="Backgorund" to="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner" method="_on_backgorund_switch_house"]
@@ -369,13 +367,13 @@ stream = ExtResource("31_ruoxf")
 [connection signal="CanBuildThere" from="HelpLayer" to="." method="_on_help_layer_can_build_there"]
 [connection signal="currentPosition" from="HelpLayer" to="Control/ParticelEmmiter" method="_on_help_layer_current_position"]
 [connection signal="currentPosition" from="HelpLayer" to="RythemSpawner" method="_on_help_layer_current_position"]
-[connection signal="missionsMade" from="Control/CanvasLayer/Control/MainUi/LevelMisson" to="LevelSwitcher" method="_on_level_misson_missions_made"]
 [connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner" method="_on_rhythm_notifier_beat1"]
 [connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="RythemSpawner" method="_on_rhythm_notifier_beat1"]
 [connection signal="beat" from="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier" to="RythemController" method="_on_rhythm_notifier_beat"]
 [connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="AudioControl" method="_on_main_screen_popups_intro_finished"]
 [connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="IntroFinished" method="_on_main_screen_popups_intro_finished"]
 [connection signal="IntroFinished" from="Control/CanvasLayer/Control/MainScreenPopups" to="RythemController" method="_on_main_screen_popups_intro_finished"]
+[connection signal="missionsMade" from="Control/CanvasLayer/Control/NeededUpgradeScreen/LevelMisson" to="LevelSwitcher" method="_on_level_misson_missions_made"]
 [connection signal="popup_hide" from="Control/CanvasLayer/Control/Popup" to="Control/CanvasLayer/Control/Popup" method="_on_popup_hide"]
 [connection signal="SelectedFinished" from="Control/HouseSelecter" to="." method="_on_control_2_selected_finished"]
 [connection signal="SelectedFinished" from="Control/HouseSelecter" to="Backgorund" method="_on_control_2_selected_finished"]
