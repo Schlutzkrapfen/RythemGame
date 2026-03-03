@@ -60,4 +60,3 @@ func _on_node_2d_changed_house_at_position(House, _TilePosition,GlobalPosition):
 func _on_help_layer_current_position(pos):
 	if onMouse:
 		self.position = pos 
-				

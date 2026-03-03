@@ -16,7 +16,7 @@ var config = ConfigFile.new()
 var automaticSwitcher:bool = false
 
 var vsynch:bool = false
-var animations:bool = false
+var animations:bool = true
 var language = "automatic"
 var SynchroniseOffset:float = 0.0
 var MasterSound:float = 0.8

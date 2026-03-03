@@ -227,8 +227,9 @@ tile_map_data = PackedByteArray("AAD//wAAAwABAAEAAAABAAIAAwABAAEAAAAAAAMAAwABAAE
 tile_set = ExtResource("6_gmnjr")
 script = ExtResource("7_qg0tc")
 
-[node name="Animator" type="Node" parent="MainLayer" unique_id=1637168988]
+[node name="Animator" type="Node" parent="MainLayer" unique_id=1637168988 node_paths=PackedStringArray("rhythm")]
 script = ExtResource("8_62xmr")
+rhythm = NodePath("../../RhythmNotifier")
 
 [node name="HelpLayer" parent="." unique_id=1494387494 node_paths=PackedStringArray("tilemap") instance=ExtResource("8_13mt1")]
 tilemap = NodePath("../MainLayer")

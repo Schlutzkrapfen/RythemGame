@@ -38,11 +38,8 @@ func checkIfSomethingUnlocked():
 		else:
 			tween.tween_property(buttons[currentHouse],"position",Vector2(0,buttons[currentHouse].position.y),TweenDuration).set_trans(Tween.TRANS_BOUNCE)
 	
-	
-
 func _on_node_2d_update_values():
 	checkIfSomethingUnlocked()
-
 
 func _on_control_2_selected_finished():
 	Resouces  = Global.BuildResources
