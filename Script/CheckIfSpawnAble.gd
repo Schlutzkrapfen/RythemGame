@@ -9,6 +9,7 @@ signal currentPosition(position:Vector2)
 
 var signalDictionary = {"CanBuild":false,"CurrentPosition":[],"RemovePositions":[]}
 
+
 var lastHelpVisual: Array[Vector2i] = [Vector2i(0,0)]
 var tileInRange: Array[Variant] = [Vector2i(0,0)]
 
@@ -21,6 +22,8 @@ var tile_data:TileData
 var HelpVisual:Dictionary = {"True":Vector2i(0,0),"False":Vector2i(1,0)}
 
 var world_pos: Vector2 
+
+var finished: bool
 
 var tile_coords: Vector2i
 #Adds the the Input to this function and than adds its togehter
@@ -56,6 +59,8 @@ func _input(event):
 		
 #Controller Inputs 
 func _physics_process(_delta):
+	if finished:
+		return
 	var direction = Vector2(
    	 Input.get_action_strength("Right") - Input.get_action_strength("Left"),
    	 Input.get_action_strength("Down") - Input.get_action_strength("Up")
@@ -69,6 +74,8 @@ func _physics_process(_delta):
 
 
 func _process(_delta) ->void:
+	if finished:
+		return
 	world_pos= get_global_mouse_position() +controllerPosition
 	var mousetile = self.local_to_map(world_pos) 
 	emit_signal("currentPosition",world_pos)
@@ -105,6 +112,8 @@ func _process(_delta) ->void:
 	emit_signal("CanBuildThere",signalDictionary)
 	
 	
+func Finished():
+	finished = true
 #Adds the the green tiles around the house with the currentRange
 func AddHelpLayer(House:Global.HouseID, currentPos:Vector2i):
 	if Global.house_registry.has(House):

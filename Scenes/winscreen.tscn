@@ -82,6 +82,7 @@ hue_variation_min = -0.020000022
 hue_variation_max = 0.019999977
 
 [node name="WinScreen" type="Control" unique_id=753928273]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -125,6 +126,15 @@ size_flags_stretch_ratio = 0.7
 [node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer" unique_id=353767213]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/HBoxContainer/Control3" unique_id=2021145907]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.16862746)
 
 [node name="WinPointSpawner" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3" unique_id=2015280671]
 layout_mode = 1

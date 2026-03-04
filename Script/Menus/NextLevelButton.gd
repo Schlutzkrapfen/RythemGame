@@ -7,9 +7,11 @@ func _input(event):
 
 func NextLevel():
 	if Global.level_registery[Global.currentLevel].PossibleHouseUnlocks != null:
+		get_tree().paused = false
 		get_tree().change_scene_to_file("res://Scenes/UnlockScreen.tscn")
 	else:
 		Global.currentLevel +=1;
+		get_tree().paused = false
 		get_tree().change_scene_to_file(Global.level_registery[Global.currentLevel].levelPath)
 
 

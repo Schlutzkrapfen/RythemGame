@@ -7,6 +7,7 @@ var timesinslastInput:float = 0
 @export var timeUntilTipGetsShown:float = 5
 var loop:int = 0
 var offset:float = Global.musicOffset
+var finished:bool = false
 
 signal IntroFinished
 
@@ -26,13 +27,17 @@ func _on_rhythm_notifier_beat(current_beat):
 		
 
 func _process(delta):
+	if finished:
+		return
 	timesinslastInput += delta
 	if timesinslastInput > timeUntilTipGetsShown && !textureRect.visible :
 		textureRect.visible = true
 		animation()
 		textureRect.modulate = Color(1.0, 1.0, 1.0, 0.443)
 		
-
+func Finished():
+	finished =true
+	
 func animation():
 	loop += 1
 	if loop %2 == 0:

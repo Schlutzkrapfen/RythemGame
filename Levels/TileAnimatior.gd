@@ -53,7 +53,7 @@ func _on_rhythm_notifier_beat(current_beat):
 			var tween1 = get_tree().create_tween()
 			#TestCode
 			tile = info.data
-			if current_beat %2 == 0:
+			if current_beat % 2 == 0:
 				tween1.tween_method(set_shader_value,startScale,endScale,halfTime).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 			else:
 				tween1.tween_method(set_shader_value,endScale,startScale,halfTime).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)

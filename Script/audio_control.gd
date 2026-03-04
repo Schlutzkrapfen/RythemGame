@@ -11,6 +11,10 @@ var rythemOffset
 
 @export var musicVolume:float = 0
 
+func stopMusic():
+	for audio in AudioSource:
+		audio.stop()
+
 func _on_node_2d_perfect():
 	if is_inside_tree():
 		AudioSource[Hit].volume_db = -10

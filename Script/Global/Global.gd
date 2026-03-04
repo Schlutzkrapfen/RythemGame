@@ -18,7 +18,7 @@ var currentHouse:int
 #How much is allowed to miss
 var musicOffset:float = 0.2
 var currentLevel:int= 0
-var HouseSelected:Array[HouseID] = [HouseID.Default, HouseID.WoodCutter,HouseID.Backery]
+var HouseSelected:Array[HouseID] = [HouseID.FastHouse, HouseID.WoodCutter,HouseID.Backery]
 #@onready var unlockedHouses:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,]
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),

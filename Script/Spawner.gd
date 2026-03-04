@@ -5,6 +5,7 @@ extends Node2D
 @export var UnlockAnimations: Array[AnimationPlayer]
 @export var SoundAnimations: AnimationPlayer
 @export var EmmitersScene:PackedScene
+
 var Clicked:bool
 
 signal Perfect
@@ -35,7 +36,9 @@ var WoodAnoumtForWinHouse:int = 5
 var loop:int =1
 var TimesinstLastInput:float
 
-var deltas:float
+
+var firstHitHappend:bool
+
 var pointsDict: Dictionary[Global.Points, float] = {
 	Global.Points.Miss: 0, 
 	Global.Points.Early: 0, 
@@ -67,8 +70,6 @@ func addHouse():
 			emit_signal("ChangedHouseAtPosition",currentHouse,tile,globalTilePosition)
 	Global.currentResources[Global.pointsConnectDict[currentStats.buildType]] -= currentStats.buildCost
 	emit_signal("UpdateValues")
-func _process(delta):
-	deltas += delta
 #adds the point to currentPoints and to the Points that get later converted in
 #Global points
 func addPoints():
@@ -87,7 +88,6 @@ func changeLayer():
 		addPoints()
 #Check if the house is Placed and how good is clicked
 func _input(event) -> void:
-	
 	if  event.is_action_pressed("Controller_Input"):
 		if CurrentID == HitId:
 			return
@@ -133,6 +133,7 @@ func _on_backgorund_switch_house(House):
 	currentStats = Global.house_registry.get(currentHouse)
 #Here Gets checked if Someone misses to click
 func _on_rhythm_notifier_beat(_current_beat):
+	firstHitHappend = true
 	CurrentHit = 0
 	if  CurrentID != HitId:
 		emit_signal("Miss")
@@ -140,8 +141,6 @@ func _on_rhythm_notifier_beat(_current_beat):
 		pointsDict[Global.Points.Miss] +=1
 	CurrentID +=1;
 
-func printDelta():
-	print(deltas)
 #loads the points in the Globaldict
 func _on_level_switcher_finished():
 	Global.pointsDict = pointsDict

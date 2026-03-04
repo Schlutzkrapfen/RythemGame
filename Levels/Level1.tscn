@@ -72,6 +72,9 @@ tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_qlyvm")
 sources/0 = SubResource("TileSetAtlasSource_m1h0o")
 
+[sub_resource type="Theme" id="Theme_0cfxs"]
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_hlqct"]
 noise_type = 2
 
@@ -243,6 +246,9 @@ process_thread_group_order = 0
 process_thread_messages = 0
 follow_viewport_enabled = false
 
+[node name="ProgressBar" parent="Control/CanvasLayer/Control/MainUi/LevelMisson/Labels" parent_id_path=PackedInt32Array(259595763, 1875304109) index="1" unique_id=421276687]
+theme = SubResource("Theme_0cfxs")
+
 [node name="RythemSpawner" parent="Control/CanvasLayer/Control/MainUi/VBoxContainer" parent_id_path=PackedInt32Array(259595763, 1994015969) index="3" unique_id=393467851]
 lines = 4
 
@@ -301,6 +307,9 @@ onMouse = true
 
 [node name="AudioControl" parent="." unique_id=1057385721 instance=ExtResource("11_8ubki")]
 
+[node name="Music" parent="AudioControl" index="0" unique_id=1100386042 node_paths=PackedStringArray("ryhtm")]
+ryhtm = NodePath("../../RhythmNotifier")
+
 [node name="Timer" type="Timer" parent="." unique_id=1610266416]
 wait_time = 100.0
 one_shot = true
@@ -315,9 +324,10 @@ script = ExtResource("14_62xmr")
 timer = NodePath("../Timer")
 rhytm = NodePath("../RhythmNotifier")
 
-[node name="LevelSwitcher" type="Node" parent="." unique_id=1006949448 node_paths=PackedStringArray("timer")]
+[node name="LevelSwitcher" type="Node" parent="." unique_id=1006949448 node_paths=PackedStringArray("timer", "rythms")]
 script = ExtResource("14_104vp")
 timer = NodePath("../Timer")
+rythms = [NodePath("../RhythmNotifier"), NodePath("../Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier")]
 
 [node name="RythemController" type="Node" parent="." unique_id=837533539 node_paths=PackedStringArray("rythm")]
 script = ExtResource("30_jd565")
@@ -384,7 +394,11 @@ stream = ExtResource("31_ruoxf")
 [connection signal="beat" from="RhythmNotifier" to="MainLayer/Animator" method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="Control" method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="AudioControl" method="_on_rhythm_notifier_beat"]
+[connection signal="beat" from="RhythmNotifier" to="AudioControl/Music" method="DisplayTime"]
 [connection signal="finished" from="LevelSwitcher" to="." method="_on_level_switcher_finished"]
+[connection signal="finished" from="LevelSwitcher" to="HelpLayer" method="Finished"]
+[connection signal="finished" from="LevelSwitcher" to="Control/CanvasLayer/Control/MainScreenPopups" method="Finished"]
+[connection signal="finished" from="LevelSwitcher" to="AudioControl" method="stopMusic"]
 
 [editable path="Control"]
 [editable path="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner"]

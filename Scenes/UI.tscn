@@ -64,6 +64,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.2
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control/MainUi/LevelMisson/Labels" unique_id=421276687]
+self_modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 20.0
@@ -167,7 +168,7 @@ grow_vertical = 2
 script = ExtResource("11_b1goy")
 controll = NodePath("LevelMisson")
 
-[node name="LevelMisson" type="VBoxContainer" parent="CanvasLayer/Control/NeededUpgradeScreen" unique_id=273211636 node_paths=PackedStringArray("control")]
+[node name="LevelMisson" type="VBoxContainer" parent="CanvasLayer/Control/NeededUpgradeScreen" unique_id=273211636]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,7 +185,6 @@ scale = Vector2(2, 2)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 script = ExtResource("2_tb15e")
-control = NodePath("")
 metadata/_edit_use_anchors_ = true
 
 [node name="Labels" type="HBoxContainer" parent="CanvasLayer/Control/NeededUpgradeScreen/LevelMisson" unique_id=856950157]
