@@ -40,7 +40,7 @@ func _on_rhythm_notifier_beat(current_beat):
 	for pos in positionDic.keys():
 		var info = positionDic[pos]
 		
-		if info.data == null:
+		if mainTile.get_cell_tile_data(pos) == null:
 			deleteArray.append(pos)
 			continue
 		
@@ -61,6 +61,8 @@ func _on_rhythm_notifier_beat(current_beat):
 	for pos in deleteArray:
 		positionDic.erase(pos)
 
+func Finished():
+	set_shader_value(Vector2(0,0))
 
 func _on_node_2d_early_full_miss():
 	maxpool =2

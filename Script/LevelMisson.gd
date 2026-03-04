@@ -13,7 +13,12 @@ func checkIfMissionFinished():
 	var i:int = 0
 	var checkifFinished = true
 	for x in unlocksneeded:
-		labels[i].text = str(unlocksneeded[x] - Global.currentResources[x]) +""
+		
+		if unlocksneeded[x] - Global.currentResources[x] <= 0:
+			labels[i].get_child(0).visible = true
+			labels[i].text = "    "
+		else:
+			labels[i].text = str(unlocksneeded[x] - Global.currentResources[x]) +":"
 		if Global.currentResources[x] < unlocksneeded[x]:
 			checkifFinished = false
 		i+= 1

@@ -300,9 +300,9 @@ onMouse = true
 custom_minimum_size = Vector2(35, 15)
 offset_left = 270.0
 offset_top = 185.0
-offset_right = 305.0
+offset_right = 330.0
 offset_bottom = 200.0
-lines = 1
+lines = 2
 onMouse = true
 
 [node name="AudioControl" parent="." unique_id=1057385721 instance=ExtResource("11_8ubki")]
@@ -396,6 +396,7 @@ stream = ExtResource("31_ruoxf")
 [connection signal="beat" from="RhythmNotifier" to="AudioControl" method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="AudioControl/Music" method="DisplayTime"]
 [connection signal="finished" from="LevelSwitcher" to="." method="_on_level_switcher_finished"]
+[connection signal="finished" from="LevelSwitcher" to="MainLayer/Animator" method="Finished"]
 [connection signal="finished" from="LevelSwitcher" to="HelpLayer" method="Finished"]
 [connection signal="finished" from="LevelSwitcher" to="Control/CanvasLayer/Control/MainScreenPopups" method="Finished"]
 [connection signal="finished" from="LevelSwitcher" to="AudioControl" method="stopMusic"]

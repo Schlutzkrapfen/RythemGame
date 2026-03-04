@@ -51,6 +51,7 @@ func SwitchHouseWithPossible():
 		for x in houseAmount:
 			if Global.currentResources[Resouces[x]] >=CostAmount[x]:
 				emit_signal("SwitchHouse",x)
+				Global.currentHouse =x
 
 
 

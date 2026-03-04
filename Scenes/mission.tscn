@@ -1,23 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://qtkddl3ultg3"]
+[gd_scene format=3 uid="uid://qtkddl3ultg3"]
 
 [ext_resource type="Texture2D" uid="uid://dr404vfns4hyq" path="res://UI/ButtonIcons/Normal/House1.png" id="1_2qmcd"]
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="1_nbcaj"]
+[ext_resource type="Texture2D" uid="uid://c5ddi2mnjkn53" path="res://UI/check.png" id="3_uxhhj"]
 
-[node name="Mission" type="HBoxContainer"]
+[node name="Mission" type="HBoxContainer" unique_id=2046605880]
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_nbcaj")
 
-[node name="Control5" type="Control" parent="."]
+[node name="Control5" type="Control" parent="." unique_id=1855503871]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.2
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1614624142]
 layout_mode = 2
 text = "5:"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Label" unique_id=365965232]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uxhhj")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1054800665]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("1_2qmcd")
