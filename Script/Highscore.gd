@@ -70,7 +70,7 @@ func add_name_input(position: int) -> void:
 
 	name_input = LineEdit.new()
 	name_input.add_theme_font_override("font", font)
-	name_input.max_length = 20
+	name_input.max_length = 15 
 	name_input.placeholder_text = "Enter your name"
 	name_input.custom_minimum_size = Vector2(200, 0)
 	name_input.size_flags_horizontal = Control.SIZE_SHRINK_CENTER

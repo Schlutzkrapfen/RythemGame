@@ -17,7 +17,6 @@ func _on_timer_timeout():
 	emit_signal("finished")
 	get_parent().add_child(simultaneous_scene)
 
-
 func _on_level_misson_missions_made():
 	await get_tree().create_timer(timeWaitUntilSwitch).timeout
 	for rythm in rythms:

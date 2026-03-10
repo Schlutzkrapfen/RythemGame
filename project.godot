@@ -23,17 +23,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Script/Global/Global.gd"
-ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
+ControllerIcons="*uid://c0tvibkrifua3"
 GlobalSettings="*res://Script/Global/GlobalSettings.gd"
 SilentWolf="*uid://csogp67irrp0t"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/godot_vim/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
-
-[godot_vim]
-
-clipboard/yank_to_clipboard=true
 
 [input]
 

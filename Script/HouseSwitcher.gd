@@ -11,8 +11,6 @@ var currentHouse:int
 ##Gives the housenummer that is selected currently(need to do global.Houseselected to get the right one)
 signal SwitchHouse(House)
 
-
-
 func _ready():
 	SwitchHouseWithPossible()
 #Checks if the button is pressed to switch and if its possible
@@ -52,8 +50,6 @@ func SwitchHouseWithPossible():
 			if Global.currentResources[Resouces[x]] >=CostAmount[x]:
 				emit_signal("SwitchHouse",x)
 				Global.currentHouse =x
-
-
 
 func _on_control_2_selected_finished():
 	Resouces = Global.BuildResources

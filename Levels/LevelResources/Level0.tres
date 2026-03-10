@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_fgtxh")
 UnlockIcon = Array[Texture2D]([ExtResource("1_a66pa")])
-levelPath = "uid://b4plxikf88g6g"
+levelPath = "uid://cvwm7dpo444cr"
 MaxTime = 10
 UnlocksNeeded = Dictionary[int, int]({
 7: 10

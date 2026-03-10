@@ -5,7 +5,7 @@ var d:int = 0
 var maxpool: int = 2
 @export var rhythm:RhythmNotifier
 @onready var time = rhythm.beat_length
-@onready var halfTime = time /4
+@onready var halfTime = time /2
 @onready var mainTile:TileMapLayer = get_parent()
 @onready var treeId:Array[int] = Global.house_registry[Global.HouseID.Trees].tileMapID
 @onready var treeSpawnPoints:Array[Vector2i] = Global.house_registry[Global.HouseID.Trees].tileMapPosition
@@ -51,12 +51,9 @@ func _on_rhythm_notifier_beat(current_beat):
 				mainTile.set_cell(pos, treeId[d], treeSpawnPoints[d])
 		if info.id == Global.HouseID.Default:
 			var tween1 = get_tree().create_tween()
-			#TestCode
 			tile = info.data
-			if current_beat % 2 == 0:
-				tween1.tween_method(set_shader_value,startScale,endScale,halfTime).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-			else:
-				tween1.tween_method(set_shader_value,endScale,startScale,halfTime).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+			tween1.tween_method(set_shader_value,startScale,endScale,halfTime).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tween1.tween_method(set_shader_value,endScale,startScale,halfTime).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
 	for pos in deleteArray:
 		positionDic.erase(pos)
@@ -71,4 +68,4 @@ func _on_node_2d_changed_house_at_position(house_id, pos, _world_position):
 	var data = mainTile.get_cell_tile_data(pos)
 	positionDic[pos] = HouseInfo.new( house_id, data)
 func set_shader_value(value: Vector2 ):
-	tile.material.set_shader_parameter("deformation", value);
+	tile.material.set_shader_parameter("deformation", value)

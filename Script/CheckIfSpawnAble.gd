@@ -20,6 +20,15 @@ var cityTileData:Array[TileData]
 var buildTiles:Array[Vector2i]
 var tile_data:TileData
 var HelpVisual:Dictionary = {"True":Vector2i(0,0),"False":Vector2i(1,0)}
+class TileInformation:
+		#TilePosition is also used for ID
+		var tilePosition:Vector2i
+		var amountAddingDictionary: Dictionary[Global.Points,float]
+		
+		func _init(_tilePosition:Vector2i,_amountAddingDictionary: Dictionary[Global.Points,float]):
+			tilePosition = _tilePosition
+			amountAddingDictionary = _amountAddingDictionary
+			
 
 var world_pos: Vector2 
 

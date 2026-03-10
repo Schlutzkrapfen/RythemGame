@@ -26,8 +26,6 @@ func _on_backgorund_switch_house(House):
 	nowHouse = Global.house_registry[currentHouses[House]].musicSpeed
 	#rythm[RythmRange.Main].current_position = 0
 	#rythm[RythmRange.Main].running = false
-	
-
 
 func _on_rhythm_notifier_beat(current_beat):
 	match nowHouse:
