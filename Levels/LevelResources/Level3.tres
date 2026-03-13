@@ -6,13 +6,12 @@
 [resource]
 script = ExtResource("2_ps1pg")
 UnlockIcon = Array[Texture2D]([ExtResource("1_pu04x")])
-Level = 2
-levelPath = "uid://b4plxikf88g6g"
-PossibleHouseUnlocks = 6
+Level = 3
+levelPath = "uid://itsalp8w3vdf"
+PossibleHouseUnlocks = 3
 UnlocksNeeded = Dictionary[int, int]({
-7: 25
+7: 29
 })
 treeSpawnThreshold = 0.8
 PointsPossible = Array[int]([6, 8])
-BPM = 80.0
 metadata/_custom_type_script = "uid://jbrfkyp0aknp"

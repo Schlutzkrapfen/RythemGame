@@ -7,11 +7,11 @@
 script = ExtResource("2_41q7w")
 UnlockIcon = Array[Texture2D]([ExtResource("1_7dlla")])
 Level = 2
-levelPath = "uid://b4plxikf88g6g"
+levelPath = "uid://b6okxpqoa8t0r"
 PossibleHouseUnlocks = 4
 UnlocksNeeded = Dictionary[int, int]({
-9: 25
+9: 29
 })
-treeSpawnThreshold = 0.2
+treeSpawnThreshold = 1.0
 PointsPossible = Array[int]([6, 8])
 metadata/_custom_type_script = "uid://jbrfkyp0aknp"

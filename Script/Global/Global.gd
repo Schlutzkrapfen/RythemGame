@@ -13,12 +13,12 @@ var BuildResources: Array[Points]
 var MakeResources: Array[Points]
 var PointsIcons: Array[Texture2D]
 var ButtonIcons: Array[Texture2D]
-var HouseUnlocked: Array[HouseID] = []
+var HouseUnlocked: Array[HouseID] = [HouseID.Default]
 var currentHouse:int  = 0
 #How much is allowed to miss
 var musicOffset:float = 0.2
 var currentLevel:int=1
-var HouseSelected:Array[HouseID] = [HouseID.Default, HouseID.WoodCutter,HouseID.Market]
+var HouseSelected:Array[HouseID] = [HouseID.Default]
 #@onready var unlockedHouses:Array[HouseID] = [HouseID.Default,HouseID.WoodCutter,HouseID.Backery,HouseID.Market,]
 var house_registry: Dictionary = {
 	HouseID.Default: preload("res://Houses/Default.tres"),
