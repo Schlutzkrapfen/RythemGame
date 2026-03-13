@@ -29,7 +29,7 @@ SilentWolf="*uid://csogp67irrp0t"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/godot_vim/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [input]
 
