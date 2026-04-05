@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HouseDefinition" format=3 uid="uid://ckrdcqn0ctexw"]
 
-[ext_resource type="Texture2D" uid="uid://dwbflsv3pvw0" path="res://Tilemaps/Test.png" id="1_072qk"]
+[ext_resource type="Texture2D" uid="uid://dwbflsv3pvw0" path="res://Background/Test.png" id="1_072qk"]
 [ext_resource type="Script" uid="uid://8bue58jekekt" path="res://Script/Definitions/house_definition.gd" id="1_sh2sf"]
 
 [resource]

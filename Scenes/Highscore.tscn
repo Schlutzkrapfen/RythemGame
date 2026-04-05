@@ -1,12 +1,12 @@
-[gd_scene load_steps=18 format=4 uid="uid://yuudxxfwygmp"]
+[gd_scene format=4 uid="uid://yuudxxfwygmp"]
 
 [ext_resource type="Theme" uid="uid://lcjmsych3ypw" path="res://Font/DefaultTheme.tres" id="1_nwnrh"]
-[ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="1_r43mv"]
-[ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Tilemaps/dirt wall.png" id="2_ry27f"]
-[ext_resource type="Texture2D" uid="uid://cmr4ljogk0n0x" path="res://Tilemaps/TX Props.png" id="3_kmvoi"]
-[ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="4_kkijf"]
+[ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Background/dirt.png" id="1_r43mv"]
+[ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Background/dirt wall.png" id="2_ry27f"]
+[ext_resource type="Texture2D" uid="uid://cmr4ljogk0n0x" path="res://Background/TX Props.png" id="3_kmvoi"]
+[ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Background/Tree.png" id="4_kkijf"]
 [ext_resource type="Script" uid="uid://cspuflcmisk5m" path="res://Script/Menus/ExitButton.gd" id="4_nwnrh"]
-[ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Tilemaps/water - summer.png" id="5_rmadt"]
+[ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Background/water - summer.png" id="5_rmadt"]
 [ext_resource type="PackedScene" uid="uid://demff3tob8qww" path="res://Scenes/spawnHighscore.tscn" id="7_1ryyy"]
 [ext_resource type="PackedScene" uid="uid://uuw6qcotihjo" path="res://Scenes/restart_button.tscn" id="8_1ryyy"]
 

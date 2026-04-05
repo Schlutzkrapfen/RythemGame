@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://74o45oaca00l"
-path="res://.godot/imported/small stone 1.png-57b36120cf9313ab6bb6f48e996edd4b.ctex"
+uid="uid://djr6ferdbdno4"
+path="res://.godot/imported/water - summer.png-e99f6069642fffe4084c97fa0e563610.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/small stone 1.png"
-dest_files=["res://.godot/imported/small stone 1.png-57b36120cf9313ab6bb6f48e996edd4b.ctex"]
+source_file="res://Background/water - summer.png"
+dest_files=["res://.godot/imported/water - summer.png-e99f6069642fffe4084c97fa0e563610.ctex"]
 
 [params]
 

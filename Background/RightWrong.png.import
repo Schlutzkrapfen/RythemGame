@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djr6ferdbdno4"
-path="res://.godot/imported/water - summer.png-bf2cecec4b4b959d6100fca019b9ad0f.ctex"
+uid="uid://cdeyik114u8lh"
+path="res://.godot/imported/RightWrong.png-611896e65ee4fe44bce6e5a8937d4074.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/water - summer.png"
-dest_files=["res://.godot/imported/water - summer.png-bf2cecec4b4b959d6100fca019b9ad0f.ctex"]
+source_file="res://Background/RightWrong.png"
+dest_files=["res://.godot/imported/RightWrong.png-611896e65ee4fe44bce6e5a8937d4074.ctex"]
 
 [params]
 

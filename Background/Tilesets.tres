@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" format=3 uid="uid://cdsa3lf23ilq7"]
 
-[ext_resource type="Texture2D" uid="uid://dgcaa6cbgf1bm" path="res://Tilemaps/House.png" id="1_wmp6u"]
-[ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Tilemaps/water - summer.png" id="2_5g1cd"]
-[ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Tilemaps/Tree.png" id="2_333gt"]
-[ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="3_yofbg"]
-[ext_resource type="Texture2D" uid="uid://cmr4ljogk0n0x" path="res://Tilemaps/TX Props.png" id="5_yofbg"]
-[ext_resource type="Texture2D" uid="uid://dwbflsv3pvw0" path="res://Tilemaps/Test.png" id="6_80hcs"]
+[ext_resource type="Texture2D" uid="uid://dgcaa6cbgf1bm" path="res://Background/House.png" id="1_wmp6u"]
+[ext_resource type="Texture2D" uid="uid://djr6ferdbdno4" path="res://Background/water - summer.png" id="2_5g1cd"]
+[ext_resource type="Texture2D" uid="uid://4qhx1ptsgh8h" path="res://Background/Tree.png" id="2_333gt"]
+[ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Background/dirt.png" id="3_yofbg"]
+[ext_resource type="Texture2D" uid="uid://cmr4ljogk0n0x" path="res://Background/TX Props.png" id="5_yofbg"]
+[ext_resource type="Texture2D" uid="uid://dwbflsv3pvw0" path="res://Background/Test.png" id="6_80hcs"]
 [ext_resource type="Shader" uid="uid://ccw4r8t8kg5j6" path="res://Shader/strechTileMap.gdshader" id="6_vnrtn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6h1g0"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmpaqs8sw3yqi"
-path="res://.godot/imported/water plant 1.png-7ba467808633bfeff190775431b37008.ctex"
+uid="uid://dm7dutgptxjw4"
+path="res://.godot/imported/rock 1.png-fdd47688ea1b910b679ac592017cf8e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/water plant 1.png"
-dest_files=["res://.godot/imported/water plant 1.png-7ba467808633bfeff190775431b37008.ctex"]
+source_file="res://Background/rock 1.png"
+dest_files=["res://.godot/imported/rock 1.png-fdd47688ea1b910b679ac592017cf8e0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4qhx1ptsgh8h"
-path="res://.godot/imported/Tree.png-218a9b144a4660ec65831a04468897fe.ctex"
+uid="uid://chr8d4ohmoh4f"
+path="res://.godot/imported/dirt wall.png-4e78e62eecaca44a9be7a4100329f367.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/Tree.png"
-dest_files=["res://.godot/imported/Tree.png-218a9b144a4660ec65831a04468897fe.ctex"]
+source_file="res://Background/dirt wall.png"
+dest_files=["res://.godot/imported/dirt wall.png-4e78e62eecaca44a9be7a4100329f367.ctex"]
 
 [params]
 

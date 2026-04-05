@@ -1,4 +1,5 @@
 extends Control
+
 @export var controll:Control
 var endBeat:int = 6
 var startScale:float = 2

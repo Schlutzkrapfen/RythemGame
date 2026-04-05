@@ -9,8 +9,8 @@ func _input(event):
 		offsetArray.append(1.0 -timer.time_left)
 		if offsetArray.size() == 10:
 			offsetArray.sort()
-			print("YOUR SYNcronosiation is "+ str(offsetArray[3]))
-			print(offsetArray)
+			#print("YOUR SYNcronosiation is "+ str(offsetArray[3]))
+			#print(offsetArray)
 		
 	
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chr8d4ohmoh4f"
-path="res://.godot/imported/dirt wall.png-85acb2f6c8bf206bb0b9349aa071add6.ctex"
+uid="uid://c18gko4qj1dqv"
+path="res://.godot/imported/water lily 1.png-a556e478d611c98689f7fa17991f778a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/dirt wall.png"
-dest_files=["res://.godot/imported/dirt wall.png-85acb2f6c8bf206bb0b9349aa071add6.ctex"]
+source_file="res://Background/water lily 1.png"
+dest_files=["res://.godot/imported/water lily 1.png-a556e478d611c98689f7fa17991f778a.ctex"]
 
 [params]
 

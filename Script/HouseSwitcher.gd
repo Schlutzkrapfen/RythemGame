@@ -2,8 +2,6 @@ extends TileMapLayer
 
 #Switches the houses with input
 @onready var CostAmount: Array[int] = Global.BuildCostAmount
-
-
 @onready var houseSelected:Array[Global.HouseID] = Global.HouseSelected
 @onready var houseAmount:int = houseSelected.size()
 @onready var Resouces: Array[Global.Points] = Global.BuildResources

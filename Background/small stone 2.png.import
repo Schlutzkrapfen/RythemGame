@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdeyik114u8lh"
-path="res://.godot/imported/RightWrong.png-a0227505c7011180a0e3c8eb43434a47.ctex"
+uid="uid://c8h0ykdbjoajy"
+path="res://.godot/imported/small stone 2.png-6b23633602f6b910d31e28919d37273a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/RightWrong.png"
-dest_files=["res://.godot/imported/RightWrong.png-a0227505c7011180a0e3c8eb43434a47.ctex"]
+source_file="res://Background/small stone 2.png"
+dest_files=["res://.godot/imported/small stone 2.png-6b23633602f6b910d31e28919d37273a.ctex"]
 
 [params]
 

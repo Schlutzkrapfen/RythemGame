@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddex6pj2prcde"
-path="res://.godot/imported/stone 1.png-744819fd007a5a9a40acc9579bde4f95.ctex"
+uid="uid://dwbflsv3pvw0"
+path="res://.godot/imported/Test.png-d8a2d31683c25ef34c2e41301147b3ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/stone 1.png"
-dest_files=["res://.godot/imported/stone 1.png-744819fd007a5a9a40acc9579bde4f95.ctex"]
+source_file="res://Background/Test.png"
+dest_files=["res://.godot/imported/Test.png-d8a2d31683c25ef34c2e41301147b3ab.ctex"]
 
 [params]
 

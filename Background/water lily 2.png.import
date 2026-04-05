@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c18gko4qj1dqv"
-path="res://.godot/imported/water lily 1.png-947864a1b940cedf72bddbe90db22305.ctex"
+uid="uid://d34p8d2pr8g6f"
+path="res://.godot/imported/water lily 2.png-dada7098fecf6fd09dd84498a812b520.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/water lily 1.png"
-dest_files=["res://.godot/imported/water lily 1.png-947864a1b940cedf72bddbe90db22305.ctex"]
+source_file="res://Background/water lily 2.png"
+dest_files=["res://.godot/imported/water lily 2.png-dada7098fecf6fd09dd84498a812b520.ctex"]
 
 [params]
 

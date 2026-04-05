@@ -43,18 +43,16 @@ func _on_rhythm_notifier_beat(current_beat):
 		if mainTile.get_cell_tile_data(pos) == null:
 			deleteArray.append(pos)
 			continue
-		
 		if info.id == Global.HouseID.Trees:
 			if (pos.x + pos.y) % 2 == 0:
 				mainTile.set_cell(pos, treeId[i], treeSpawnPoints[i])
 			else:
 				mainTile.set_cell(pos, treeId[d], treeSpawnPoints[d])
 		if info.id == Global.HouseID.Default:
-			var tween1 = get_tree().create_tween()
+			var tween1:Tween = get_tree().create_tween()
 			tile = info.data
 			tween1.tween_method(set_shader_value,startScale,endScale,halfTime).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 			tween1.tween_method(set_shader_value,endScale,startScale,halfTime).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
-
 	for pos in deleteArray:
 		positionDic.erase(pos)
 
@@ -64,8 +62,10 @@ func Finished():
 func _on_node_2d_early_full_miss():
 	maxpool =2
 
+
 func _on_node_2d_changed_house_at_position(house_id, pos, _world_position):
 	var data = mainTile.get_cell_tile_data(pos)
 	positionDic[pos] = HouseInfo.new( house_id, data)
+
 func set_shader_value(value: Vector2 ):
 	tile.material.set_shader_parameter("deformation", value)

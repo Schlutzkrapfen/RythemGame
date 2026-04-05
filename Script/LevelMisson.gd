@@ -1,4 +1,5 @@
 extends VBoxContainer
+
 @onready var levelRegister =  Global.level_registery[Global.currentLevel]
 @onready var unlocksneeded = levelRegister.UnlocksNeeded
 @onready var unlockIcons = levelRegister.UnlockIcon

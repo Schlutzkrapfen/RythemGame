@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cssfytp2m1og" path="res://Script/Spawner.gd" id="1_apqrb"]
 [ext_resource type="PackedScene" uid="uid://b3k51b514bswg" path="res://ParticelEmmiters/buildEffect.tscn" id="2_7gwba"]
-[ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Tilemaps/dirt.png" id="3_b18qv"]
-[ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Tilemaps/dirt wall.png" id="4_chakp"]
+[ext_resource type="Texture2D" uid="uid://35f431xj116i" path="res://Background/dirt.png" id="3_b18qv"]
+[ext_resource type="Texture2D" uid="uid://chr8d4ohmoh4f" path="res://Background/dirt wall.png" id="4_chakp"]
 [ext_resource type="Script" uid="uid://cs7cj817l8kdk" path="res://Script/HouseSwitcher.gd" id="5_874fa"]
-[ext_resource type="TileSet" uid="uid://cdsa3lf23ilq7" path="res://Tilemaps/Tilesets.tres" id="6_1hiu5"]
+[ext_resource type="TileSet" uid="uid://cdsa3lf23ilq7" path="res://Background/Tilesets.tres" id="6_1hiu5"]
 [ext_resource type="Script" uid="uid://ch26yu3gosypy" path="res://Script/TreeGeneratir.gd" id="7_1gsbh"]
-[ext_resource type="Script" uid="uid://bjj3unknu5f8i" path="res://Levels/TileAnimatior.gd" id="8_my7yi"]
+[ext_resource type="Script" uid="uid://bjj3unknu5f8i" path="res://Script/TileAnimatior.gd" id="8_my7yi"]
 [ext_resource type="PackedScene" uid="uid://cvfuy80wndxc8" path="res://Scenes/help_layer.tscn" id="9_5u0oq"]
 [ext_resource type="PackedScene" uid="uid://7m6pjpcy6wg2" path="res://Scenes/UI.tscn" id="10_sjf2a"]
 [ext_resource type="Texture2D" uid="uid://bcyrw0e7thwx5" path="res://ControllerInput/firstHouse.tres" id="11_in2rr"]
@@ -26,9 +26,11 @@
 [ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="24_8bx71"]
 [ext_resource type="Script" uid="uid://bskva3ehqaym" path="res://Script/tutorial.gd" id="25_xb81x"]
 [ext_resource type="Script" uid="uid://cs4km2exdthjm" path="res://Script/levelSwitcher.gd" id="26_ynmvi"]
-[ext_resource type="Script" uid="uid://cqvnljwivrtok" path="res://Levels/rythemController.gd" id="27_tunkr"]
-[ext_resource type="AudioStream" uid="uid://bl4q4yfemhggt" path="res://Audio/Music/80PBmTest.ogg" id="28_c386g"]
-[ext_resource type="Texture2D" uid="uid://bsg7u3cp6d75i" path="res://icon.svg" id="29_7gwba"]
+[ext_resource type="Script" uid="uid://cqvnljwivrtok" path="res://Script/rythemController.gd" id="27_tunkr"]
+[ext_resource type="Script" uid="uid://cx6qie7o0p52" path="res://Script/vulkanAnimation.gd" id="30_b18qv"]
+[ext_resource type="Texture2D" uid="uid://bhu5kt6brsp60" path="res://Background/Vulkan.png" id="30_chakp"]
+[ext_resource type="Script" uid="uid://bnpewx3281hlq" path="res://Script/MeteorSpawner.gd" id="31_chakp"]
+[ext_resource type="PackedScene" uid="uid://bfvcmtqau4sjj" path="res://metoer.tscn" id="32_874fa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1h0o"]
 texture = ExtResource("3_b18qv")
@@ -113,102 +115,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_lyqli"),
 &"Tick": SubResource("Animation_lxd1g")
-}
-
-[sub_resource type="Animation" id="Animation_jd565"]
-resource_name = "PLaySound"
-length = 50.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TestAnimator/AudioStreamPlayer:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.9958305, 5.984354, 8.980062),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, true, true, true]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.76666665, 1.5333333, 2.2666667, 2.9995635, 3.7426467, 4.4984255, 5.243083, 5.9835696, 6.737672, 7.4823704, 8.23543, 8.980062, 9.72638, 10.478806, 11.228288),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}, {
-"args": [],
-"method": &"printDelta"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_sfcom"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TestAnimator/AudioStreamPlayer:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ruoxf"]
-_data = {
-&"PLaySound": SubResource("Animation_jd565"),
-&"RESET": SubResource("Animation_sfcom")
 }
 
 [node name="Node2D" type="Node2D" unique_id=753708954 node_paths=PackedStringArray("tilemap", "SoundAnimations")]
@@ -318,7 +224,7 @@ onMouse = true
 ryhtm = NodePath("../../RhythmNotifier")
 
 [node name="Timer" type="Timer" parent="." unique_id=1610266416]
-wait_time = 100.0
+wait_time = 300.0
 one_shot = true
 script = ExtResource("23_a70ti")
 
@@ -340,16 +246,21 @@ rythms = [NodePath("../RhythmNotifier"), NodePath("../Control/CanvasLayer/Contro
 script = ExtResource("27_tunkr")
 rythm = [NodePath("../Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/RhythmNotifier"), NodePath("../RhythmNotifier")]
 
-[node name="TestAnimator" type="AnimationPlayer" parent="." unique_id=1526900226]
-libraries/ = SubResource("AnimationLibrary_ruoxf")
+[node name="Vulkan" type="Node2D" parent="." unique_id=1291819225]
+position = Vector2(612, 42.21)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TestAnimator" unique_id=2120016958]
-stream = ExtResource("28_c386g")
+[node name="SpawnPoint" type="Node2D" parent="Vulkan" unique_id=833563131 node_paths=PackedStringArray("Backround", "mainlayer")]
+script = ExtResource("31_chakp")
+mob_scene = ExtResource("32_874fa")
+Backround = NodePath("../../Backgorund")
+mainlayer = NodePath("../../MainLayer")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1908735762]
-position = Vector2(605, 165)
-scale = Vector2(2, 2)
-texture = ExtResource("29_7gwba")
+[node name="Vulkan" type="Sprite2D" parent="Vulkan" unique_id=1908735762 node_paths=PackedStringArray("rhythm")]
+position = Vector2(2, 120.78999)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("30_chakp")
+script = ExtResource("30_b18qv")
+rhythm = NodePath("../../RhythmNotifier")
 
 [connection signal="ChangedHouseAtPosition" from="." to="MainLayer/Animator" method="_on_node_2d_changed_house_at_position"]
 [connection signal="ChangedHouseAtPosition" from="." to="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner/HBoxContainer/ParticelEmmiter" method="_on_node_2d_changed_house_at_position"]
@@ -407,11 +318,13 @@ texture = ExtResource("29_7gwba")
 [connection signal="beat" from="RhythmNotifier" to="Control" method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="AudioControl" method="_on_rhythm_notifier_beat"]
 [connection signal="beat" from="RhythmNotifier" to="AudioControl/Music" method="DisplayTime"]
+[connection signal="beat" from="RhythmNotifier" to="Vulkan/Vulkan" method="VulkanAnimation"]
 [connection signal="finished" from="LevelSwitcher" to="." method="_on_level_switcher_finished"]
 [connection signal="finished" from="LevelSwitcher" to="MainLayer/Animator" method="Finished"]
 [connection signal="finished" from="LevelSwitcher" to="HelpLayer" method="Finished"]
 [connection signal="finished" from="LevelSwitcher" to="Control/CanvasLayer/Control/MainScreenPopups" method="Finished"]
 [connection signal="finished" from="LevelSwitcher" to="AudioControl" method="stopMusic"]
+[connection signal="spawnPoint" from="Vulkan/Vulkan" to="Vulkan/SpawnPoint" method="_on_vulkan_spawn_point"]
 
 [editable path="Control"]
 [editable path="Control/CanvasLayer/Control/MainUi/VBoxContainer/RythemSpawner"]

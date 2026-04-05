@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=4 uid="uid://5de361xyic62"]
+[gd_scene format=4 uid="uid://5de361xyic62"]
 
-[ext_resource type="TileSet" uid="uid://cdsa3lf23ilq7" path="res://Tilemaps/Tilesets.tres" id="1_gjia3"]
+[ext_resource type="TileSet" uid="uid://cdsa3lf23ilq7" path="res://Background/Tilesets.tres" id="1_gjia3"]
 [ext_resource type="Script" uid="uid://ch26yu3gosypy" path="res://Script/TreeGeneratir.gd" id="2_6h1g0"]
 
 [node name="Node2D" type="Node2D"]
