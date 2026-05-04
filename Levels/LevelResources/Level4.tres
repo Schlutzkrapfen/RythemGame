@@ -8,7 +8,7 @@
 script = ExtResource("2_bdfmy")
 UnlockIcon = Array[Texture2D]([ExtResource("1_bdfmy"), ExtResource("2_2k205")])
 Level = 4
-levelPath = "uid://b4plxikf88g6g"
+levelPath = "uid://bn5220njrkcsd"
 PossibleHouseUnlocks = 6
 UnlocksNeeded = Dictionary[int, int]({
 7: 15,
