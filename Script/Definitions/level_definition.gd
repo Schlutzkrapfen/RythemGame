@@ -8,6 +8,7 @@ class_name LevelDefinition extends Resource
 @export var Level: int = 0
 @export_file("*.tscn") var levelPath: String
 @export var PossibleHouseUnlocks:Global.HouseID
+@export var  HouseUsedInLevel:Array[Global.HouseID] = [Global.HouseID.Default]
 @export var MaxTime:int = 40
 @export var UnlocksNeeded:Dictionary[Global.Points,int]
 ##Bigger means less (higher threshold = fewer trees)

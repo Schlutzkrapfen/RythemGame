@@ -222,6 +222,7 @@ tile_set = SubResource("TileSet_nxmtd")
 script = ExtResource("5_sogum")
 
 [node name="ButtonLine" type="TileMapLayer" parent="." unique_id=1041527449]
+tile_map_data = PackedByteArray("AAAQAAwAAQABAAAAAAARAAwAAQABAAAAAAATAA0AAQAEAAAAAAASAAwAAQAEAAAAAAAPAAkAAQAEAAAAAAAOAAgAAQAEAAAAAAAWAA0AAQAEAAAAAAAVAA0AAQADAAAAAAATAA4AAQADAAAAAAASAA0AAQADAAAAAAAPAAwAAQADAAAAAAAOAAkAAQADAAAAAAANAAgAAQADAAAAAAAVAA4AAQAEAAAAAAAUAA4AAQABAAAAAAA=")
 tile_set = SubResource("TileSet_nxmtd")
 
 [node name="MainLayer" type="TileMapLayer" parent="." unique_id=2102976867]

@@ -1,3 +1,4 @@
+# Plays the Points you need to win display
 extends VBoxContainer
 @export var timeDelaySinceNext:float = 0.5
 @export var spawnPoint:int = 4

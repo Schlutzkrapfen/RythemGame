@@ -1,3 +1,4 @@
+###Is on the audio controll Node is there for checking how the
 extends Node
 
 @export var AudioSource: Array[AudioStreamPlayer]

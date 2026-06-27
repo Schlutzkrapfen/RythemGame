@@ -30,6 +30,7 @@ func addButtonts():
 	#Doesen't make sense that Need to wait a frame 
 	await get_tree().process_frame
 	checkIfSomethingUnlocked()
+#Checks if something can be Unlocked
 func checkIfSomethingUnlocked():
 	for currentHouse in buttons.size():
 		var tween = create_tween()
@@ -38,9 +39,11 @@ func checkIfSomethingUnlocked():
 		else:
 			tween.tween_property(buttons[currentHouse],"position",Vector2(0,buttons[currentHouse].position.y),TweenDuration).set_trans(Tween.TRANS_BOUNCE)
 	
+
 func _on_node_2d_update_values():
 	checkIfSomethingUnlocked()
 
+#Will be called when the control is finished
 func _on_control_2_selected_finished():
 	Resouces  = Global.BuildResources
 	CostAmount = Global.BuildCostAmount
